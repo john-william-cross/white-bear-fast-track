@@ -1,0 +1,63 @@
+/*
+
+I've included a class called .background-image that is how you can perfectly fill a webpage with a background image.
+(It's a pain in the butt to google this. I included the best link I found in the solution.)
+
+Then on your HTML file, create a div that wraps your entire content on the landing page and give it this class.
+
+Example:
+
+<div class="background-image">
+   <div class="container">
+      <!-- More html here -->
+   </div>
+</div>
+
+*/
+.text-brand {
+   font-family: $font-family-brand;
+}
+
+.btn-group .btn {
+   font-weight: $font-weight-normal;
+}
+
+.btn-link {
+   font-weight: $font-weight-bold;
+   padding-left: 0; //taking away the padding negated the need of clearfix class
+   padding-right: 0;
+   border: none;
+}
+
+.card-body {
+   color: $white;
+   font-family: $font-family-serif;
+}
+
+.card-body.bg-primary {
+   //no space between card-body and .bg-primary because .bg-primary is not nested under .card-body; they are in the same line
+   border-top-left-radius: $border-radius;
+   border-top-right-radius: $border-radius;
+}
+
+
+.card-body.bg-secondary {
+   border-bottom-left-radius: $border-radius;
+   border-bottom-right-radius: $border-radius;
+}
+
+.background-image {
+   /* https://css-tricks.com/perfect-full-page-background-image/ */
+   background: url("../images/background-landing.jpg") no-repeat center center fixed;
+   background-size: cover;
+   min-height: 100vh;
+}
+
+.tab-active {
+   background-color: $dark;
+   border: $border-width $dark solid;
+}
+
+.tab-separator {
+   border-left: 1px $dark solid;
+}

@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Bear</title>
+
+    <link href="/style/dist.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <!-- in the line above, the  row has a width of 6; the offset of 3 puts 3 empty columns
+                 on both sides of the content, effectively centering it//// mx-auto also works-->
+                <img src="/icons/logo-app.svg" width="32px" />
+                <h3 class="d-inline text-brand text-dark">White Bear</h3>
+                <button class="btn btn-link float-right">Log out</button>
+                <div class="clearfix"></div>
+                <!-- <div class="clearfix"></div> this is one option to clear floats-->
+
+                <div class="btn-group d-flex mt-1 mb-5" role="navigation" aria-label="navigation">
+                    <!-- in div class above, role and aria-label are for screen-readers -->
+                    <button type="button" class="btn btn-secondary">
+                        Create new
+                    </button>
+                    <button type="button" class="btn btn-secondary tab-active tab-separator">
+                        Review
+                    </button>
+                    <button type="button" class="btn btn-secondary tab-separator">
+                        All cards
+                    </button>
+                </div>
+
+                <div class="card mb-5">
+                    <div class="card-body bg-primary lead">
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia, there live the blind
+                        texts. Separated they live in Bookmarksgrove right at the
+                        coast of the Semantics, a large.
+                    </div>
+                </div>
+
+                <button class="btn btn-link">Previous card</button>
+                <div class="float-right">
+                    <button class="btn btn-outline-primary">Show Answer</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
