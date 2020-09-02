@@ -12,21 +12,22 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <!-- in the line above, the  row has a width of 6; the offset of 3 puts 3 empty columns
-                 on both sides of the content, effectively centering it//// mx-auto also works-->
+                <!-- in the line above, the  row has a width of 6; the offset of 3 puts 3 empty 
+                columns on both sides of the content, effectively centering it//// mx-auto also 
+                works-->
                 <img src="/icons/logo-app.svg" width="32px" />
                 <h3 class="d-inline text-brand text-dark">White Bear</h3>
                 <button class="btn btn-link float-right">Log out</button>
                 <div class="clearfix"></div>
                 <!-- <div class="clearfix"></div> this is one option to clear floats-->
 
-                <div class="btn-group d-flex mt-1 mb-5" role="navigation" aria-label="navigation">
+                <div class="btn-group d-flex mt-1" role="navigation" aria-label="navigation">
                     <!-- in div class above, role and aria-label are for screen-readers -->
-                    <a onclick="location.href='create-answer.html'" class="btn btn-secondary">
+                    <a href="/create-answer.html" class="btn btn-secondary tab-active">
                         Create new
                     </a>
                     <a onclick="location.href='review-imagery.html'" type="button"
-                        class="btn btn-secondary tab-active tab-separator">
+                        class="btn btn-secondary tab-separator">
                         Review
                     </a>
                     <button type="button" class="btn btn-secondary tab-separator">
@@ -34,16 +35,22 @@
                     </button>
                 </div>
 
+                <p class="text-center lead text-muted my-2">Add memorable imagery</p>
+
                 <div class="card">
                     <div class="card-body bg-primary lead">
-                        Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia, there live the blind
-                        texts. Separated they live in Bookmarksgrove right at the
-                        coast of the Semantics, a large.
+                        <!-- in the line below, "d-md-none" means that at a 
+                        medium size screen, the 11 rows aren't displayed; once it 
+                        gets to medium size, it will stop displaying 11 rows -->
+                        <textarea rows="11" class="d-md-none" autofocus></textarea>
+
+                        <!-- in the line below, "d-none d-md-block" means that it will
+                        not disply the 6 rows unless it is smaller than a medium screen -->
+                        <textarea rows="6" class="d-none d-md-block" autofocus></textarea>
                     </div>
                 </div>
 
-                <div class="card mb-5">
+                <div class="card">
                     <div class="card-body bg-secondary lead">
                         One morning, when Gregor Samsa woke from troubled dreams,
                         he found himself transformed in his bed into a horrible
@@ -52,14 +59,16 @@
                     </div>
                 </div>
 
-                <button class="btn btn-link">Edit</button>
-                <div class="float-right">
-                    <button class="btn btn-outline-primary">Needs work</button>
-                    <button class="btn btn-primary ml-4">
-                        <img src="icons/thumbs-up.svg" width="20px" style="margin-bottom: 5px; margin-right: 4px" />
-                        Got it
-                    </button>
-                </div>
+                <p class="float-right mt-2 mb-5 text-muted">0/240</p>
+                <!-- clearfix can fix issues with back-to-back floats -->
+                <div class="clearfix"></div>
+
+                <a href="/create-answer.html" class="btn btn-link">Back to answer</a>
+                <button class="btn btn-primary btn-lg float-right">
+                    <img src="icons/save.svg" width="20px"
+                        style="margin-bottom: 3px; margin-right: 4px; margin-left: -5px;" />
+                    Save
+                </button>
             </div>
         </div>
     </div>

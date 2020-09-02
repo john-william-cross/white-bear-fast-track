@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Bear</title>
+
+    <link href="/style/dist.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <!-- in the line above, the  row has a width of 6; the offset of 3 puts 3 empty 
+                columns on both sides of the content, effectively centering it//// mx-auto also 
+                works-->
+                <img src="/icons/logo-app.svg" width="32px" />
+                <h3 class="d-inline text-brand text-dark">White Bear</h3>
+                <button class="btn btn-link float-right">Log out</button>
+                <div class="clearfix"></div>
+                <!-- <div class="clearfix"></div> this is one option to clear floats-->
+
+                <div class="btn-group d-flex mt-1" role="navigation" aria-label="navigation">
+                    <!-- in div class above, role and aria-label are for screen-readers -->
+                    <button onclick="location.href='create-answer.html'" type="button"
+                        class="btn btn-secondary tab-active">
+                        Create new
+                    </button>
+                    <a onclick="location.href='review-imagery.html'" type="button"
+                        class="btn btn-secondary tab-separator">
+                        Review
+                    </a>
+                    <button type="button" class="btn btn-secondary tab-separator">
+                        All cards
+                    </button>
+                </div>
+
+                <p class="text-center lead text-muted my-2">Add an answer</p>
+
+
+
+                <div class="card">
+                    <div class="card-body bg-secondary lead">
+                        <textarea rows="11" class="d-md-none" autofocus></textarea>
+
+                        <!-- in the line below, "d-none d-md-block" means that it will
+                        not disply the 6 rows unless it is smaller than a medium screen -->
+                        <textarea rows="6" class="d-none d-md-block" autofocus></textarea>
+                    </div>
+                </div>
+
+                <p class="float-right mt-2 mb-5 text-muted">0/240</p>
+                <!-- clearfix can fix issues with back-to-back floats -->
+                <div class="clearfix"></div>
+
+                <a href="/create-imagery.html" class="btn btn-lg btn-outline-primary float-right">Next</a>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -61,3 +61,18 @@ Example:
 .tab-separator {
    border-left: 1px $dark solid;
 }
+
+textarea {
+   width: 100%;
+   background-color: transparent;
+   color: $white;
+
+   // remove all styling https://stackoverflow.com/a/17110012/11047944
+   border: none;
+   overflow: auto;
+   outline: none;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+   resize: none;
+}
