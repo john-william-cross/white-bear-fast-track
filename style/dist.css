@@ -9010,7 +9010,8 @@ textarea {
   box-shadow: none;
   resize: none; }
 
-.bg-success {
+.bg-success,
+.bg-danger {
   color: #fff; }
 
 /*# sourceMappingURL=dist.css.map */
