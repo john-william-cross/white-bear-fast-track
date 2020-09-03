@@ -40,7 +40,6 @@ Example:
    border-top-right-radius: $border-radius;
 }
 
-
 .card-body.bg-secondary {
    border-bottom-left-radius: $border-radius;
    border-bottom-right-radius: $border-radius;
@@ -48,7 +47,8 @@ Example:
 
 .background-image {
    /* https://css-tricks.com/perfect-full-page-background-image/ */
-   background: url("../images/background-landing.jpg") no-repeat center center fixed;
+   background: url("../images/background-landing.jpg") no-repeat center center
+      fixed;
    background-size: cover;
    min-height: 100vh;
 }
