@@ -1,0 +1,83 @@
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>White Bear</title>
+
+      <link href="/style/dist.css" rel="stylesheet" />
+   </head>
+
+   <body>
+      <div class="container">
+         <div class="row">
+            <div
+               class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+            >
+               <!-- in the line above, the  row has a width of 6; the offset of 3 puts 3 empty columns
+                 on both sides of the content, effectively centering it//// mx-auto also works-->
+               <img src="/icons/logo-app.svg" width="32px" />
+               <h3 class="d-inline text-brand text-dark">White Bear</h3>
+               <button class="btn btn-link float-right">Log out</button>
+               <div class="clearfix"></div>
+               <!-- <div class="clearfix"></div> this is one option to clear floats-->
+
+               <div
+                  class="btn-group d-flex mt-1 mb-5"
+                  role="navigation"
+                  aria-label="navigation"
+               >
+                  <!-- in div class above, role and aria-label are for screen-readers -->
+                  <a href="/create-answer.html" class="btn btn-secondary">
+                     Create new
+                  </a>
+
+                  <a
+                     href="/review-imagery.html"
+                     class="btn btn-secondary tab-separator"
+                  >
+                     Review
+                  </a>
+
+                  <a
+                     href="/all-cards.html"
+                     class="btn btn-secondary tab-separator"
+                  >
+                     All cards
+                  </a>
+               </div>
+
+               <div class="card">
+                  <div class="card-body bg-primary lead">
+                     Far far away, behind the word mountains, far from the
+                     countries Vokalia and Consonantia, there live the blind
+                     texts. Separated they live in Bookmarksgrove right at the
+                     coast of the Semantics, a large.
+                  </div>
+               </div>
+
+               <div class="card mb-5">
+                  <div class="card-body bg-secondary lead">
+                     One morning, when Gregor Samsa woke from troubled dreams,
+                     he found himself transformed in his bed into a horrible
+                     vermin. He lay on his armour-like back, and if he lifted
+                     his head a little he could se
+                  </div>
+               </div>
+
+               <button class="btn btn-link">Edit</button>
+               <div class="float-right">
+                  <button class="btn btn-outline-primary">Needs work</button>
+                  <button class="btn btn-primary ml-4">
+                     <img
+                        src="icons/thumbs-up.svg"
+                        width="20px"
+                        style="margin-bottom: 5px; margin-right: 4px"
+                     />
+                     Got it
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

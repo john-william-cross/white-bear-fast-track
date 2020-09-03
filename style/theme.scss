@@ -250,6 +250,6 @@ $custom-control-indicator-bg: $input-bg;
 $custom-control-indicator-border-color: $gray-400;
 $custom-control-indicator-border-width: 1px;
 $custom-control-indicator-checked-bg: $component-active-bg;
-$custom-control-indicator-active-bg: lighten($component-active-bg, 35%);
+$custom-control-indicator-active-bg: darken($component-active-bg, 35%);
 $custom-checkbox-indicator-border-radius: $border-radius;
 $custom-checkbox-indicator-indeterminate-bg: $component-active-bg;
