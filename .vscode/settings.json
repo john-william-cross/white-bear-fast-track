@@ -1,0 +1,12 @@
+{
+   "explorer.compactFolders": false,
+
+   "emeraldwalk.runonsave": {
+      "commands": [
+         {
+            "match": "\\.scss$",
+            "cmd": "sass style/master.scss style/dist.css"
+         }
+      ]
+   }
+}
