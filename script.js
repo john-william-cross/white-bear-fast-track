@@ -8,15 +8,11 @@ $("#back-to-answer-error").click(function () {
    $("#overlay-error").toggleClass("d-flex d-none");
 });
 
-$("#next-error").click(function () {
-   $("#overlay-error").toggleClass("d-flex d-none");
-});
-
 $("#show-delete-button").click(function () {
    $("#delete-this-card").toggleClass("d-none");
 });
 
-$(".sign-up-card").click(function () {
-   $(".sign-up-card").toggle();
-   $(".create-account").toggleClass("d-none");
+$(".landing-page").click(function () {
+   $(".sign-up-prompt").toggleClass("d-none");
+   $(".email-and-create-password").toggleClass("d-none");
 });
