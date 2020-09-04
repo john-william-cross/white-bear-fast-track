@@ -88,13 +88,18 @@ h1 {
    margin-top: 50px;
 }
 
-h2 {
+.font-sans-serif {
+   font-family: $font-family-sans-serif;
+}
+
+button {
+   font-weight: $font-weight-normal;
+}
+
+.font-serif {
    font-family: $font-family-serif;
 }
 
-.landing-page-cards {
-   padding: 10px;
-}
-button {
-   font-weight: $font-weight-normal;
+.sign-up {
+   color: $blue;
 }

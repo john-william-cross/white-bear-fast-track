@@ -15,3 +15,8 @@ $("#next-error").click(function () {
 $("#show-delete-button").click(function () {
    $("#delete-this-card").toggleClass("d-none");
 });
+
+$(".sign-up-card").click(function () {
+   $(".sign-up-card").toggle();
+   $(".create-account").toggleClass("d-none");
+});

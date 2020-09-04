@@ -11437,16 +11437,20 @@ h1 {
   margin-top: 50px;
 }
 
-h2 {
-  font-family: "Noto Serif", serif;
-}
-
-.landing-page-cards {
-  padding: 10px;
+.font-sans-serif {
+  font-family: "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 button {
   font-weight: 400;
+}
+
+.font-serif {
+  font-family: "Noto Serif", serif;
+}
+
+.sign-up {
+  color: #2f52b9;
 }
 
 /*# sourceMappingURL=dist.css.map */
