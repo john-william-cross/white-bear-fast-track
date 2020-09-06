@@ -12,7 +12,7 @@ $("#show-delete-button").click(function () {
    $("#delete-this-card").toggleClass("d-none");
 });
 
-$(".landing-page").click(function () {
-   $(".sign-up-prompt").toggleClass("d-none");
+$(".sign-up-prompt").click(function () {
+   $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
 });
