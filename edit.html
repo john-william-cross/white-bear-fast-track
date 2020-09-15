@@ -49,29 +49,48 @@
                </div>
 
                <p class="text-center lead text-muted my-2">Edit card</p>
-               <div class="d-flex align-items-start mb-5">
+               <div class="align-items-start mb-5">
                   <div class="app-card">
                      <div class="card">
-                        <div class="card-body bg-primary">
-                           The European languages are members of the same
-                           family. Their separate existence is a myth. For
-                           science, music, sport, etc, Europe uses the same
-                           vocabulary. The languages only differ in their
-                           grammar, their pronunciation and their most common
-                           words. Everyone realizes why a new common language
-                           would b
+                        <div
+                           class="card-body bg-primary"
+                           id="edit-card-char-count-top-of-card"
+                        >
+                           <textarea
+                              rows="6"
+                              id="edit-input"
+                              autofocus
+                           ></textarea>
                         </div>
                      </div>
 
                      <div class="card">
-                        <div class="card-body bg-secondary">
-                           One morning, when Gregor Samsa woke from troubled
-                           dreams, he found himself transformed in his bed into
-                           a horrible vermin. He lay on his armour-like back,
-                           and if he lifted his head a little he could se
+                        <div
+                           class="card-body bg-secondary"
+                           id="edit-card-char-count-bottom-of-card"
+                        >
+                           <textarea
+                              rows="6"
+                              id="edit-input"
+                              autofocus
+                           ></textarea>
                         </div>
                      </div>
-                     <p class="float-right mt-2 mb-5 text-muted">205/240</p>
+                     <div class="row">
+                        <div class="col-12">
+                           <p class="float-right mt-2 mb-5 text-muted">
+                              Top:
+                              <span id="edit-top-card-char-count">0</span>/240
+                           </p>
+
+                           <p class="float-right mt-2 mb-5 text-muted">
+                              Bottom:
+                              <span id="edit-bottom-card-char-count">0</span
+                              >/240
+                           </p>
+                           <div class="clearfix"></div>
+                        </div>
+                     </div>
                   </div>
                </div>
 

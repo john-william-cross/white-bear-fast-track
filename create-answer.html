@@ -64,20 +64,26 @@
                <p class="text-center lead text-muted my-2">Add an answer</p>
 
                <div class="card">
-                  <div class="card-body bg-secondary lead">
+                  <div
+                     class="card-body bg-primary lead"
+                     id="create-answer-input"
+                  >
                      <textarea rows="11" class="d-md-none" autofocus></textarea>
 
                      <!-- in the line below, "d-none d-md-block" means that it will
                         not disply the 6 rows unless it is smaller than a medium screen -->
                      <textarea
                         rows="6"
+                        id="create-answer-input"
                         class="d-none d-md-block"
                         autofocus
                      ></textarea>
                   </div>
                </div>
 
-               <p class="float-right mt-2 mb-5 text-muted">0/240</p>
+               <p class="float-right mt-2 mb-5 text-muted">
+                  <span id="create-answer-char-count">0</span>/240
+               </p>
                <!-- clearfix can fix issues with back-to-back floats -->
                <div class="clearfix"></div>
 

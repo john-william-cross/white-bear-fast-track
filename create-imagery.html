@@ -78,13 +78,12 @@
                      <!-- in the line below, "d-md-none" means that at a 
                         medium size screen, the 11 rows aren't displayed; once it 
                         gets to medium size, it will stop displaying 11 rows -->
-                     <textarea rows="11" class="d-md-none" autofocus></textarea>
 
                      <!-- in the line below, "d-none d-md-block" means that it will
                         not disply the 6 rows unless it is smaller than a medium screen -->
                      <textarea
                         rows="6"
-                        class="d-none d-md-block"
+                        id="create-imagery-input"
                         autofocus
                      ></textarea>
                   </div>
@@ -99,7 +98,9 @@
                   </div>
                </div>
 
-               <p class="float-right mt-2 mb-5 text-muted">0/240</p>
+               <p class="float-right mt-2 mb-5 text-muted">
+                  <span id="imagery-char-count">0</span>/240
+               </p>
                <!-- clearfix can fix issues with back-to-back floats -->
                <div class="clearfix"></div>
 
