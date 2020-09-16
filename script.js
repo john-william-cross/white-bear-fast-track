@@ -31,28 +31,98 @@ $("#create-imagery-input").keypress(function () {
 });
 
 let editBottomCardInputCharsCount = 0;
-$("#edit-card-char-count-bottom-of-card").keypress(function () {
-   editBottomCardInputCharsCount++;
-   console.log(
-      "Total inputted chars bottom card:  ",
-      editBottomCardInputCharsCount
-   );
+$("#edit-input-bottom-card").keydown(function (e) {
+   const key = e.which;
+   console.log("Key inputted: ", key);
+
+   if (key === 8) {
+      console.log("the user has pressed backspace!");
+      editBottomCardInputCharsCount--;
+      if (editBottomCardInputCharsCount < 0) {
+         console.log("You have entered negative territory!");
+         editBottomCardInputCharsCount = 0;
+      }
+   } else if (key === 16) {
+      console.log("Shift was pressed");
+   } else if (key === 18) {
+      console.log("Option was pressed");
+   } else {
+      console.log("the user pressed any other key");
+      editBottomCardInputCharsCount++;
+   }
+   console.log("Total inputted chars: ", editBottomCardInputCharsCount);
    $("#edit-bottom-card-char-count").html(editBottomCardInputCharsCount);
 });
 
 let editTopCardInputCharsCount = 0;
-$("#edit-card-char-count-top-of-card").keypress(function () {
-   editTopCardInputCharsCount++;
-   console.log("Total inputted chars top card: ", editTopCardInputCharsCount);
+$("#edit-input-top-card").keydown(function (e) {
+   const key = e.which;
+   console.log("Key inputted: ", key);
+
+   if (key === 8) {
+      console.log("the user has pressed backspace!");
+      editTopCardInputCharsCount--;
+      if (editTopCardInputCharsCount < 0) {
+         console.log("You have entered negative territory!");
+         editTopCardInputCharsCount = 0;
+      }
+   } else if (key === 16) {
+      console.log("Shift was pressed");
+   } else if (key === 18) {
+      console.log("Option was pressed");
+   } else {
+      console.log("the user pressed any other key");
+      editTopCardInputCharsCount++;
+   }
+   console.log("Total inputted chars: ", editTopCardInputCharsCount);
    $("#edit-top-card-char-count").html(editTopCardInputCharsCount);
 });
 
-let createAnswerCardInputCharsCount = 0;
-$("#create-answer-input").keypress(function () {
-   createAnswerCardInputCharsCount++;
-   console.log(
-      "Total inputted chars Create Answer card: ",
-      createAnswerCardInputCharsCount
-   );
-   $("#create-answer-char-count").html(createAnswerCardInputCharsCount);
+let createAnswerCharsCount = 0;
+$("#create-answer-input").keydown(function (e) {
+   const key = e.which;
+   console.log("Key inputted: ", key);
+
+   if (key === 8) {
+      console.log("the user has pressed backspace!");
+      createAnswerCharsCount--;
+      if (createAnswerCharsCount < 0) {
+         console.log("You have entered negative territory!");
+         createAnswerCharsCount = 0;
+      }
+   } else if (key === 16) {
+      console.log("Shift was pressed");
+   } else if (key === 18) {
+      console.log("Option was pressed");
+   } else {
+      console.log("the user pressed any other key");
+      createAnswerCharsCount++;
+   }
+   console.log("Total inputted chars: ", createAnswerCharsCount);
+   $("#create-answer-char-count").html(createAnswerCharsCount);
+});
+
+let imageryCharsCount = 0;
+$("#create-imagery-input").keydown(function (e) {
+   const key = e.which;
+   console.log("Key inputted: ", key);
+
+   if (key === 8) {
+      console.log("the user has pressed backspace!");
+      imageryCharsCount--;
+      if (imageryCharsCount < 0) {
+         console.log("You have entered negative territory!");
+         imageryCharsCount = 0;
+      }
+   } else if (key === 16) {
+      console.log("Shift was pressed");
+   } else if (key === 18) {
+      console.log("Option was pressed");
+   } else {
+      console.log("the user pressed any other key");
+      imageryCharsCount++;
+   }
+
+   console.log("Total inputted chars: ", imageryCharsCount);
+   $("#imagery-char-count").html(imageryCharsCount);
 });
