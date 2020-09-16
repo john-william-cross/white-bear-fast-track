@@ -17,106 +17,91 @@ $(".sign-up-prompt").click(function () {
    $(".email-and-create-password").toggleClass("d-none");
 });
 
-let createImageryInputCharsCount = 0; // use "let" instead of "const" because it will be updated
-$("#create-imagery-input").keypress(function () {
-   console.log("Let's add 1!");
+// let createImageryInputCharsCount = 0; // use "let" instead of "const" because it will be updated
+// $("#create-imagery-input").keypress(function () {
+//    console.log("Let's add 1!");
 
-   createImageryInputCharsCount++;
-   console.log("Total inputted chars: ", createImageryInputCharsCount);
-   $("#imagery-char-count").html(createImageryInputCharsCount);
+//    createImageryInputCharsCount++;
+//    console.log("Total inputted chars: ", createImageryInputCharsCount);
+//    $("#imagery-char-count").html(createImageryInputCharsCount);
+// });
+
+$(`#edit-input-bottom-card`).keyup(function (e) {
+   console.log(`Event: `, e);
+
+   // get the text from the text area
+   const text = e.target.value;
+   const username = `John`;
+   console.log(`${username} inputted: ${text}`);
+
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update the character counter on the page
+   $(`#edit-bottom-card-char-count`).html(textLength);
+
+   if (text.length > 240) {
+      console.log(`You've entered more than 240 characters`);
+   }
 });
 
-let editBottomCardInputCharsCount = 0;
-$("#edit-input-bottom-card").keydown(function (e) {
-   const key = e.which;
-   console.log("Key inputted: ", key);
+$(`#edit-input-top-card`).keyup(function (e) {
+   console.log(`Event: `, e);
 
-   if (key === 8) {
-      console.log("the user has pressed backspace!");
-      editBottomCardInputCharsCount--;
-      if (editBottomCardInputCharsCount < 0) {
-         console.log("You have entered negative territory!");
-         editBottomCardInputCharsCount = 0;
-      }
-   } else if (key === 16) {
-      console.log("Shift was pressed");
-   } else if (key === 18) {
-      console.log("Option was pressed");
-   } else {
-      console.log("the user pressed any other key");
-      editBottomCardInputCharsCount++;
+   // get the text from the text area
+   const text = e.target.value;
+   const username = `John`;
+   console.log(`${username} inputted: ${text}`);
+
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update the character counter on the page
+   $(`#edit-top-card-char-count`).html(textLength);
+
+   if (text.length > 240) {
+      console.log(`You've entered more than 240 characters`);
    }
-   console.log("Total inputted chars: ", editBottomCardInputCharsCount);
-   $("#edit-bottom-card-char-count").html(editBottomCardInputCharsCount);
 });
 
-let editTopCardInputCharsCount = 0;
-$("#edit-input-top-card").keydown(function (e) {
-   const key = e.which;
-   console.log("Key inputted: ", key);
+$(`#create-answer-input`).keyup(function (e) {
+   console.log(`Event: `, e);
 
-   if (key === 8) {
-      console.log("the user has pressed backspace!");
-      editTopCardInputCharsCount--;
-      if (editTopCardInputCharsCount < 0) {
-         console.log("You have entered negative territory!");
-         editTopCardInputCharsCount = 0;
-      }
-   } else if (key === 16) {
-      console.log("Shift was pressed");
-   } else if (key === 18) {
-      console.log("Option was pressed");
-   } else {
-      console.log("the user pressed any other key");
-      editTopCardInputCharsCount++;
+   // get the text from the text area
+   const text = e.target.value;
+   const username = `John`;
+   console.log(`${username} inputted: ${text}`);
+
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update the character counter on the page
+   $(`#create-answer-char-count`).html(textLength);
+
+   if (text.length > 240) {
+      console.log(`You've entered more than 240 characters`);
    }
-   console.log("Total inputted chars: ", editTopCardInputCharsCount);
-   $("#edit-top-card-char-count").html(editTopCardInputCharsCount);
 });
 
-let createAnswerCharsCount = 0;
-$("#create-answer-input").keydown(function (e) {
-   const key = e.which;
-   console.log("Key inputted: ", key);
+$(`#create-imagery-input`).keyup(function (e) {
+   console.log(`Event: `, e);
 
-   if (key === 8) {
-      console.log("the user has pressed backspace!");
-      createAnswerCharsCount--;
-      if (createAnswerCharsCount < 0) {
-         console.log("You have entered negative territory!");
-         createAnswerCharsCount = 0;
-      }
-   } else if (key === 16) {
-      console.log("Shift was pressed");
-   } else if (key === 18) {
-      console.log("Option was pressed");
-   } else {
-      console.log("the user pressed any other key");
-      createAnswerCharsCount++;
+   // get the text from the text area
+   const text = e.target.value;
+   const username = `John`;
+   console.log(`${username} inputted: ${text}`);
+
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update the character counter on the page
+   $(`#imagery-char-count`).html(textLength);
+
+   if (text.length > 240) {
+      console.log(`You've entered more than 240 characters`);
    }
-   console.log("Total inputted chars: ", createAnswerCharsCount);
-   $("#create-answer-char-count").html(createAnswerCharsCount);
-});
-
-let imageryCharsCount = 0;
-$("#create-imagery-input").keydown(function (e) {
-   const key = e.which;
-   console.log("Key inputted: ", key);
-
-   if (key === 8) {
-      console.log("the user has pressed backspace!");
-      imageryCharsCount--;
-      if (imageryCharsCount < 0) {
-         console.log("You have entered negative territory!");
-         imageryCharsCount = 0;
-      }
-   } else if (key === 16 || 18 || 91 || 17) {
-      console.log("This doesn't count in the character counter");
-   } else {
-      console.log("the user pressed any other key");
-      imageryCharsCount++;
-   }
-
-   console.log("Total inputted chars: ", imageryCharsCount);
-   $("#imagery-char-count").html(imageryCharsCount);
 });
