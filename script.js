@@ -19,13 +19,9 @@ $(".sign-up-prompt").click(function () {
 
 let createImageryInputCharsCount = 0; // use "let" instead of "const" because it will be updated
 $("#create-imagery-input").keypress(function () {
-   console.log("Let's add 1!"); // double quotes surround a string!
-   /*
-   ---
-   We're about to work with numbers in JavaScript!
-   ---
-   */
-   createImageryInputCharsCount++; // += 1 increments by one; ++ also works (as does --)"let" is another way; "const" is another
+   console.log("Let's add 1!");
+
+   createImageryInputCharsCount++;
    console.log("Total inputted chars: ", createImageryInputCharsCount);
    $("#imagery-char-count").html(createImageryInputCharsCount);
 });
@@ -114,10 +110,8 @@ $("#create-imagery-input").keydown(function (e) {
          console.log("You have entered negative territory!");
          imageryCharsCount = 0;
       }
-   } else if (key === 16) {
-      console.log("Shift was pressed");
-   } else if (key === 18) {
-      console.log("Option was pressed");
+   } else if (key === 16 || 18 || 91 || 17) {
+      console.log("This doesn't count in the character counter");
    } else {
       console.log("the user pressed any other key");
       imageryCharsCount++;
