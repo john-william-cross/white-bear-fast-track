@@ -43,14 +43,12 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
       $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
    }
 
-   // if topTextLength > 0 and <= 240 and bottomTextLength > 0 and <=240
    if (
       topTextLength > 0 &&
       topTextLength <= 240 &&
       bottomTextLength > 0 &&
       bottomTextLength <= 240
    ) {
-      // enable save button
       $(`#save-card`).removeClass(`disabled`);
    } else {
       $(`#save-card`).addClass(`disabled`);
