@@ -81,8 +81,15 @@ $(`#create-answer-input`).keyup(function (e) {
    // update the character counter on the page
    $(`#create-answer-char-count`).html(textLength);
 
-   if (text.length > 240) {
-      console.log(`You've entered more than 240 characters`);
+   if (textLength > 0 || textLength < 241) {
+      console.log(`acceptable character input number`);
+      $(`#create-answer-char-count`).removeClass(`text-danger`);
+      $(`#click-next`).removeClass(`disabled`);
+   }
+   if (textLength === 0 || textLength > 240) {
+      console.log(`unacceptable number of characters`);
+      $(`#create-answer-char-count`).addClass(`text-danger`);
+      $(`#click-next`).addClass(`disabled`);
    }
 });
 
@@ -101,7 +108,14 @@ $(`#create-imagery-input`).keyup(function (e) {
    // update the character counter on the page
    $(`#imagery-char-count`).html(textLength);
 
-   if (text.length > 240) {
-      console.log(`You've entered more than 240 characters`);
+   if (textLength > 0 || textLength < 241) {
+      console.log(`acceptable character input number`);
+      $(`#imagery-char-count`).removeClass(`text-danger`);
+      $(`#save-card`).removeAttr(`disabled`);
+   }
+   if (textLength === 0 || textLength > 240) {
+      console.log(`unacceptable number of characters`);
+      $(`#imagery-char-count`).addClass(`text-danger`);
+      $(`#save-card`).attr(`disabled`, `disabled`);
    }
 });
