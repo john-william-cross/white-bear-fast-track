@@ -17,69 +17,6 @@ $(".sign-up-prompt").click(function () {
    $(".email-and-create-password").toggleClass("d-none");
 });
 
-// let createImageryInputCharsCount = 0; // use "let" instead of "const" because it will be updated
-// $("#create-imagery-input").keypress(function () {
-//    console.log("Let's add 1!");
-
-//    createImageryInputCharsCount++;
-//    console.log("Total inputted chars: ", createImageryInputCharsCount);
-//    $("#imagery-char-count").html(createImageryInputCharsCount);
-// });
-
-// $(`#edit-input-top-card`).keyup(function (e) {
-//    console.log(`Event: `, e);
-
-//    // get the text from the text area
-//    const text = e.target.value;
-//    const username = `John`;
-//    console.log(`${username} inputted: ${text}`);
-
-//    // check the length of the text
-//    const textLength = text.length;
-//    console.log(`Total inputted chars: ${textLength}`);
-
-//    // update the character counter on the page
-//    $(`#edit-top-card-char-count`).html(textLength);
-
-//    if (textLength > 0 || textLength < 241) {
-//       console.log(`acceptable character input number`);
-//       $(`#edit-top-card-char-count`).removeClass(`text-danger`);
-//       // $(`#save-card`).removeClass(`disabled`);
-//    }
-//    if (textLength === 0 || textLength > 240) {
-//       console.log(`unacceptable number of characters`);
-//       $(`#edit-top-card-char-count`).addClass(`text-danger`);
-//       // $(`#save-card`).addClass(`disabled`);
-//    }
-// });
-
-// $(`#edit-input-bottom-card`).keyup(function (e) {
-//    console.log(`Event: `, e);
-
-//    // get the text from the text area
-//    const text = e.target.value;
-//    const username = `John`;
-//    console.log(`${username} inputted: ${text}`);
-
-//    // check the length of the text
-//    const textLength = text.length;
-//    console.log(`Total inputted chars: ${textLength}`);
-
-//    // update the character counter on the page
-//    $(`#edit-bottom-card-char-count`).html(textLength);
-
-//    if (textLength > 0 || textLength < 241) {
-//       console.log(`acceptable character input number`);
-//       $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
-//       // $(`#save-card`).removeClass(`disabled`);
-//    }
-//    if (textLength === 0 || textLength > 240) {
-//       console.log(`unacceptable number of characters`);
-//       $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
-//       // $(`#click-next`).addClass(`disabled`);
-//    }
-// });
-
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    const topText = $(`#edit-input-top-card`).val();
    const bottomText = $(`#edit-input-bottom-card`).val();
