@@ -24,9 +24,9 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    console.log(`bottomText val: ${bottomText}`);
 
    const topTextLength = topText.length;
-   console.log(topTextLength);
+   console.log(`the top text length is ${topTextLength}`);
    const bottomTextLength = bottomText.length;
-   console.log(bottomTextLength);
+   console.log(`the bottom text length is ${bottomTextLength}`);
 
    $(`#edit-top-card-char-count`).html(topTextLength);
    $(`#edit-bottom-card-char-count`).html(bottomTextLength);
@@ -53,10 +53,10 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
       // enable save button
       $(`#save-card`).removeClass(`disabled`);
    } else {
-      $(`#save-card`).removeClass(`disabled`);
-
-      // $(`#save-card`).attr(`disabled`, `disabled`); //the attribute 'disabled' is set to 'disabled'
+      $(`#save-card`).addClass(`disabled`);
    }
+
+   // $(`#save-card`).attr(`disabled`, `disabled`); //the attribute 'disabled' is set to 'disabled'
 });
 
 // if top card text length and bottom card text length > 0 && < 241
