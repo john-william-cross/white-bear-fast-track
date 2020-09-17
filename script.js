@@ -26,26 +26,6 @@ $(".sign-up-prompt").click(function () {
 //    $("#imagery-char-count").html(createImageryInputCharsCount);
 // });
 
-$(`#edit-input-bottom-card`).keyup(function (e) {
-   console.log(`Event: `, e);
-
-   // get the text from the text area
-   const text = e.target.value;
-   const username = `John`;
-   console.log(`${username} inputted: ${text}`);
-
-   // check the length of the text
-   const textLength = text.length;
-   console.log(`Total inputted chars: ${textLength}`);
-
-   // update the character counter on the page
-   $(`#edit-bottom-card-char-count`).html(textLength);
-
-   if (text.length > 240) {
-      console.log(`You've entered more than 240 characters`);
-   }
-});
-
 $(`#edit-input-top-card`).keyup(function (e) {
    console.log(`Event: `, e);
 
@@ -61,10 +41,47 @@ $(`#edit-input-top-card`).keyup(function (e) {
    // update the character counter on the page
    $(`#edit-top-card-char-count`).html(textLength);
 
-   if (text.length > 240) {
-      console.log(`You've entered more than 240 characters`);
+   if (textLength > 0 || textLength < 241) {
+      console.log(`acceptable character input number`);
+      $(`#edit-top-card-char-count`).removeClass(`text-danger`);
+      // $(`#save-card`).removeClass(`disabled`);
+   }
+   if (textLength === 0 || textLength > 240) {
+      console.log(`unacceptable number of characters`);
+      $(`#edit-top-card-char-count`).addClass(`text-danger`);
+      // $(`#save-card`).addClass(`disabled`);
    }
 });
+
+$(`#edit-input-bottom-card`).keyup(function (e) {
+   console.log(`Event: `, e);
+
+   // get the text from the text area
+   const text = e.target.value;
+   const username = `John`;
+   console.log(`${username} inputted: ${text}`);
+
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update the character counter on the page
+   $(`#edit-bottom-card-char-count`).html(textLength);
+
+   if (textLength > 0 || textLength < 241) {
+      console.log(`acceptable character input number`);
+      $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
+      // $(`#save-card`).removeClass(`disabled`);
+   }
+   if (textLength === 0 || textLength > 240) {
+      console.log(`unacceptable number of characters`);
+      $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
+      // $(`#click-next`).addClass(`disabled`);
+   }
+});
+
+// if top card text length and bottom card text length > 0 && < 241
+// remove class 'disabled' from '#save-card`
 
 $(`#create-answer-input`).keyup(function (e) {
    console.log(`Event: `, e);
