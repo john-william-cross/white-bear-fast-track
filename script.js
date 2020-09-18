@@ -50,6 +50,12 @@ $("#lets-go-button").click(function (e) {
       $(`#password-length-error-message`).addClass(`d-none`);
       $(`#new-user-password`).removeClass(`is-invalid`);
    }
+
+   trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+   console.log(`New user email address is ${newUserEmailAddress}`);
+   console.log(
+      `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
+   );
 });
 
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
