@@ -56,6 +56,28 @@ $("#lets-go-button").click(function (e) {
    console.log(
       `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
    );
+
+   const delimiter = `@`;
+   const indexOfAtSymbolDelimiter = trimmedNewUserEmailAddress.indexOf(
+      delimiter
+   );
+   console.log(
+      `the @ symbol in the trimmed new user email is at index: ${indexOfAtSymbolDelimiter}.`
+   );
+   const localPartTrimmedNewUserEmail = trimmedNewUserEmailAddress.slice(
+      0,
+      indexOfAtSymbolDelimiter
+   );
+   console.log(
+      `the local part of the trimmed new user email is ${localPartTrimmedNewUserEmail}`
+   );
+   if (newUserPassword.includes(localPartTrimmedNewUserEmail)) {
+      console.log(
+         `The password ${newUserPassword} includes the string ${localPartTrimmedNewUserEmail}`
+      );
+      $(`#reused-string-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   }
 });
 
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
