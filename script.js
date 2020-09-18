@@ -40,6 +40,7 @@ $("#lets-go-button").click(function (e) {
    if (newUserPasswordLength === 0) {
       $(`#missing-password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-length-error-message`).addClass(`d-none`);
    } else if (newUserPasswordLength < 9) {
       $(`#password-length-error-message`).removeClass(`d-none`);
       $(`#missing-password-error-message`).addClass(`d-none`);
