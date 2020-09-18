@@ -45,19 +45,33 @@
                                     Email address
                                  </p>
                                  <input
-                                    class="form-control form-control-sm"
+                                    id="new-user-email"
+                                    class="is-invalid form-control form-control-sm"
                                     type="text"
                                  />
+                                 <p
+                                    class="d-none text-danger"
+                                    id="email-error-message"
+                                 >
+                                    Please enter your email address.
+                                 </p>
                                  <p class="lead text-muted mt-2">
                                     Create a password
                                  </p>
                                  <input
-                                    class="form-control form-control-sm"
+                                    id="new-user-password"
+                                    class="is-invalid form-control form-control-sm"
                                     type="text"
                                  />
+                                 <p
+                                    class="d-none text-danger"
+                                    id="Your password must be at least 9 characters."
+                                 >
+                                    Please enter your email address.
+                                 </p>
                                  <button
                                     class="btn btn-block btn-success btn-lg mt-4"
-                                    id="sign-up-button"
+                                    id="lets-go-button"
                                  >
                                     Let's go!
                                  </button>

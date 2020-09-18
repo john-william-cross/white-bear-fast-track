@@ -17,6 +17,29 @@ $(".sign-up-prompt").click(function () {
    $(".email-and-create-password").toggleClass("d-none");
 });
 
+$("#lets-go-button").click(function (e) {
+   const newUserEmailAddress = $(`#new-user-email`).val();
+   const newUserEmailAddressLength = newUserEmailAddress.length;
+   console.log(`val is ${newUserEmailAddress}`);
+   console.log(
+      `new user email address length is: ${newUserEmailAddressLength}`
+   );
+
+   if (newUserEmailAddressLength > 0) {
+      console.log(`email field is not blank!`);
+   } else {
+      console.log(`email field is blank!`);
+      $(`#email-error-message`).toggleClass(`d-none`);
+   }
+
+   const newUserPassword = $(`#new-user-password`).val();
+   const newUserPasswordLength = newUserPassword.length;
+   console.log(`password length is ${newUserPasswordLength}`);
+
+   if(newUserPasswordLength < 9)
+
+});
+
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    const topText = $(`#edit-input-top-card`).val();
    const bottomText = $(`#edit-input-bottom-card`).val();
