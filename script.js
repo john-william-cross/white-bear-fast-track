@@ -77,6 +77,12 @@ $("#lets-go-button").click(function (e) {
       );
       $(`#reused-string-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
+   } else {
+      console.log(
+         `the new user password does not contain the string ${localPartTrimmedNewUserEmail}`
+      );
+      $(`#reused-string-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
 
