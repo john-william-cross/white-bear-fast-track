@@ -37,8 +37,17 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
 
-   if (newUserPasswordLength < 9) {
-      $(`#password-error-message`).removeClass(`d-none`);
+   if (newUserPasswordLength === 0) {
+      $(`#missing-password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else if (newUserPasswordLength < 9) {
+      $(`#password-length-error-message`).removeClass(`d-none`);
+      $(`#missing-password-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else {
+      $(`#missing-password-error-message`).addClass(`d-none`);
+      $(`#password-length-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
 
