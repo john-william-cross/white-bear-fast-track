@@ -31,8 +31,14 @@ $("#lets-go-button").click(function (e) {
 
    if (newUserEmailAddressLength === 0) {
       $(`#email-error-message`).removeClass(`d-none`);
+      $(`#new-user-email`).addClass(`is-invalid`);
    } else if (newUserEmailAddressLength > 0) {
       $(`#email-error-message`).addClass(`d-none`);
+      $(`#new-user-email`).removeClass(`is-invalid`);
+   }
+
+   if (newUserPasswordLength < 9) {
+      $(`#password-error-message`).removeClass(`d-none`);
    }
 });
 
