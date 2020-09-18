@@ -71,7 +71,17 @@ $("#lets-go-button").click(function (e) {
    console.log(
       `the local part of the trimmed new user email is ${localPartTrimmedNewUserEmail}`
    );
-   if (newUserPassword.includes(localPartTrimmedNewUserEmail)) {
+
+   console.log(
+      `length of the localparttrimmed new user email is: ${localPartTrimmedNewUserEmail.length}`
+   );
+   const localPartTrimmedNewUserEmailLength =
+      localPartTrimmedNewUserEmail.length;
+
+   if (
+      newUserPassword.includes(localPartTrimmedNewUserEmail) &&
+      localPartTrimmedNewUserEmailLength >= 4
+   ) {
       console.log(
          `The password ${newUserPassword} includes the string ${localPartTrimmedNewUserEmail}`
       );
