@@ -25,22 +25,15 @@ $("#lets-go-button").click(function (e) {
       `new user email address length is: ${newUserEmailAddressLength}`
    );
 
-   if (newUserEmailAddressLength > 0) {
-      console.log(`email field is not blank!`);
-   } else {
-      console.log(`email field is blank!`);
-      $(`#new-user-email`).addClass(`is-invalid`);
-      $(`#email-error-message`).toggleClass(`d-none`);
-   }
-
    const newUserPassword = $(`#new-user-password`).val();
    const newUserPasswordLength = newUserPassword.length;
    console.log(`password length is ${newUserPasswordLength}`);
 
-   if (newUserPasswordLength < 9) {
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).removeClass(`d-none`);
-   } else $(`#new-user-password`).removeClass(`is-invalid`);
+   if (newUserEmailAddressLength === 0) {
+      $(`#email-error-message`).removeClass(`d-none`);
+   } else if (newUserEmailAddressLength > 0) {
+      $(`#email-error-message`).addClass(`d-none`);
+   }
 });
 
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
