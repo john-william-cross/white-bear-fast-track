@@ -66,26 +66,33 @@ $("#lets-go-button").click(function (e) {
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
+
    if (newUserPasswordLength === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#password-error-message`).html(passwordEmptyError);
       $(`#new-user-password`).addClass(`is-invalid`);
    } else if (newUserPasswordLength < 9) {
+      $(`#password-error-message`).removeClass(`d-none`);
       $(`#password-error-message`).html(passwordLengthError);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else if (
+      newUserPasswordLength >= 9 &&
+      newUserPassword.includes(localPartTrimmedNewUserEmail) &&
+      localPartTrimmedNewUserEmailLength >= 4
+   ) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordContainsEmailCharsError);
    } else if (
       newUserPassword.includes(localPartTrimmedNewUserEmail) &&
       localPartTrimmedNewUserEmailLength >= 4
    ) {
-      console.log(
-         `The password ${newUserPassword} includes the string ${localPartTrimmedNewUserEmail}`
-      );
+      $(`#password-error-message`).removeClass(`d-none`);
       $(`#password-error-message`).html(passwordContainsEmailCharsError);
+      $(`#new-user-password`).addClass(`is-invalid`);
    } else {
-      console.log(
-         `the new user password does not contain the string ${localPartTrimmedNewUserEmail}`
-      );
-      $(`#new-user-password`).removeClass(`is-invalid`);
       $(`#password-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
 
