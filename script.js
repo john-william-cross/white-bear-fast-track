@@ -16,6 +16,7 @@ $("#show-delete-button").click(function () {
 /************ CODE BELOW THIS LINE FOR SIGN UP*************/
 /**********************************************************/
 $(".sign-up-prompt").click(function () {
+   console.log(`Here are the most insecure passwords: `, mostInsecurePasswords);
    $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
 });
