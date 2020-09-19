@@ -74,14 +74,13 @@ $("#lets-go-button").click(function (e) {
 
    if (newUserPasswordLength === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
-      $(`#password-error-message`).html(passwordEmptyError);
       $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordEmptyError);
    } else if (newUserPasswordLength < 9) {
       $(`#password-error-message`).removeClass(`d-none`);
-      $(`#password-error-message`).html(passwordLengthError);
       $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordLengthError);
    } else if (
-      newUserPasswordLength >= 9 &&
       newUserPassword.includes(localPartTrimmedNewUserEmail) &&
       localPartTrimmedNewUserEmailLength >= 4
    ) {
