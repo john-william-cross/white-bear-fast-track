@@ -70,8 +70,16 @@ $("#lets-go-button").click(function (e) {
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
+   const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
-   if (newUserPasswordLength === 0) {
+   // const newMosInsecurePasswords = [...mostInsecurePasswords];
+   // console.log(`hello everyone: `, newMosInsecurePasswords);
+
+   if (mostInsecurePasswords.includes(newUserPassword)) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else if (newUserPasswordLength === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#password-error-message`).html(passwordEmptyError);
       $(`#new-user-password`).addClass(`is-invalid`);
@@ -89,6 +97,7 @@ $("#lets-go-button").click(function (e) {
       $(`#password-error-message`).html(passwordContainsEmailCharsError);
    } else {
       $(`#password-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
 
