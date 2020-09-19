@@ -86,16 +86,8 @@ $("#lets-go-button").click(function (e) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordContainsEmailCharsError);
-   } else if (
-      newUserPassword.includes(localPartTrimmedNewUserEmail) &&
-      localPartTrimmedNewUserEmailLength >= 4
-   ) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#password-error-message`).html(passwordContainsEmailCharsError);
-      $(`#new-user-password`).addClass(`is-invalid`);
    } else {
       $(`#password-error-message`).addClass(`d-none`);
-      $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
 
