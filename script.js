@@ -12,6 +12,9 @@ $("#show-delete-button").click(function () {
    $("#delete-this-card").toggleClass("d-none");
 });
 
+/**********************************************************/
+/************ CODE BELOW THIS LINE FOR SIGN UP*************/
+/**********************************************************/
 $(".sign-up-prompt").click(function () {
    $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
@@ -96,6 +99,9 @@ $("#lets-go-button").click(function (e) {
    }
 });
 
+/**********************************************************/
+/*********** CODE BELOW THIS LINE FOR EDIT CARD************/
+/**********************************************************/
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    const topText = $(`#edit-input-top-card`).val();
    const bottomText = $(`#edit-input-bottom-card`).val();
@@ -132,20 +138,17 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    } else {
       $(`#save-card`).addClass(`disabled`);
    }
-
-   // $(`#save-card`).attr(`disabled`, `disabled`); //the attribute 'disabled' is set to 'disabled'
 });
 
-// if top card text length and bottom card text length > 0 && < 241
-// remove class 'disabled' from '#save-card`
-
+/**********************************************************/
+/******* CODE BELOW THIS LINE FOR CREATE ANSWER CARD*******/
+/**********************************************************/
 $(`#create-answer-input`).keyup(function (e) {
    console.log(`Event: `, e);
 
    // get the text from the text area
    const text = e.target.value;
-   const username = `John`;
-   console.log(`${username} inputted: ${text}`);
+   console.log(`inputted: ${text}`);
 
    // check the length of the text
    const textLength = text.length;
@@ -165,6 +168,10 @@ $(`#create-answer-input`).keyup(function (e) {
       $(`#click-next`).addClass(`disabled`);
    }
 });
+
+/**********************************************************/
+/****** CODE BELOW THIS LINE FOR CREATE IMAGERY CARD*******/
+/**********************************************************/
 
 $(`#create-imagery-input`).keyup(function (e) {
    console.log(`Event: `, e);
