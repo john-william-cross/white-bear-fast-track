@@ -58,6 +58,7 @@
                                  <p class="lead text-muted mt-2">
                                     Create a password
                                  </p>
+                                 <!-- one error message id, change the html inside of it, depending on the error you want to fire  -->
                                  <input
                                     id="new-user-password"
                                     class="form-control"
@@ -65,23 +66,9 @@
                                  />
                                  <p
                                     class="text-danger d-none"
-                                    id="missing-password-error-message"
-                                 >
-                                    Please create a password
-                                 </p>
-                                 <p
-                                    class="text-danger d-none"
-                                    id="password-length-error-message"
-                                 >
-                                    Your password must be at least 9 characters.
-                                 </p>
-                                 <p
-                                    class="text-danger d-none"
-                                    id="reused-string-error-message"
-                                 >
-                                    All or part of your email address cannot be
-                                    used in your password.
-                                 </p>
+                                    id="password-error-message"
+                                 ></p>
+
                                  <button
                                     class="btn btn-block btn-success btn-lg mt-4"
                                     id="lets-go-button"

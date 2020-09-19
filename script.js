@@ -29,28 +29,6 @@ $("#lets-go-button").click(function (e) {
    const newUserPasswordLength = newUserPassword.length;
    console.log(`password length is ${newUserPasswordLength}`);
 
-   if (newUserEmailAddressLength === 0) {
-      $(`#email-error-message`).removeClass(`d-none`);
-      $(`#new-user-email`).addClass(`is-invalid`);
-   } else if (newUserEmailAddressLength > 0) {
-      $(`#email-error-message`).addClass(`d-none`);
-      $(`#new-user-email`).removeClass(`is-invalid`);
-   }
-
-   if (newUserPasswordLength === 0) {
-      $(`#missing-password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-length-error-message`).addClass(`d-none`);
-   } else if (newUserPasswordLength < 9) {
-      $(`#password-length-error-message`).removeClass(`d-none`);
-      $(`#missing-password-error-message`).addClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-   } else {
-      $(`#missing-password-error-message`).addClass(`d-none`);
-      $(`#password-length-error-message`).addClass(`d-none`);
-      $(`#new-user-password`).removeClass(`is-invalid`);
-   }
-
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    console.log(`New user email address is ${newUserEmailAddress}`);
    console.log(
@@ -78,7 +56,23 @@ $("#lets-go-button").click(function (e) {
    const localPartTrimmedNewUserEmailLength =
       localPartTrimmedNewUserEmail.length;
 
-   if (
+   if (newUserEmailAddressLength === 0) {
+      $(`#email-error-message`).removeClass(`d-none`);
+      $(`#new-user-email`).addClass(`is-invalid`);
+   } else if (newUserEmailAddressLength > 0) {
+      $(`#email-error-message`).addClass(`d-none`);
+      $(`#new-user-email`).removeClass(`is-invalid`);
+   }
+
+   if (newUserPasswordLength === 0) {
+      $(`#missing-password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-length-error-message`).addClass(`d-none`);
+   } else if (newUserPasswordLength < 9) {
+      $(`#password-length-error-message`).removeClass(`d-none`);
+      $(`#missing-password-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else if (
       newUserPassword.includes(localPartTrimmedNewUserEmail) &&
       localPartTrimmedNewUserEmailLength >= 4
    ) {
@@ -93,6 +87,8 @@ $("#lets-go-button").click(function (e) {
       );
       $(`#reused-string-error-message`).addClass(`d-none`);
       $(`#new-user-password`).removeClass(`is-invalid`);
+      $(`#missing-password-error-message`).addClass(`d-none`);
+      $(`#password-length-error-message`).addClass(`d-none`);
    }
 });
 
