@@ -16,7 +16,7 @@ $("#show-delete-button").click(function () {
 /************ CODE BELOW THIS LINE FOR SIGN UP*************/
 /**********************************************************/
 $(".sign-up-prompt").click(function () {
-   console.log(`Here are the most insecure passwords: `, mostInsecurePasswords);
+   // console.log(`Here are the most insecure passwords: `, mostInsecurePasswords);
    $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
 });
@@ -24,39 +24,39 @@ $(".sign-up-prompt").click(function () {
 $("#lets-go-button").click(function (e) {
    const newUserEmailAddress = $(`#new-user-email`).val();
    const newUserEmailAddressLength = newUserEmailAddress.length;
-   console.log(`val is ${newUserEmailAddress}`);
-   console.log(
-      `new user email address length is: ${newUserEmailAddressLength}`
-   );
+   // console.log(`val is ${newUserEmailAddress}`);
+   // console.log(
+   //    `new user email address length is: ${newUserEmailAddressLength}`
+   // );
 
    const newUserPassword = $(`#new-user-password`).val();
    const newUserPasswordLength = newUserPassword.length;
-   console.log(`password length is ${newUserPasswordLength}`);
+   // console.log(`password length is ${newUserPasswordLength}`);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-   console.log(`New user email address is ${newUserEmailAddress}`);
-   console.log(
-      `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
-   );
+   // console.log(`New user email address is ${newUserEmailAddress}`);
+   // console.log(
+   //    `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
+   // );
 
    const delimiter = `@`;
    const indexOfAtSymbolDelimiter = trimmedNewUserEmailAddress.indexOf(
       delimiter
    );
-   console.log(
-      `the @ symbol in the trimmed new user email is at index: ${indexOfAtSymbolDelimiter}.`
-   );
+   // console.log(
+   //    `the @ symbol in the trimmed new user email is at index: ${indexOfAtSymbolDelimiter}.`
+   // );
    const localPartTrimmedNewUserEmail = trimmedNewUserEmailAddress.slice(
       0,
       indexOfAtSymbolDelimiter
    );
-   console.log(
-      `the local part of the trimmed new user email is ${localPartTrimmedNewUserEmail}`
-   );
+   // console.log(
+   //    `the local part of the trimmed new user email is ${localPartTrimmedNewUserEmail}`
+   // );
 
-   console.log(
-      `length of the localparttrimmed new user email is: ${localPartTrimmedNewUserEmail.length}`
-   );
+   // console.log(
+   //    `length of the localparttrimmed new user email is: ${localPartTrimmedNewUserEmail.length}`
+   // );
    const localPartTrimmedNewUserEmailLength =
       localPartTrimmedNewUserEmail.length;
 
@@ -70,32 +70,64 @@ $("#lets-go-button").click(function (e) {
 
    /* What I'm working on now */
 
-   const unacceptablePasswords = mostInsecurePasswords.concat(
+   const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
-   console.log(`Here are all unacceptable passwords: `, unacceptablePasswords);
-   const flattenedUnacceptablePasswords = unacceptablePasswords.flat();
-   console.log(
-      `here is the flat list of all unacceptable passwords: \n`,
-      flattenedUnacceptablePasswords
-   );
 
-   const firstPartOfUnacceptablePasswords = flattenedUnacceptablePasswords.slice(
+   const flattenedUnacceptablePasswordsLists = unacceptablePasswordsLists.flat();
+   // console.log(
+   //    `flatted unacceptable passwords:\n`,
+   //    flattenedUnacceptablePasswords
+   // );
+
+   const allUniqUnacceptablePasswords = [
+      ...new Set(flattenedUnacceptablePasswordsLists),
+   ];
+   // console.log(
+   //    `Here's a list of all unique unacceptable passwords:\n`,
+   //    allUniqUnacceptablePasswords
+   // );
+
+   const firstUniqPasswords = allUniqUnacceptablePasswords.slice(
       0,
-      9
+      allUniqUnacceptablePasswords.indexOf(`skywalker`)
    );
-   console.log(`first part of list is\n`, firstPartOfUnacceptablePasswords);
-   const secondPartOfUnacceptablePasswords = flattenedUnacceptablePasswords.slice(
-      `10`
-   );
-   console.log(`second part of list is\n`, secondPartOfUnacceptablePasswords);
 
-   const concatSlicedPasswords = firstPartOfUnacceptablePasswords.concat(
-      secondPartOfUnacceptablePasswords
+   // console.log(
+   //    `here is the first part of the unique passwords:\n`,
+   //    firstUniqPasswords
+   // );
+
+   const secondUniqPasswords = allUniqUnacceptablePasswords.slice(
+      4,
+      allUniqUnacceptablePasswords.indexOf(`obama2016`)
    );
+   // console.log(
+   //    `here is the second part of the unique passwords:\n`,
+   //    secondUniqPasswords
+   // );
+
+   const thirdUniqPasswords = allUniqUnacceptablePasswords.slice(7);
+   // console.log(
+   //    `here is the third part of the unique passwords:\n`,
+   //    thirdUniqPasswords
+   // );
+
+   allCleanedUpUniqPasswords = firstUniqPasswords.concat(
+      secondUniqPasswords,
+      thirdUniqPasswords
+   );
+
+   // console.log(
+   //    `Here are all the cleaned-up unique passwords:\n`,
+   //    allCleanedUpUniqPasswords
+   // );
+
+   const unacceptablePasswords = allCleanedUpUniqPasswords;
+
    console.log(
-      `the NEW IMPROVED list of passwords without duplicates is:\n `,
-      concatSlicedPasswords
+      `Here's a list of ALL unacceptable passwords (for the moment:\n)`,
+      unacceptablePasswords
    );
 
    /* What I'm working on now */
@@ -120,7 +152,7 @@ $("#lets-go-button").click(function (e) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordContainsEmailCharsError);
-   } else if (mostInsecurePasswords.includes(newUserPassword)) {
+   } else if (unacceptablePasswords.includes(newUserPassword)) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
       $(`#new-user-password`).addClass(`is-invalid`);
