@@ -67,6 +67,13 @@ $("#lets-go-button").click(function (e) {
       $(`#email-error-message`).addClass(`d-none`);
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
+
+   const unacceptablePasswords = mostInsecurePasswords.concat(
+      secondMostInsecurePasswords
+   );
+
+   console.log(`Here are all unacceptable passwords: `, unacceptablePasswords);
+
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
