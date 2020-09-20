@@ -68,11 +68,37 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
 
+   /* What I'm working on now */
+
    const unacceptablePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
-
    console.log(`Here are all unacceptable passwords: `, unacceptablePasswords);
+   const flattenedUnacceptablePasswords = unacceptablePasswords.flat();
+   console.log(
+      `here is the flat list of all unacceptable passwords: \n`,
+      flattenedUnacceptablePasswords
+   );
+
+   const firstPartOfUnacceptablePasswords = flattenedUnacceptablePasswords.slice(
+      0,
+      9
+   );
+   console.log(`first part of list is\n`, firstPartOfUnacceptablePasswords);
+   const secondPartOfUnacceptablePasswords = flattenedUnacceptablePasswords.slice(
+      `10`
+   );
+   console.log(`second part of list is\n`, secondPartOfUnacceptablePasswords);
+
+   const concatSlicedPasswords = firstPartOfUnacceptablePasswords.concat(
+      secondPartOfUnacceptablePasswords
+   );
+   console.log(
+      `the NEW IMPROVED list of passwords without duplicates is:\n `,
+      concatSlicedPasswords
+   );
+
+   /* What I'm working on now */
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
