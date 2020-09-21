@@ -181,8 +181,11 @@ $("#lets-go-button").click(function (e) {
    for (let i = 0; i < unacceptablePasswords.length; i++) {
       const passwords = String(unacceptablePasswords);
       const lowerCasedPasswords = passwords.toLowerCase();
-      console.log(String(lowerCasedPasswords));
+      normalizedPasswords = lowerCasedPasswords.toLowerCase().split(`,`);
    }
+   console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
+   let uniqNormalizedPasswords = [...new Set(normalizedPasswords)];
+   console.log(uniqNormalizedPasswords);
 
    // Stack Overflow answer by sandrina-p: https://tinyurl.com/yycmo9em
    // lowerCasePaswords = unacceptablePasswords
