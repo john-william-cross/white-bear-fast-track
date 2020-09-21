@@ -118,42 +118,41 @@ $("#lets-go-button").click(function (e) {
       thirdUniqPasswords
    );
 
-   console.log(
-      `Here are all the cleaned-up unique passwords:\n`,
-      allCleanedUpUniqPasswords
-   );
+   // console.log(
+   //    `Here are all the cleaned-up unique passwords:\n`,
+   //    allCleanedUpUniqPasswords
+   // );
 
    const unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
-   let theUnacceptablePasswords = [];
+   let unacceptablePasswordsWithNums = [];
    for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
       // console.log(unacceptablePasswordsWithBoolsAndNums[i]);
 
       const password = unacceptablePasswordsWithBoolsAndNums[i];
 
       if (typeof password !== "boolean") {
-         theUnacceptablePasswords = theUnacceptablePasswords.concat([
+         unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
             unacceptablePasswordsWithBoolsAndNums[i],
          ]);
       }
    }
 
-   console.log(theUnacceptablePasswords);
+   console.log(
+      `Here are the passwords made up of strings and numbers:\n`,
+      unacceptablePasswordsWithNums
+   );
 
    let unacceptablePasswords = [];
-   for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
-      const value = unacceptablePasswordsWithBoolsAndNums[i]; //gets current index of one you're on, store it in the variable 'holiday'
-      if (typeof value === `number` || typeof value === `string`) {
-         //convert them to strings:
-         const numAsString = String(value);
-         unacceptablePasswords = unacceptablePasswords.concat(numAsString);
-      }
+   for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
+      const value = unacceptablePasswordsWithNums[i];
+      const allValuesAsStrings = String(value);
+      unacceptablePasswords = unacceptablePasswords.concat(allValuesAsStrings);
    }
-   console.log(unacceptablePasswords);
 
-   // console.log(
-   //    `Here's a list of ALL unacceptable passwords (for the moment:\n)`,
-   //    unacceptablePasswords
-   // );
+   console.log(
+      `Here are the passwords with all numbers converted to strings:\n`,
+      unacceptablePasswords
+   );
 
    /* What I'm working on now */
 
