@@ -146,33 +146,36 @@ $("#lets-go-button").click(function (e) {
       const value = unacceptablePasswordsWithNums[i];
       oldUnacceptablePasswords = oldUnacceptablePasswords.concat(String(value));
    }
+   //console.log(`here are the old passwords:\n`, oldUnacceptablePasswords);
 
-   let unacceptablePasswords = [];
-   console.log(`here are the old passwords:\n`, oldUnacceptablePasswords);
-   // Use a for loop to reverse every string in your
-   // list and add them to a new list. Your list should
-   //contain both the forward and reverse versions of each password.
+   let unacceptablePasswordsForwardAndReversed = [];
+   //creates empty array
    for (i = 0; i < oldUnacceptablePasswords.length; i++) {
-      //reverse each string in the list
+      //keep doing the following until i < oldUnacceptablePasswords.length
       let passwordChars = oldUnacceptablePasswords[i].split(``);
-      //console.log(`Split password chars:\n`, passwordChars);
+      //splits each word in oldUnacccetablePasswords list and assigns it to passwordChars
+      ///console.log(`Split password chars:\n`, passwordChars);
       const copyOfPasswordChars = [...passwordChars];
+      //makes a copy of passwordChars
       //console.log(`copy of password chars:\n`, copyOfPasswordChars);
       const reversePasswordChars = copyOfPasswordChars.reverse();
-      // console.log(`Reversed password chars:\n`, reversePasswordChars);
+      //reverses each split password
+      //console.log(`Reversed password chars:\n`, reversePasswordChars);
       const reversedUnacceptablePasswords = reversePasswordChars.join(``);
-      unacceptablePasswords = unacceptablePasswords.concat(
+      //joins (un-splits) each reverse password back together
+      //console.log(reversedUnacceptablePasswords);
+      unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
          reversedUnacceptablePasswords
-      );
+      ); //fills empty array with reversedUnacceptablePasswords
    }
-   console.log(`reversed passwords\n`, unacceptablePasswords);
-
-   console.log(oldUnacceptablePasswords.concat(unacceptablePasswords));
-
-   // console.log(
-   //    `Here are the old passwords with all numbers converted to strings:\n`,
-   //    oldUnacceptablePasswords
-   // );
+   let unacceptablePasswords = oldUnacceptablePasswords.concat(
+      unacceptablePasswordsForwardAndReversed
+   ); //combines forward passwords array with reverse passwords array into a new array called
+   //unacceptablePasswords
+   console.log(
+      `Here's the new list of unacceptable passwords in forward and reverse order:\n`,
+      unacceptablePasswords
+   );
 
    /* What I'm working on now */
 
