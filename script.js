@@ -168,24 +168,27 @@ $("#lets-go-button").click(function (e) {
          reversedUnacceptablePasswords
       ); //fills empty array with reversedUnacceptablePasswords
    }
-   let unacceptablePasswords = oldUnacceptablePasswords.concat(
+   let forwardAndReversedPasswords = oldUnacceptablePasswords.concat(
       unacceptablePasswordsForwardAndReversed
    ); //combines forward passwords array with reverse passwords array into a new array called
-   //unacceptablePasswords
+   //forwardAndReversedPasswords
    console.log(
       `Here's the new list of unacceptable passwords in forward and reverse order:\n`,
-      unacceptablePasswords
+      forwardAndReversedPasswords
    );
 
    let normalizedPasswords = [];
-   for (let i = 0; i < unacceptablePasswords.length; i++) {
-      const passwords = String(unacceptablePasswords);
+   for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
+      const passwords = String(forwardAndReversedPasswords);
       const lowerCasedPasswords = passwords.toLowerCase();
       normalizedPasswords = lowerCasedPasswords.toLowerCase().split(`,`);
    }
    console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-   let uniqNormalizedPasswords = [...new Set(normalizedPasswords)];
-   console.log(uniqNormalizedPasswords);
+   let unacceptablePasswords = [...new Set(normalizedPasswords)];
+   console.log(
+      `Here are the unacceptable passwords, all of which are unique and normalized\n`,
+      unacceptablePasswords
+   );
 
    // Stack Overflow answer by sandrina-p: https://tinyurl.com/yycmo9em
    // lowerCasePaswords = unacceptablePasswords
