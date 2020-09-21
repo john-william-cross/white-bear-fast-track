@@ -118,17 +118,42 @@ $("#lets-go-button").click(function (e) {
       thirdUniqPasswords
    );
 
-   // console.log(
-   //    `Here are all the cleaned-up unique passwords:\n`,
-   //    allCleanedUpUniqPasswords
-   // );
-
-   const unacceptablePasswords = allCleanedUpUniqPasswords;
-
    console.log(
-      `Here's a list of ALL unacceptable passwords (for the moment:\n)`,
-      unacceptablePasswords
+      `Here are all the cleaned-up unique passwords:\n`,
+      allCleanedUpUniqPasswords
    );
+
+   const unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
+   let theUnacceptablePasswords = [];
+   for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
+      // console.log(unacceptablePasswordsWithBoolsAndNums[i]);
+
+      const password = unacceptablePasswordsWithBoolsAndNums[i];
+
+      if (typeof password !== "boolean") {
+         theUnacceptablePasswords = theUnacceptablePasswords.concat([
+            unacceptablePasswordsWithBoolsAndNums[i],
+         ]);
+      }
+   }
+
+   console.log(theUnacceptablePasswords);
+
+   let unacceptablePasswords = [];
+   for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
+      const value = unacceptablePasswordsWithBoolsAndNums[i]; //gets current index of one you're on, store it in the variable 'holiday'
+      if (typeof value === `number` || typeof value === `string`) {
+         //convert them to strings:
+         const numAsString = String(value);
+         unacceptablePasswords = unacceptablePasswords.concat(numAsString);
+      }
+   }
+   console.log(unacceptablePasswords);
+
+   // console.log(
+   //    `Here's a list of ALL unacceptable passwords (for the moment:\n)`,
+   //    unacceptablePasswords
+   // );
 
    /* What I'm working on now */
 
