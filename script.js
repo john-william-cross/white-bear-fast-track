@@ -177,7 +177,19 @@ $("#lets-go-button").click(function (e) {
       unacceptablePasswords
    );
 
-   /* What I'm working on now */
+   let normalizedPasswords = [];
+   for (let i = 0; i < unacceptablePasswords.length; i++) {
+      const passwords = String(unacceptablePasswords);
+      const lowerCasedPasswords = passwords.toLowerCase();
+      console.log(String(lowerCasedPasswords));
+   }
+
+   // Stack Overflow answer by sandrina-p: https://tinyurl.com/yycmo9em
+   // lowerCasePaswords = unacceptablePasswords
+   //    .toLocaleString() //transform the array into a string separated by commas
+   //    .toLowerCase() //convert that string to lower case
+   //    .split(`,`); //change back to an array
+   // console.log(lowerCasePaswords);
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
