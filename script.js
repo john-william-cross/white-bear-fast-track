@@ -147,10 +147,11 @@ $("#lets-go-button").click(function (e) {
       oldUnacceptablePasswords = oldUnacceptablePasswords.concat(String(value));
    }
 
+   let unacceptablePasswords = [];
+   console.log(`here are the old passwords:\n`, oldUnacceptablePasswords);
    // Use a for loop to reverse every string in your
    // list and add them to a new list. Your list should
    //contain both the forward and reverse versions of each password.
-
    for (i = 0; i < oldUnacceptablePasswords.length; i++) {
       //reverse each string in the list
       let passwordChars = oldUnacceptablePasswords[i].split(``);
@@ -158,10 +159,15 @@ $("#lets-go-button").click(function (e) {
       const copyOfPasswordChars = [...passwordChars];
       //console.log(`copy of password chars:\n`, copyOfPasswordChars);
       const reversePasswordChars = copyOfPasswordChars.reverse();
-      //console.log(`Reversed password chars:\n`, reversePasswordChars);
-      const newOldUnacceptablePasswords = reversePasswordChars.join(``);
-      console.log(`here are the new passwords:\n`, newOldUnacceptablePasswords);
+      // console.log(`Reversed password chars:\n`, reversePasswordChars);
+      const reversedUnacceptablePasswords = reversePasswordChars.join(``);
+      unacceptablePasswords = unacceptablePasswords.concat(
+         reversedUnacceptablePasswords
+      );
    }
+   console.log(`reversed passwords\n`, unacceptablePasswords);
+
+   console.log(oldUnacceptablePasswords.concat(unacceptablePasswords));
 
    // console.log(
    //    `Here are the old passwords with all numbers converted to strings:\n`,
