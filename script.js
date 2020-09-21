@@ -30,8 +30,7 @@ $("#lets-go-button").click(function (e) {
    // );
 
    const newUserPassword = $(`#new-user-password`).val();
-   const newUserPasswordLength = newUserPassword.length;
-   // console.log(`password length is ${newUserPasswordLength}`);
+   // console.log(`password length is ${newUserPassword.length}`);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    // console.log(`New user email address is ${newUserEmailAddress}`);
@@ -145,8 +144,7 @@ $("#lets-go-button").click(function (e) {
    let unacceptablePasswords = [];
    for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
       const value = unacceptablePasswordsWithNums[i];
-      const allValuesAsStrings = String(value);
-      unacceptablePasswords = unacceptablePasswords.concat(allValuesAsStrings);
+      unacceptablePasswords = unacceptablePasswords.concat(String(value));
    }
 
    console.log(
@@ -161,11 +159,11 @@ $("#lets-go-button").click(function (e) {
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
    const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
-   if (newUserPasswordLength === 0) {
+   if (newUserPassword.length === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordEmptyError);
-   } else if (newUserPasswordLength < 9) {
+   } else if (newUserPassword.length < 9) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordLengthError);
