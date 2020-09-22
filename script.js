@@ -172,10 +172,10 @@ $("#lets-go-button").click(function (e) {
       unacceptablePasswordsForwardAndReversed
    ); //combines forward passwords array with reverse passwords array into a new array called
    //forwardAndReversedPasswords
-   console.log(
-      `Here's the new list of unacceptable passwords in forward and reverse order:\n`,
-      forwardAndReversedPasswords
-   );
+   // console.log(
+   //    `Here's the new list of unacceptable passwords in forward and reverse order:\n`,
+   //    forwardAndReversedPasswords
+   // );
 
    let normalizedPasswords = [];
    for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
@@ -183,147 +183,154 @@ $("#lets-go-button").click(function (e) {
       const lowerCasedPasswords = passwords.toLowerCase();
       normalizedPasswords = lowerCasedPasswords.toLowerCase().split(`,`);
    }
-   console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
+   //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
    let unacceptablePasswords = [...new Set(normalizedPasswords)];
    console.log(
       `Here are the unacceptable passwords, all of which are unique and normalized\n`,
       unacceptablePasswords
    );
 
-   // Stack Overflow answer by sandrina-p: https://tinyurl.com/yycmo9em
-   // lowerCasePaswords = unacceptablePasswords
-   //    .toLocaleString() //transform the array into a string separated by commas
-   //    .toLowerCase() //convert that string to lower case
-   //    .split(`,`); //change back to an array
-   // console.log(lowerCasePaswords);
-
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
    const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
-   if (newUserPassword.length === 0) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordEmptyError);
-   } else if (newUserPassword.length < 9) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordLengthError);
-   } else if (
-      newUserPassword.includes(localPartTrimmedNewUserEmail) &&
-      localPartTrimmedNewUserEmailLength >= 4
-   ) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordContainsEmailCharsError);
-   } else if (unacceptablePasswords.includes(newUserPassword)) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
-      $(`#new-user-password`).addClass(`is-invalid`);
-   } else {
-      $(`#password-error-message`).addClass(`d-none`);
-      $(`#new-user-password`).removeClass(`is-invalid`);
+   for (let i = 0; i < unacceptablePasswords.length; i++) {
+      if (newUserPassword.toLowerCase().trim() === unacceptablePasswords[i]) {
+         console.log(`We found a result for ${newUserPassword}!`);
+      } else {
+         console.log(`Sorry, couldn't find anything for ${newUserPassword}`);
+      }
    }
+
+   // if (userEntry.toLowerCase().trim() === unacceptablePasswords[12]) {
+   //    console.log(`We found a result for ${userEntry}!`);
+   // } else {
+   //    console.log(`Sorry, couldn't find anything for ${userEntry}`);
+   // }
+
+   // if (newUserPassword.length === 0) {
+   //    $(`#password-error-message`).removeClass(`d-none`);
+   //    $(`#new-user-password`).addClass(`is-invalid`);
+   //    $(`#password-error-message`).html(passwordEmptyError);
+   // } else if (newUserPassword.length < 9) {
+   //    $(`#password-error-message`).removeClass(`d-none`);
+   //    $(`#new-user-password`).addClass(`is-invalid`);
+   //    $(`#password-error-message`).html(passwordLengthError);
+   // } else if (
+   //    newUserPassword.includes(localPartTrimmedNewUserEmail) &&
+   //    localPartTrimmedNewUserEmailLength >= 4
+   // ) {
+   //    $(`#password-error-message`).removeClass(`d-none`);
+   //    $(`#new-user-password`).addClass(`is-invalid`);
+   //    $(`#password-error-message`).html(passwordContainsEmailCharsError);
+   // } else if (unacceptablePasswords.includes(newUserPassword)) {
+   //    $(`#password-error-message`).removeClass(`d-none`);
+   //    $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
+   //    $(`#new-user-password`).addClass(`is-invalid`);
+   // } else {
+   //    $(`#password-error-message`).addClass(`d-none`);
+   //    $(`#new-user-password`).removeClass(`is-invalid`);
+   // }
 });
 
 /**********************************************************/
 /*********** CODE BELOW THIS LINE FOR EDIT CARD************/
 /**********************************************************/
-$(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
-   const topText = $(`#edit-input-top-card`).val();
-   const bottomText = $(`#edit-input-bottom-card`).val();
-   console.log(`topText val: ${topText}`);
-   console.log(`bottomText val: ${bottomText}`);
+// $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
+//    const topText = $(`#edit-input-top-card`).val();
+//    const bottomText = $(`#edit-input-bottom-card`).val();
+//    console.log(`topText val: ${topText}`);
+//    console.log(`bottomText val: ${bottomText}`);
 
-   const topTextLength = topText.length;
-   console.log(`the top text length is ${topTextLength}`);
-   const bottomTextLength = bottomText.length;
-   console.log(`the bottom text length is ${bottomTextLength}`);
+//    const topTextLength = topText.length;
+//    console.log(`the top text length is ${topTextLength}`);
+//    const bottomTextLength = bottomText.length;
+//    console.log(`the bottom text length is ${bottomTextLength}`);
 
-   $(`#edit-top-card-char-count`).html(topTextLength);
-   $(`#edit-bottom-card-char-count`).html(bottomTextLength);
+//    $(`#edit-top-card-char-count`).html(topTextLength);
+//    $(`#edit-bottom-card-char-count`).html(bottomTextLength);
 
-   if (topTextLength <= 240) {
-      $(`#edit-top-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-top-card-char-count`).addClass(`text-danger`);
-   }
+//    if (topTextLength <= 240) {
+//       $(`#edit-top-card-char-count`).removeClass(`text-danger`);
+//    } else {
+//       $(`#edit-top-card-char-count`).addClass(`text-danger`);
+//    }
 
-   if (bottomTextLength <= 240) {
-      $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
-   }
+//    if (bottomTextLength <= 240) {
+//       $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
+//    } else {
+//       $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
+//    }
 
-   if (
-      topTextLength > 0 &&
-      topTextLength <= 240 &&
-      bottomTextLength > 0 &&
-      bottomTextLength <= 240
-   ) {
-      $(`#save-card`).removeClass(`disabled`);
-   } else {
-      $(`#save-card`).addClass(`disabled`);
-   }
-});
+//    if (
+//       topTextLength > 0 &&
+//       topTextLength <= 240 &&
+//       bottomTextLength > 0 &&
+//       bottomTextLength <= 240
+//    ) {
+//       $(`#save-card`).removeClass(`disabled`);
+//    } else {
+//       $(`#save-card`).addClass(`disabled`);
+//    }
+// });
 
 /**********************************************************/
 /******* CODE BELOW THIS LINE FOR CREATE ANSWER CARD*******/
 /**********************************************************/
-$(`#create-answer-input`).keyup(function (e) {
-   console.log(`Event: `, e);
+// $(`#create-answer-input`).keyup(function (e) {
+//    console.log(`Event: `, e);
 
-   // get the text from the text area
-   const text = e.target.value;
-   console.log(`inputted: ${text}`);
+//    // get the text from the text area
+//    const text = e.target.value;
+//    console.log(`inputted: ${text}`);
 
-   // check the length of the text
-   const textLength = text.length;
-   console.log(`Total inputted chars: ${textLength}`);
+//    // check the length of the text
+//    const textLength = text.length;
+//    console.log(`Total inputted chars: ${textLength}`);
 
-   // update the character counter on the page
-   $(`#create-answer-char-count`).html(textLength);
+//    // update the character counter on the page
+//    $(`#create-answer-char-count`).html(textLength);
 
-   if (textLength > 0 || textLength < 241) {
-      console.log(`acceptable character input number`);
-      $(`#create-answer-char-count`).removeClass(`text-danger`);
-      $(`#click-next`).removeClass(`disabled`);
-   }
-   if (textLength === 0 || textLength > 240) {
-      console.log(`unacceptable number of characters`);
-      $(`#create-answer-char-count`).addClass(`text-danger`);
-      $(`#click-next`).addClass(`disabled`);
-   }
-});
+//    if (textLength > 0 || textLength < 241) {
+//       console.log(`acceptable character input number`);
+//       $(`#create-answer-char-count`).removeClass(`text-danger`);
+//       $(`#click-next`).removeClass(`disabled`);
+//    }
+//    if (textLength === 0 || textLength > 240) {
+//       console.log(`unacceptable number of characters`);
+//       $(`#create-answer-char-count`).addClass(`text-danger`);
+//       $(`#click-next`).addClass(`disabled`);
+//    }
+// });
 
 /**********************************************************/
 /****** CODE BELOW THIS LINE FOR CREATE IMAGERY CARD*******/
 /**********************************************************/
 
-$(`#create-imagery-input`).keyup(function (e) {
-   console.log(`Event: `, e);
+// $(`#create-imagery-input`).keyup(function (e) {
+//    console.log(`Event: `, e);
 
-   // get the text from the text area
-   const text = e.target.value;
-   const username = `John`;
-   console.log(`${username} inputted: ${text}`);
+//    // get the text from the text area
+//    const text = e.target.value;
+//    const username = `John`;
+//    console.log(`${username} inputted: ${text}`);
 
-   // check the length of the text
-   const textLength = text.length;
-   console.log(`Total inputted chars: ${textLength}`);
+//    // check the length of the text
+//    const textLength = text.length;
+//    console.log(`Total inputted chars: ${textLength}`);
 
-   // update the character counter on the page
-   $(`#imagery-char-count`).html(textLength);
+//    // update the character counter on the page
+//    $(`#imagery-char-count`).html(textLength);
 
-   if (textLength > 0 || textLength < 241) {
-      console.log(`acceptable character input number`);
-      $(`#imagery-char-count`).removeClass(`text-danger`);
-      $(`#save-card`).removeAttr(`disabled`);
-   }
-   if (textLength === 0 || textLength > 240) {
-      console.log(`unacceptable number of characters`);
-      $(`#imagery-char-count`).addClass(`text-danger`);
-      $(`#save-card`).attr(`disabled`, `disabled`);
-   }
-});
+//    if (textLength > 0 || textLength < 241) {
+//       console.log(`acceptable character input number`);
+//       $(`#imagery-char-count`).removeClass(`text-danger`);
+//       $(`#save-card`).removeAttr(`disabled`);
+//    }
+//    if (textLength === 0 || textLength > 240) {
+//       console.log(`unacceptable number of characters`);
+//       $(`#imagery-char-count`).addClass(`text-danger`);
+//       $(`#save-card`).attr(`disabled`, `disabled`);
+//    }
+// });
