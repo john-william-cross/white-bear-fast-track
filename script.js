@@ -197,43 +197,30 @@ $("#lets-go-button").click(function (e) {
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
    const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
-   for (let i = 0; i < unacceptablePasswords.length; i++) {
-      if (newUserPassword.toLowerCase().trim() === unacceptablePasswords[i]) {
-         console.log(`We found a result for ${newUserPassword}!`);
-      } else {
-         console.log(`Sorry, couldn't find anything for ${newUserPassword}`);
-      }
+   const lowerCasedPassword = newUserPassword.toLowerCase();
+   if (lowerCasedPassword.length === 0) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordEmptyError);
+   } else if (lowerCasedPassword.length < 9) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordLengthError);
+   } else if (
+      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
+      localPartTrimmedNewUserEmailLength >= 4
+   ) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordContainsEmailCharsError);
+   } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
+      $(`#new-user-password`).addClass(`is-invalid`);
+   } else {
+      $(`#password-error-message`).addClass(`d-none`);
+      $(`#new-user-password`).removeClass(`is-invalid`);
    }
-
-   // if (userEntry.toLowerCase().trim() === unacceptablePasswords[12]) {
-   //    console.log(`We found a result for ${userEntry}!`);
-   // } else {
-   //    console.log(`Sorry, couldn't find anything for ${userEntry}`);
-   // }
-
-   // if (newUserPassword.length === 0) {
-   //    $(`#password-error-message`).removeClass(`d-none`);
-   //    $(`#new-user-password`).addClass(`is-invalid`);
-   //    $(`#password-error-message`).html(passwordEmptyError);
-   // } else if (newUserPassword.length < 9) {
-   //    $(`#password-error-message`).removeClass(`d-none`);
-   //    $(`#new-user-password`).addClass(`is-invalid`);
-   //    $(`#password-error-message`).html(passwordLengthError);
-   // } else if (
-   //    newUserPassword.includes(localPartTrimmedNewUserEmail) &&
-   //    localPartTrimmedNewUserEmailLength >= 4
-   // ) {
-   //    $(`#password-error-message`).removeClass(`d-none`);
-   //    $(`#new-user-password`).addClass(`is-invalid`);
-   //    $(`#password-error-message`).html(passwordContainsEmailCharsError);
-   // } else if (unacceptablePasswords.includes(newUserPassword)) {
-   //    $(`#password-error-message`).removeClass(`d-none`);
-   //    $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
-   //    $(`#new-user-password`).addClass(`is-invalid`);
-   // } else {
-   //    $(`#password-error-message`).addClass(`d-none`);
-   //    $(`#new-user-password`).removeClass(`is-invalid`);
-   // }
 });
 
 /**********************************************************/
