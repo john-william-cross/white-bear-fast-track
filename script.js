@@ -177,7 +177,7 @@ $("#lets-go-button").click(function (e) {
    );
 
    let clickedAt = new Date();
-   clickedAt = new Date(2020, 1, 7); //uncomment to test
+   // clickedAt = new Date(2020, 1, 7); //uncomment to test
    const year = clickedAt.getFullYear();
    //console.log(year);
    const month = clickedAt.getMonth();
