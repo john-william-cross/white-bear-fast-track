@@ -190,16 +190,19 @@ $("#lets-go-button").click(function (e) {
    // If the month or day is only 1 character in length, pad
    // it with a 0 to the left of it. (E.g. 8 should be 08.)
 
-   const createdAt = new Date();
+   let createdAt = new Date();
    const year = createdAt.getFullYear();
    console.log(year);
    const month = createdAt.getMonth();
    console.log(month);
-   if (month.length < 10) {
-      month = 0 + month;
-   }
    const day = createdAt.getDate();
    console.log(day);
+
+   yearToString = year.toString();
+   monthToString = month.toString();
+   dayToString = day.toString();
+
+   console.log(yearToString + monthToString + dayToString);
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
