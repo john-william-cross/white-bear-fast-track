@@ -184,6 +184,23 @@ $("#lets-go-button").click(function (e) {
       unacceptablePasswords
    );
 
+   // When the user clicks “Let’s Go” on sign up,
+   // create a const called createdAt and store the
+   // date that the user signed up in this format: YYYYMMDD.
+   // If the month or day is only 1 character in length, pad
+   // it with a 0 to the left of it. (E.g. 8 should be 08.)
+
+   const createdAt = new Date();
+   const year = createdAt.getFullYear();
+   console.log(year);
+   const month = createdAt.getMonth();
+   console.log(month);
+   if (month.length < 10) {
+      month = 0 + month;
+   }
+   const day = createdAt.getDate();
+   console.log(day);
+
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
