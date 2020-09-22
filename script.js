@@ -190,17 +190,23 @@ $("#lets-go-button").click(function (e) {
    // If the month or day is only 1 character in length, pad
    // it with a 0 to the left of it. (E.g. 8 should be 08.)
 
-   let createdAt = new Date();
+   const createdAt = new Date();
    const year = createdAt.getFullYear();
-   console.log(year);
+   //console.log(year);
    const month = createdAt.getMonth();
-   console.log(month);
+   monthPlusOne = month + 1;
+   //console.log(monthPlusOne);
    const day = createdAt.getDate();
    console.log(day);
 
    yearToString = year.toString();
-   monthToString = month.toString();
+   monthToString = monthPlusOne.toString();
+   //console.log(monthToString);
    dayToString = day.toString();
+
+   if (monthToString < 10) {
+      monthToString = 0 + monthToString;
+   }
 
    console.log(yearToString + monthToString + dayToString);
 
