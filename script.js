@@ -33,14 +33,14 @@ $("#lets-go-button").click(function (e) {
    // console.log(`password length is ${newUserPassword.length}`);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-   console.log(trimmedNewUserEmailAddress);
+   //console.log(trimmedNewUserEmailAddress);
    // console.log(`New user email address is ${newUserEmailAddress}`);
    // console.log(
    //    `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
    // );
 
    const localPartTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
-   console.log(localPartTrimmedNewUserEmail);
+   //console.log(localPartTrimmedNewUserEmail);
    trimmedNewUserEmailAddress = localPartTrimmedNewUserEmail.slice(0, 1);
 
    console.log(
@@ -209,7 +209,7 @@ $("#lets-go-button").click(function (e) {
    const fullDate = yearToString + monthToString + dayToString;
    fulldate = parseInt(fullDate);
    const createdAt = fullDate;
-   console.log(createdAt);
+   console.log(`The date is\n`, createdAt);
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
