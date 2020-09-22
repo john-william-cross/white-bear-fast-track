@@ -50,8 +50,12 @@ $("#lets-go-button").click(function (e) {
    // console.log(
    //    `length of the localparttrimmed new user email is: ${localPartTrimmedNewUserEmail.length}`
    // );
-   const localPartTrimmedNewUserEmailLength =
-      localPartTrimmedNewUserEmail.length;
+   // const localPartTrimmedNewUserEmailLength =
+   //    localPartTrimmedNewUserEmail.length;
+   console.log(
+      `length of trimmed user email is: `,
+      localPartTrimmedNewUserEmail.length
+   );
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -225,8 +229,7 @@ $("#lets-go-button").click(function (e) {
    const lowerCasedPassword = newUserPassword.toLowerCase();
 
    console.log(
-      `here is the local part trimmed email address:\n`,
-      trimmedNewUserEmailAddress
+      `here is the local part trimmed email address:\n ${trimmedNewUserEmailAddress}`
    );
    console.log(`here is the lower cased password:\n`, lowerCasedPassword);
 
@@ -239,8 +242,9 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordLengthError);
    } else if (
-      lowerCasedPassword.includes(trimmedNewUserEmailAddress) &&
-      trimmedNewUserEmailAddress.length >= 4
+      lowerCasedPassword.includes(trimmedNewUserEmailAddress)
+      // &&
+      // localPartTrimmedNewUserEmailLength >= 4
    ) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
