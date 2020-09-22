@@ -141,18 +141,20 @@ $("#lets-go-button").click(function (e) {
    //    unacceptablePasswordsWithNums
    // );
 
-   let oldUnacceptablePasswords = [];
+   let unacceptablePasswordStrings = [];
    for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
       const value = unacceptablePasswordsWithNums[i];
-      oldUnacceptablePasswords = oldUnacceptablePasswords.concat(String(value));
+      unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
+         String(value)
+      );
    }
-   //console.log(`here are the old passwords:\n`, oldUnacceptablePasswords);
+   //console.log(`here are the old passwords:\n`, unacceptablePasswordStrings);
 
    let unacceptablePasswordsForwardAndReversed = [];
    //creates empty array
-   for (i = 0; i < oldUnacceptablePasswords.length; i++) {
-      //keep doing the following until i < oldUnacceptablePasswords.length
-      let passwordChars = oldUnacceptablePasswords[i].split(``);
+   for (i = 0; i < unacceptablePasswordStrings.length; i++) {
+      //keep doing the following until i < unacceptablePasswordStrings.length
+      let passwordChars = unacceptablePasswordStrings[i].split(``);
       //splits each word in oldUnacccetablePasswords list and assigns it to passwordChars
       ///console.log(`Split password chars:\n`, passwordChars);
       const copyOfPasswordChars = [...passwordChars];
@@ -168,7 +170,7 @@ $("#lets-go-button").click(function (e) {
          reversedUnacceptablePasswords
       ); //fills empty array with reversedUnacceptablePasswords
    }
-   let forwardAndReversedPasswords = oldUnacceptablePasswords.concat(
+   let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
       unacceptablePasswordsForwardAndReversed
    ); //combines forward passwords array with reverse passwords array into a new array called
    //forwardAndReversedPasswords
@@ -179,9 +181,9 @@ $("#lets-go-button").click(function (e) {
 
    let normalizedPasswords = [];
    for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
-      const passwords = String(forwardAndReversedPasswords);
-      const lowerCasedPasswords = passwords.toLowerCase();
-      normalizedPasswords = lowerCasedPasswords.toLowerCase().split(`,`);
+      const password = forwardAndReversedPasswords[i];
+      const lowerCasedPassword = password.toLowerCase();
+      normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
    }
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
    let unacceptablePasswords = [...new Set(normalizedPasswords)];
