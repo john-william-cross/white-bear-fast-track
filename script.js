@@ -30,7 +30,7 @@ $("#lets-go-button").click(function (e) {
    // );
 
    const newUserPassword = $(`#new-user-password`).val();
-   // console.log(`password length is ${newUserPassword.length}`);
+   console.log(newUserPassword);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    //console.log(trimmedNewUserEmailAddress);
@@ -223,6 +223,13 @@ $("#lets-go-button").click(function (e) {
    const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
    const lowerCasedPassword = newUserPassword.toLowerCase();
+
+   console.log(
+      `here is the local part trimmed email address:\n`,
+      trimmedNewUserEmailAddress
+   );
+   console.log(`here is the lower cased password:\n`, lowerCasedPassword);
+
    if (lowerCasedPassword.length === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
@@ -232,8 +239,8 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordLengthError);
    } else if (
-      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
-      localPartTrimmedNewUserEmailLength >= 4
+      lowerCasedPassword.includes(trimmedNewUserEmailAddress) &&
+      trimmedNewUserEmailAddress.length >= 4
    ) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
