@@ -176,30 +176,36 @@ $("#lets-go-button").click(function (e) {
       unacceptablePasswords
    );
 
-   const clickedOn = new Date();
-   const year = clickedOn.getFullYear();
+   let clickedAt = new Date();
+   clickedAt = new Date(2020, 1, 7); //uncomment to test
+   const year = clickedAt.getFullYear();
    //console.log(year);
-   const month = clickedOn.getMonth();
+   const month = clickedAt.getMonth();
 
-   if (month < 12) {
-      monthPlusOne = month + 1;
-      //console.log(monthPlusOne);
-   }
+   const monthPlusOne = month + 1;
+   //console.log(monthPlusOne);
 
-   const day = clickedOn.getDate();
+   const day = clickedAt.getDate();
+
    //console.log(day);
 
-   yearToString = year.toString();
-   monthToString = monthPlusOne.toString();
+   const dayToString = String(day);
+   const yearToString = String(year);
+   const monthToString = String(monthPlusOne);
    //console.log(monthToString);
-   dayToString = day.toString();
 
-   if (monthToString < 10) {
-      monthToString = 0 + monthToString;
+   let paddedDay = dayToString;
+   if (dayToString < 10) {
+      paddedDay = 0 + dayToString;
    }
 
-   const fullDate = yearToString + monthToString + dayToString;
-   fulldate = parseInt(fullDate);
+   let paddedMonth = monthToString;
+   if (monthToString < 10) {
+      paddedMonth = 0 + monthToString;
+   }
+
+   const fullDate = yearToString + paddedMonth + paddedDay;
+   fulldate = Number(fullDate);
    const createdAt = fullDate;
    console.log(`The date is\n`, createdAt);
 
