@@ -224,7 +224,7 @@ $("#lets-go-button").click(function (e) {
       $(`#password-error-message`).html(passwordLengthError);
    } else if (
       lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
-      localPartTrimmedNewUserEmail.length >= 4
+      localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
    ) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
@@ -238,7 +238,7 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-password`).removeClass(`is-invalid`);
    }
 });
-
+//
 /**********************************************************/
 /*********** CODE BELOW THIS LINE FOR EDIT CARD************/
 /**********************************************************/
