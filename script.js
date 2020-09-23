@@ -30,7 +30,7 @@ $("#lets-go-button").click(function (e) {
    // );
 
    const newUserPassword = $(`#new-user-password`).val();
-   console.log(newUserPassword);
+   console.log(`new user password: `, newUserPassword);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    //console.log(trimmedNewUserEmailAddress);
@@ -39,23 +39,30 @@ $("#lets-go-button").click(function (e) {
    //    `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
    // );
 
+   //TODO
    const localPartTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
-   //console.log(localPartTrimmedNewUserEmail);
-   trimmedNewUserEmailAddress = localPartTrimmedNewUserEmail.slice(0, 1);
+   const copyOfLocalPartTrimmedNewUserEmail = [...trimmedNewUserEmailAddress];
+
+   console.log(`here's your copy:`, copyOfLocalPartTrimmedNewUserEmail);
+
+   const joinedLocalPartEmail = copyOfLocalPartTrimmedNewUserEmail.join("");
+
+   console.log(joinedLocalPartEmail.length);
 
    console.log(
       `the local part of the trimmed new user email is ${trimmedNewUserEmailAddress}`
    );
 
-   // console.log(
-   //    `length of the localparttrimmed new user email is: ${localPartTrimmedNewUserEmail.length}`
-   // );
-   // const localPartTrimmedNewUserEmailLength =
-   //    localPartTrimmedNewUserEmail.length;
+   console.log(
+      `trimmedNewUserEmailAddress is a type of`,
+      typeof trimmedNewUserEmailAddress
+   );
+
    console.log(
       `length of trimmed user email is: `,
-      localPartTrimmedNewUserEmail.length
+      trimmedNewUserEmailAddress.length
    );
+   //TODO
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -243,8 +250,8 @@ $("#lets-go-button").click(function (e) {
       $(`#password-error-message`).html(passwordLengthError);
    } else if (
       lowerCasedPassword.includes(trimmedNewUserEmailAddress)
-      // &&
-      // localPartTrimmedNewUserEmailLength >= 4
+      //  &&
+      // trimmedNewUserEmailAddress.length >= 4
    ) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
