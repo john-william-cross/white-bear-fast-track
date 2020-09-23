@@ -33,36 +33,10 @@ $("#lets-go-button").click(function (e) {
    console.log(`new user password: `, newUserPassword);
 
    trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-   //console.log(trimmedNewUserEmailAddress);
-   // console.log(`New user email address is ${newUserEmailAddress}`);
-   // console.log(
-   //    `Trimmed new user email address is ${trimmedNewUserEmailAddress}.`
-   // );
 
-   //TODO
-   const localPartTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
-   const copyOfLocalPartTrimmedNewUserEmail = [...trimmedNewUserEmailAddress];
+   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
 
-   console.log(`here's your copy:`, copyOfLocalPartTrimmedNewUserEmail);
-
-   const joinedLocalPartEmail = copyOfLocalPartTrimmedNewUserEmail.join("");
-
-   console.log(joinedLocalPartEmail.length);
-
-   console.log(
-      `the local part of the trimmed new user email is ${trimmedNewUserEmailAddress}`
-   );
-
-   console.log(
-      `trimmedNewUserEmailAddress is a type of`,
-      typeof trimmedNewUserEmailAddress
-   );
-
-   console.log(
-      `length of trimmed user email is: `,
-      trimmedNewUserEmailAddress.length
-   );
-   //TODO
+   const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -236,7 +210,7 @@ $("#lets-go-button").click(function (e) {
    const lowerCasedPassword = newUserPassword.toLowerCase();
 
    console.log(
-      `here is the local part trimmed email address:\n ${trimmedNewUserEmailAddress}`
+      `here is the local part trimmed email address:\n ${localPartTrimmedNewUserEmail}`
    );
    console.log(`here is the lower cased password:\n`, lowerCasedPassword);
 
@@ -249,9 +223,8 @@ $("#lets-go-button").click(function (e) {
       $(`#new-user-password`).addClass(`is-invalid`);
       $(`#password-error-message`).html(passwordLengthError);
    } else if (
-      lowerCasedPassword.includes(trimmedNewUserEmailAddress)
-      //  &&
-      // trimmedNewUserEmailAddress.length >= 4
+      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
+      localPartTrimmedNewUserEmail.length >= 4
    ) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
