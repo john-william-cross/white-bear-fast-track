@@ -214,6 +214,17 @@ $("#lets-go-button").click(function (e) {
    );
    console.log(`here is the lower cased password:\n`, lowerCasedPassword);
 
+   console.log(
+      `lowercased password includes email: `,
+      lowerCasedPassword.includes(localPartTrimmedNewUserEmail)
+   );
+
+   console.log(
+      `both things are met?`,
+      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
+         localPartTrimmedNewUserEmail.length >= 4
+   );
+
    if (lowerCasedPassword.length === 0) {
       $(`#password-error-message`).removeClass(`d-none`);
       $(`#new-user-password`).addClass(`is-invalid`);
