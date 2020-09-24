@@ -355,4 +355,4 @@ $(`#create-imagery-input`).keyup(function (e) {
 
 //////////FUNCTIONS
 
-getEmailError();
+// getEmailError();
