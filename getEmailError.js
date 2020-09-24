@@ -8,12 +8,15 @@ function getEmailError() {
    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+   console.log(localPartTrimmedNewUserEmail);
+   console.log(localPartTrimmedNewUserEmail.length);
 
-   if (newUserEmailAddressLength === 0) {
+   if (localPartTrimmedNewUserEmail.length === 0) {
       $(`#email-error-message`).removeClass(`d-none`);
       $(`#new-user-email`).addClass(`is-invalid`);
-   } else if (localPartTrimmedNewUserEmail > 0) {
-      console.log(localPartTrimmedNewUserEmail);
+   } else if (localPartTrimmedNewUserEmail.length > 0) {
+      // console.log(localPartTrimmedNewUserEmail);
+      // console.log(newUserEmailAddressLength);
       $(`#email-error-message`).addClass(`d-none`);
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
