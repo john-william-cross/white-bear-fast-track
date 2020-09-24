@@ -20,6 +20,9 @@ $(".sign-up-prompt").click(function () {
    $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
 });
+$("#lets-go-button").click(function (e) {
+   getEmailError();
+});
 
 // $("#lets-go-button").click(function (e) {
 // // const newUserEmailAddress = $(`#new-user-email`).val();
@@ -29,8 +32,8 @@ $(".sign-up-prompt").click(function () {
 //    `new user email address length is: ${newUserEmailAddressLength}`
 // );
 
-const newUserPassword = $(`#new-user-password`).val();
-console.log(`new user password: `, newUserPassword);
+//// const newUserPassword = $(`#new-user-password`).val();
+//// console.log(`new user password: `, newUserPassword);
 
 // //const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 
@@ -38,129 +41,127 @@ console.log(`new user password: `, newUserPassword);
 
 //// const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
-const unacceptablePasswordsLists = mostInsecurePasswords.concat(
-   secondMostInsecurePasswords
-);
+//// const unacceptablePasswordsLists = mostInsecurePasswords.concat(
+// //   secondMostInsecurePasswords
+//// );
 
-const flattenedUnacceptablePasswordsLists = unacceptablePasswordsLists.flat();
+//// const flattenedUnacceptablePasswordsLists = unacceptablePasswordsLists.flat();
 // console.log(
 //    `flatted unacceptable passwords:\n`,
 //    flattenedUnacceptablePasswords
 // );
 
-const allUniqUnacceptablePasswords = [
-   ...new Set(flattenedUnacceptablePasswordsLists),
-];
-// console.log(
-//    `Here's a list of all unique unacceptable passwords:\n`,
-//    allUniqUnacceptablePasswords
-// );
+// //
+//// console.log(
+// //   `Here's a list of all unique unacceptable passwords:\n`,
+// //   allUniqUnacceptablePasswords
+//// );
 
-const firstUniqPasswords = allUniqUnacceptablePasswords.slice(
-   0,
-   allUniqUnacceptablePasswords.indexOf(`skywalker`)
-);
+//// const firstUniqPasswords = allUniqUnacceptablePasswords.slice(
+////    0,
+////    allUniqUnacceptablePasswords.indexOf(`skywalker`)
+//// );
 
 // console.log(
 //    `here is the first part of the unique passwords:\n`,
 //    firstUniqPasswords
 // );
 
-const secondUniqPasswords = allUniqUnacceptablePasswords.slice(
-   4,
-   allUniqUnacceptablePasswords.indexOf(`obama2016`)
-);
-// console.log(
-//    `here is the second part of the unique passwords:\n`,
-//    secondUniqPasswords
-// );
+//// const secondUniqPasswords = allUniqUnacceptablePasswords.slice(
+////    4,
+////    allUniqUnacceptablePasswords.indexOf(`obama2016`)
+//// );
+//// console.log(
+////    `here is the second part of the unique passwords:\n`,
+////    secondUniqPasswords
+//// );
 
-const thirdUniqPasswords = allUniqUnacceptablePasswords.slice(7);
+// const thirdUniqPasswords = allUniqUnacceptablePasswords.slice(7);
 // console.log(
 //    `here is the third part of the unique passwords:\n`,
 //    thirdUniqPasswords
 // );
 
-allCleanedUpUniqPasswords = firstUniqPasswords.concat(
-   secondUniqPasswords,
-   thirdUniqPasswords
-);
+// allCleanedUpUniqPasswords = firstUniqPasswords.concat(
+//    secondUniqPasswords,
+//    thirdUniqPasswords
+// );
 
 // console.log(
 //    `Here are all the cleaned-up unique passwords:\n`,
 //    allCleanedUpUniqPasswords
 // );
 
-const unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
-let unacceptablePasswordsWithNums = [];
-for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
-   // console.log(unacceptablePasswordsWithBoolsAndNums[i]);
+// const unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
+// let unacceptablePasswordsWithNums = [];
+// for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
+//    // console.log(unacceptablePasswordsWithBoolsAndNums[i]);
 
-   const password = unacceptablePasswordsWithBoolsAndNums[i];
+//    const password = unacceptablePasswordsWithBoolsAndNums[i];
 
-   if (typeof password !== "boolean") {
-      unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
-         unacceptablePasswordsWithBoolsAndNums[i],
-      ]);
-   }
-}
+//    if (typeof password !== "boolean") {
+//       unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
+//          unacceptablePasswordsWithBoolsAndNums[i],
+//       ]);
+//    }
+// }
 
 // console.log(
 //    `Here are the passwords made up of strings and numbers:\n`,
 //    unacceptablePasswordsWithNums
 // );
 
-let unacceptablePasswordStrings = [];
-for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
-   const value = unacceptablePasswordsWithNums[i];
-   unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
-      String(value)
-   );
-}
+// let unacceptablePasswordStrings = [];
+// for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
+//    const value = unacceptablePasswordsWithNums[i];
+//    unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
+//       String(value)
+//    );
+// }
 //console.log(`here are the old passwords:\n`, unacceptablePasswordStrings);
 
-let unacceptablePasswordsForwardAndReversed = [];
-//creates empty array
-for (i = 0; i < unacceptablePasswordStrings.length; i++) {
-   //keep doing the following until i < unacceptablePasswordStrings.length
-   let passwordChars = unacceptablePasswordStrings[i].split(``);
-   //splits each word in oldUnacccetablePasswords list and assigns it to passwordChars
-   ///console.log(`Split password chars:\n`, passwordChars);
-   const copyOfPasswordChars = [...passwordChars];
-   //makes a copy of passwordChars
-   //console.log(`copy of password chars:\n`, copyOfPasswordChars);
-   const reversePasswordChars = copyOfPasswordChars.reverse();
-   //reverses each split password      console.log(`the bank's run out of money. purple monkey dishwasher.`);
+// let unacceptablePasswordsForwardAndReversed = [];
+// //creates empty array
+// for (i = 0; i < unacceptablePasswordStrings.length; i++) {
+//    //keep doing the following until i < unacceptablePasswordStrings.length
+//    let passwordChars = unacceptablePasswordStrings[i].split(``);
+//    //splits each word in oldUnacccetablePasswords list and assigns it to passwordChars
+//    ///console.log(`Split password chars:\n`, passwordChars);
+//    const copyOfPasswordChars = [...passwordChars];
+//    //makes a copy of passwordChars
+//    //console.log(`copy of password chars:\n`, copyOfPasswordChars);
+//    const reversePasswordChars = copyOfPasswordChars.reverse();
+//    //reverses each split password      console.log(`the bank's run out of money. purple monkey dishwasher.`);
 
-   //console.log(`Reversed password chars:\n`, reversePasswordChars);
-   const reversedUnacceptablePasswords = reversePasswordChars.join(``);
-   //joins (un-splits) each reverse password back together
-   //console.log(reversedUnacceptablePasswords);
-   unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
-      reversedUnacceptablePasswords
-   ); //fills empty array with reversedUnacceptablePasswords
-}
-let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
-   unacceptablePasswordsForwardAndReversed
-); //combines forward passwords array with reverse passwords array into a new array called
+//    //console.log(`Reversed password chars:\n`, reversePasswordChars);
+//    const reversedUnacceptablePasswords = reversePasswordChars.join(``);
+//    //joins (un-splits) each reverse password back together
+//    //console.log(reversedUnacceptablePasswords);
+//    unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
+//       reversedUnacceptablePasswords
+//    ); //fills empty array with reversedUnacceptablePasswords
+// }
+// let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
+//    unacceptablePasswordsForwardAndReversed
+// ); //combines forward passwords array with reverse passwords array into a new array called
 //forwardAndReversedPasswords
 // console.log(
 //    `Here's the new list of unacceptable passwords in forward and reverse order:\n`,
 //    forwardAndReversedPasswords
 // );
 
-let normalizedPasswords = [];
-for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
-   const password = forwardAndReversedPasswords[i];
-   const lowerCasedPassword = password.toLowerCase();
-   normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
-}
-//console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-let unacceptablePasswords = [...new Set(normalizedPasswords)];
-console.log(
-   `Here are the unacceptable passwords, all of which are unique and normalized\n`,
-   unacceptablePasswords
-);
+// let normalizedPasswords = [];
+// for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
+//    const password = forwardAndReversedPasswords[i];
+//    const lowerCasedPassword = password.toLowerCase();
+//    normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
+// }
+// //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
+// let unacceptablePasswords = [...new Set(normalizedPasswords)];
+// console.log(
+//    `Here are the unacceptable passwords, all of which are unique and normalized\n`,
+//    unacceptablePasswords
+// );
 
 let clickedAt = new Date();
 // clickedAt = new Date(2020, 1, 7); //uncomment to test
@@ -203,17 +204,17 @@ console.log(`The date is\n`, createdAt);
 // //   $(`#new-user-email`).removeClass(`is-invalid`);
 //// }
 
-const passwordEmptyError = `Please create a password.`;
-const passwordLengthError = `Your password must be at least 9 characters.`;
-const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
-const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
+// const passwordEmptyError = `Please create a password.`;
+// const passwordLengthError = `Your password must be at least 9 characters.`;
+// const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
+// const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
 
-const lowerCasedPassword = newUserPassword.toLowerCase();
+// const lowerCasedPassword = newUserPassword.toLowerCase();
 
 // console.log(
 //    `here is the local part trimmed email address:\n ${localPartTrimmedNewUserEmail}`
 // );
-console.log(`here is the lower cased password:\n`, lowerCasedPassword);
+// console.log(`here is the lower cased password:\n`, lowerCasedPassword);
 
 //// console.log(
 // //   `lowercased password includes email: `,
@@ -226,29 +227,29 @@ console.log(`here is the lower cased password:\n`, lowerCasedPassword);
 // //      localPartTrimmedNewUserEmail.length >= 4
 //// );
 
-if (lowerCasedPassword.length === 0) {
-   $(`#password-error-message`).removeClass(`d-none`);
-   $(`#new-user-password`).addClass(`is-invalid`);
-   $(`#password-error-message`).html(passwordEmptyError);
-} else if (lowerCasedPassword.length < 9) {
-   $(`#password-error-message`).removeClass(`d-none`);
-   $(`#new-user-password`).addClass(`is-invalid`);
-   $(`#password-error-message`).html(passwordLengthError);
-} else if (
-   lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
-   localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
-) {
-   $(`#password-error-message`).removeClass(`d-none`);
-   $(`#new-user-password`).addClass(`is-invalid`);
-   $(`#password-error-message`).html(passwordContainsEmailCharsError);
-} else if (unacceptablePasswords.includes(lowerCasedPassword)) {
-   $(`#password-error-message`).removeClass(`d-none`);
-   $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
-   $(`#new-user-password`).addClass(`is-invalid`);
-} else {
-   $(`#password-error-message`).addClass(`d-none`);
-   $(`#new-user-password`).removeClass(`is-invalid`);
-}
+// if (lowerCasedPassword.length === 0) {
+//    $(`#password-error-message`).removeClass(`d-none`);
+//    $(`#new-user-password`).addClass(`is-invalid`);
+//    $(`#password-error-message`).html(passwordEmptyError);
+// } else if (lowerCasedPassword.length < 9) {
+//    $(`#password-error-message`).removeClass(`d-none`);
+//    $(`#new-user-password`).addClass(`is-invalid`);
+//    $(`#password-error-message`).html(passwordLengthError);
+// } else if (
+//    lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
+//    localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
+// ) {
+//    $(`#password-error-message`).removeClass(`d-none`);
+//    $(`#new-user-password`).addClass(`is-invalid`);
+//    $(`#password-error-message`).html(passwordContainsEmailCharsError);
+// } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
+//    $(`#password-error-message`).removeClass(`d-none`);
+//    $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
+//    $(`#new-user-password`).addClass(`is-invalid`);
+// } else {
+//    $(`#password-error-message`).addClass(`d-none`);
+//    $(`#new-user-password`).removeClass(`is-invalid`);
+// }
 // });
 //
 /**********************************************************/

@@ -1,7 +1,3 @@
-$("#lets-go-button").click(function (e) {
-   getEmailError();
-});
-
 function getEmailError() {
    const newUserEmailAddress = $(`#new-user-email`).val();
    // const newUserEmailAddressLength = newUserEmailAddress.length; <--- no reason to keep this, correct?
