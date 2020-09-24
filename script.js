@@ -253,6 +253,8 @@ $("#lets-go-button").click(function (e) {
 /**********************************************************/
 /*********** CODE BELOW THIS LINE FOR EDIT CARD************/
 /**********************************************************/
+const maxCharCardInput = 240;
+
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    const topText = $(`#edit-input-top-card`).val();
    const bottomText = $(`#edit-input-bottom-card`).val();
@@ -267,13 +269,13 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    $(`#edit-top-card-char-count`).html(topTextLength);
    $(`#edit-bottom-card-char-count`).html(bottomTextLength);
 
-   if (topTextLength <= 240) {
+   if (topTextLength <= maxCharCardInput) {
       $(`#edit-top-card-char-count`).removeClass(`text-danger`);
    } else {
       $(`#edit-top-card-char-count`).addClass(`text-danger`);
    }
 
-   if (bottomTextLength <= 240) {
+   if (bottomTextLength <= maxCharCardInput) {
       $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
    } else {
       $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
@@ -281,9 +283,9 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
 
    if (
       topTextLength > 0 &&
-      topTextLength <= 240 &&
+      topTextLength <= maxCharCardInput &&
       bottomTextLength > 0 &&
-      bottomTextLength <= 240
+      bottomTextLength <= maxCharCardInput
    ) {
       $(`#save-card`).removeClass(`disabled`);
    } else {
@@ -308,12 +310,12 @@ $(`#create-answer-input`).keyup(function (e) {
    // update the character counter on the page
    $(`#create-answer-char-count`).html(textLength);
 
-   if (textLength > 0 || textLength < 241) {
+   if (textLength > 0 || textLength <= maxCharCardInput) {
       console.log(`acceptable character input number`);
       $(`#create-answer-char-count`).removeClass(`text-danger`);
       $(`#click-next`).removeClass(`disabled`);
    }
-   if (textLength === 0 || textLength > 240) {
+   if (textLength === 0 || textLength > maxCharCardInput) {
       console.log(`unacceptable number of characters`);
       $(`#create-answer-char-count`).addClass(`text-danger`);
       $(`#click-next`).addClass(`disabled`);
@@ -339,12 +341,12 @@ $(`#create-imagery-input`).keyup(function (e) {
    // update the character counter on the page
    $(`#imagery-char-count`).html(textLength);
 
-   if (textLength > 0 || textLength < 241) {
+   if (textLength > 0 || textLength <= maxCharCardInput) {
       console.log(`acceptable character input number`);
       $(`#imagery-char-count`).removeClass(`text-danger`);
       $(`#save-card`).removeAttr(`disabled`);
    }
-   if (textLength === 0 || textLength > 240) {
+   if (textLength === 0 || textLength > maxCharCardInput) {
       console.log(`unacceptable number of characters`);
       $(`#imagery-char-count`).addClass(`text-danger`);
       $(`#save-card`).attr(`disabled`, `disabled`);
