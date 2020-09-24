@@ -23,7 +23,7 @@
 // });
 
 // function disableElement(id) {
-//    $(id).attr(`disabled`, `disabled`); //side effect that happens outside the function
+//    $(`#email-error-message`).attr(`disabled`, `disabled`); //side effect that happens outside the function
 //    //we use it when we want something to happen inside the application
 // }
 

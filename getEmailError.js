@@ -1,3 +1,38 @@
+const newUserEmailAddress = $(`#new-user-email`).val();
+const newUserEmailAddressLength = newUserEmailAddress.length;
+const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
+const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+
+$("#lets-go-button").click(function (e) {
+   console.log(newUserEmailAddress);
+   console.log(newUserEmailAddress.length);
+
+   if (newUserEmailAddress === 0 || newUserEmailAddress < 9) {
+      getEmailError(newUserEmailAddress);
+   } else {
+      console.log(`the bank's run out of money. purple monkey dishwasher.`);
+   }
+});
+
+function disableElement(id) {
+   $(id).attr(`disabled`, `disabled`); //side effect that happens outside the function
+   //we use it when we want something to happen inside the application
+}
+
+function getEmailError(newUserEmailAddress) {
+   console.log(newUserEmailAddress);
+   console.log(`hit this`);
+
+   if (newUserEmailAddressLength === 0) {
+      $(`#email-error-message`).removeClass(`d-none`);
+      $(`#new-user-email`).addClass(`is-invalid`);
+   } else if (newUserEmailAddressLength > 0) {
+      $(`#email-error-message`).addClass(`d-none`);
+      $(`#new-user-email`).removeClass(`is-invalid`);
+   }
+}
+
 // function getEmailError(emailInput) {
 //    const newUserEmailAddress = $(`#new-user-email`).val();
 //    const newUserEmailAddressLength = newUserEmailAddress.length;
