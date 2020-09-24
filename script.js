@@ -22,8 +22,8 @@ $(".sign-up-prompt").click(function () {
 });
 
 $("#lets-go-button").click(function (e) {
-   const newUserEmailAddress = $(`#new-user-email`).val();
-   const newUserEmailAddressLength = newUserEmailAddress.length;
+   //// const newUserEmailAddress = $(`#new-user-email`).val();
+   //// const newUserEmailAddressLength = newUserEmailAddress.length;
    // console.log(`val is ${newUserEmailAddress}`);
    // console.log(
    //    `new user email address length is: ${newUserEmailAddressLength}`
@@ -32,11 +32,11 @@ $("#lets-go-button").click(function (e) {
    const newUserPassword = $(`#new-user-password`).val();
    console.log(`new user password: `, newUserPassword);
 
-   trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+   //// const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 
-   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
+   ////const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
 
-   const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+   ////const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -194,13 +194,13 @@ $("#lets-go-button").click(function (e) {
    const createdAt = fullDate;
    console.log(`The date is\n`, createdAt);
 
-   if (newUserEmailAddressLength === 0) {
-      $(`#email-error-message`).removeClass(`d-none`);
-      $(`#new-user-email`).addClass(`is-invalid`);
-   } else if (newUserEmailAddressLength > 0) {
-      $(`#email-error-message`).addClass(`d-none`);
-      $(`#new-user-email`).removeClass(`is-invalid`);
-   }
+   //// if (newUserEmailAddressLength === 0) {
+   ////    $(`#email-error-message`).removeClass(`d-none`);
+   ////    $(`#new-user-email`).addClass(`is-invalid`);
+   //// } else if (newUserEmailAddressLength > 0) {
+   ////    $(`#email-error-message`).addClass(`d-none`);
+   ////   $(`#new-user-email`).removeClass(`is-invalid`);
+   //// }
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
@@ -350,3 +350,7 @@ $(`#create-imagery-input`).keyup(function (e) {
       $(`#save-card`).attr(`disabled`, `disabled`);
    }
 });
+
+//////////FUNCTIONS
+
+getEmailError();
