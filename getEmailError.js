@@ -1,18 +1,7 @@
-const newUserEmailAddress = $(`#new-user-email`).val();
-const newUserEmailAddressLength = newUserEmailAddress.length;
-const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
-const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+console.log(maxCharCardInput);
 
 $("#lets-go-button").click(function (e) {
-   console.log(newUserEmailAddress);
-   console.log(newUserEmailAddress.length);
-
-   if (newUserEmailAddress === 0 || newUserEmailAddress < 9) {
-      getEmailError(newUserEmailAddress);
-   } else {
-      console.log(`the bank's run out of money. purple monkey dishwasher.`);
-   }
+   getEmailError();
 });
 
 function disableElement(id) {
@@ -20,9 +9,12 @@ function disableElement(id) {
    //we use it when we want something to happen inside the application
 }
 
-function getEmailError(newUserEmailAddress) {
-   console.log(newUserEmailAddress);
-   console.log(`hit this`);
+function getEmailError() {
+   const newUserEmailAddress = $(`#new-user-email`).val();
+   const newUserEmailAddressLength = newUserEmailAddress.length;
+   const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
+   const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
    if (newUserEmailAddressLength === 0) {
       $(`#email-error-message`).removeClass(`d-none`);
