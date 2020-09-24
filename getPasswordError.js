@@ -1,5 +1,8 @@
 function getPasswordError() {
    const newUserPassword = $(`#new-user-password`).val();
+
+   //    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
