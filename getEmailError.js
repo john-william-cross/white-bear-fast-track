@@ -1,13 +1,6 @@
-console.log(maxCharCardInput);
-
 $("#lets-go-button").click(function (e) {
    getEmailError();
 });
-
-function disableElement(id) {
-   $(id).attr(`disabled`, `disabled`); //side effect that happens outside the function
-   //we use it when we want something to happen inside the application
-}
 
 function getEmailError() {
    const newUserEmailAddress = $(`#new-user-email`).val();
@@ -19,7 +12,8 @@ function getEmailError() {
    if (newUserEmailAddressLength === 0) {
       $(`#email-error-message`).removeClass(`d-none`);
       $(`#new-user-email`).addClass(`is-invalid`);
-   } else if (newUserEmailAddressLength > 0) {
+   } else if (localPartTrimmedNewUserEmail > 0) {
+      console.log(localPartTrimmedNewUserEmail);
       $(`#email-error-message`).addClass(`d-none`);
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
