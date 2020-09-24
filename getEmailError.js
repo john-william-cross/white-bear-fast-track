@@ -1,18 +1,12 @@
 function getEmailError() {
    const newUserEmailAddress = $(`#new-user-email`).val();
-   // const newUserEmailAddressLength = newUserEmailAddress.length; <--- no reason to keep this, correct?
-   const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
-   const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
-   console.log(localPartTrimmedNewUserEmail);
-   console.log(localPartTrimmedNewUserEmail.length);
 
-   if (localPartTrimmedNewUserEmail.length === 0) {
+   const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+
+   if (trimmedNewUserEmailAddress === ``) {
       $(`#email-error-message`).removeClass(`d-none`);
       $(`#new-user-email`).addClass(`is-invalid`);
-   } else if (localPartTrimmedNewUserEmail.length > 0) {
-      // console.log(localPartTrimmedNewUserEmail);
-      // console.log(newUserEmailAddressLength);
+   } else {
       $(`#email-error-message`).addClass(`d-none`);
       $(`#new-user-email`).removeClass(`is-invalid`);
    }
