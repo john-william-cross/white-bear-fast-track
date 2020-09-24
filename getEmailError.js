@@ -4,7 +4,7 @@ $("#lets-go-button").click(function (e) {
 
 function getEmailError() {
    const newUserEmailAddress = $(`#new-user-email`).val();
-   const newUserEmailAddressLength = newUserEmailAddress.length;
+   // const newUserEmailAddressLength = newUserEmailAddress.length; <--- no reason to keep this, correct?
    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
    const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
