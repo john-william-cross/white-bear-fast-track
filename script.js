@@ -23,6 +23,9 @@ $(".sign-up-prompt").click(function () {
 $("#lets-go-button").click(function (e) {
    getEmailError();
 });
+$("#lets-go-button").click(function (e) {
+   getPasswordError();
+});
 
 // $("#lets-go-button").click(function (e) {
 // // const newUserEmailAddress = $(`#new-user-email`).val();

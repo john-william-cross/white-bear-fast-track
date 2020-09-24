@@ -1,13 +1,8 @@
-$("#lets-go-button").click(function (e) {
-   getPasswordError();
-});
-
 function getPasswordError() {
    const newUserPassword = $(`#new-user-password`).val();
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
-   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
    const flattenedUnacceptablePasswordsLists = unacceptablePasswordsLists.flat();
    const allUniqUnacceptablePasswords = [
       ...new Set(flattenedUnacceptablePasswordsLists),
