@@ -5,10 +5,6 @@ function getEmailError(email) {
    } else {
       return ``;
    }
-
-   //return message
-
-   //else return empty string
 }
 //    if (trimmedEmailInput === ``) {
 //       $(`#sign-up-email-error`).html(`Please enter your email address.`);
