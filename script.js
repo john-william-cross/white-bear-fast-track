@@ -15,18 +15,17 @@ $("#show-delete-button").click(function () {
 /**********************************************************/
 /************ CODE BELOW THIS LINE FOR SIGN UP*************/
 /**********************************************************/
-$(".sign-up-prompt").click(function () {
-   // console.log(`Here are the most insecure passwords: `, mostInsecurePasswords);
-   $(".show-sign-up-info").toggleClass("d-none");
-   $(".email-and-create-password").toggleClass("d-none");
+$(`.sign-up-prompt`).click(function () {
+   $(`.show-sign-up-info`).toggleClass(`d-none`);
+   $(`.email-and-create-password`).toggleClass(`d-none`);
 });
 
 $("#lets-go-button").click(function (e) {
    const emailInput = $(`#sign-up-email-input`).val();
    const email = emailInput.trim().toLowerCase();
    const password = $(`#sign-up-password-input`).val();
-   getEmailError();
 
+   getEmailError();
    showPasswordError(password, email);
 });
 getDate();

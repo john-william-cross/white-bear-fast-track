@@ -1,8 +1,6 @@
 function showPasswordError(password, email) {
-   console.log(email);
    const emailParts = email.split(`@`); // [“mike”, “gmail.com”]
    const localPartEmail = emailParts[0]; // “mike”
-
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(unacceptablePasswords);
 
@@ -107,6 +105,6 @@ function getUnacceptablePasswords() {
       normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
    }
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-   let allUnacceptablePasswords = [...new Set(normalizedPasswords)];
-   return allUnacceptablePasswords;
+   let unacceptablePasswords = [...new Set(normalizedPasswords)];
+   return unacceptablePasswords;
 }
