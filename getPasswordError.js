@@ -1,38 +1,28 @@
-function showPasswordError(password, email) {
+function getPasswordError(password, email) {
    const emailParts = email.split(`@`); // [“mike”, “gmail.com”]
    const localPartEmail = emailParts[0]; // “mike”
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(unacceptablePasswords);
 
+   // TODO: jQuery methods for displaying the error
+   // $(`#sign-up-password-error`).removeClass(`d-none`);
+   // $(`#sign-up-password-input`).addClass(`is-invalid`);
+   // $(`#sign-up-password-error`).html(`Please create a password.`);
+
    const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
-      $(`#sign-up-password-error`).removeClass(`d-none`);
-      $(`#sign-up-password-input`).addClass(`is-invalid`);
-      $(`#sign-up-password-error`).html(`Please create a password.`);
+      return `Please create a password.`;
    } else if (lowerCasedPassword.length < 9) {
-      $(`#sign-up-password-error`).removeClass(`d-none`);
-      $(`#sign-up-password-input`).addClass(`is-invalid`);
-      $(`#sign-up-password-error`).html(
-         `Your password must be at least 9 characters.`
-      );
+      return `Your password must be at least 9 characters.`;
    } else if (
       lowerCasedPassword.includes(localPartEmail) &&
       localPartEmail.length >= 4
    ) {
-      $(`#sign-up-password-error`).removeClass(`d-none`);
-      $(`#sign-up-password-input`).addClass(`is-invalid`);
-      $(`#sign-up-password-error`).html(
-         `All or part of your email address cannot be in your password.`
-      );
+      return `All or part of your email address cannot be in your password.`;
    } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
-      $(`#sign-up-password-error`).removeClass(`d-none`);
-      $(`#sign-up-password-error`).html(
-         `Your password contains a commonly used password, "${password}" and can be easily discovered by attackers. Please use something else.`
-      );
-      $(`#sign-up-password-input`).addClass(`is-invalid`);
+      return `Your password contains a commonly used password, "${password}" and can be easily discovered by attackers. Please use something else.`;
    } else {
-      $(`#sign-up-password-error`).addClass(`d-none`);
-      $(`#sign-up-password-input`).removeClass(`is-invalid`);
+      return ` `;
    }
 }
 
