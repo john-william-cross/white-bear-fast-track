@@ -3,6 +3,8 @@ function showPasswordError(password, email) {
 
    const localPartEmail = emailParts[0];
 
+   const unacceptablePasswords = getPasswords;
+
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
