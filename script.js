@@ -24,7 +24,7 @@ $("#lets-go-button").click(function (e) {
    getEmailError();
 });
 $("#lets-go-button").click(function (e) {
-   getPasswordError();
+   showPasswordError();
 });
 getDate();
 

@@ -1,4 +1,4 @@
-function getPasswordError() {
+function showPasswordError() {
    const newUserPassword = $(`#sign-up-password-input`).val();
 
    const newUserEmailAddress = $(`#sign-up-email-input`).val();
