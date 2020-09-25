@@ -26,8 +26,12 @@ $("#lets-go-button").click(function (e) {
    const password = $(`#sign-up-password-input`).val();
 
    getEmailError();
-   showPasswordError(password, email);
+
+   const passwordError = getPasswordError(password, email); // getPasswordError should return a string
+   // showError(element, errorMessage); //Make work for both email and password
+   console.log(passwordError);
 });
+
 getDate();
 
 // /// Refactor into a function your steps for padding a single digit number into a double digit string.
