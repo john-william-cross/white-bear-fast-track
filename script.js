@@ -33,27 +33,16 @@ $("#lets-go-button").click(function (e) {
       hideError(`#sign-up-password`, passwordError);
    }
 
-   function showError(element, message) {
-      $(`${element}-input`).addClass(`is-invalid`);
-      $(`${element}-error`).html(message);
-   }
+   // const emailError = getEmailError(email);
+   // console.log(emailError)
 
-   function hideError(element, message) {
-      $(`${element}-input`).removeClass(`is-invalid`);
-      $(`${element}-error`).html(message);
-   }
-
-   const emailError = getEmailError(email);
-
-   if (emailError !== ``) {
-      $(`#sign-up-email-input`).addClass(`is-invalid`);
-      $(`#sign-up-email-error`).html(emailError);
-      // showError(element, errorMessage); //Make work for both email and password
-   } else {
-      console.log(`there is no email error`);
-      $(`#sign-up-email-input`).removeClass(`is-invalid`);
-      $(`#sign-up-email-error`).html(emailError); // ``
-   }
+   // if (emailError !== ``) {
+   //    $(`#sign-up-email-input`).addClass(`is-invalid`);
+   //    $(`#sign-up-email-error`).html(emailError);
+   // } else {
+   //    $(`#sign-up-email-input`).removeClass(`is-invalid`);
+   //    $(`#sign-up-email-error`).html(emailError); // ``
+   // }
 });
 
 getDate();
@@ -193,4 +182,12 @@ function getDate() {
    console.log(`The date is\n`, createdAt);
 }
 
-// });
+function showError(element, message) {
+   $(`${element}-input`).addClass(`is-invalid`);
+   $(`${element}-error`).html(message);
+}
+
+function hideError(element, message) {
+   $(`${element}-input`).removeClass(`is-invalid`);
+   $(`${element}-error`).html(message);
+}
