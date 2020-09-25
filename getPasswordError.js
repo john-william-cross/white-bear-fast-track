@@ -1,7 +1,7 @@
 function getPasswordError() {
-   const newUserPassword = $(`#new-user-password`).val();
+   const newUserPassword = $(`#sign-up-password-input`).val();
 
-   const newUserEmailAddress = $(`#new-user-email`).val();
+   const newUserEmailAddress = $(`#sign-up-email-input`).val();
 
    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 
@@ -91,26 +91,26 @@ function getPasswordError() {
 
    const lowerCasedPassword = newUserPassword.toLowerCase();
    if (lowerCasedPassword.length === 0) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordEmptyError);
+      $(`#sign-up-password-error`).removeClass(`d-none`);
+      $(`#sign-up-password-input`).addClass(`is-invalid`);
+      $(`#sign-up-password-error`).html(passwordEmptyError);
    } else if (lowerCasedPassword.length < 9) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordLengthError);
+      $(`#sign-up-password-error`).removeClass(`d-none`);
+      $(`#sign-up-password-input`).addClass(`is-invalid`);
+      $(`#sign-up-password-error`).html(passwordLengthError);
    } else if (
       lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
       localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
    ) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#new-user-password`).addClass(`is-invalid`);
-      $(`#password-error-message`).html(passwordContainsEmailCharsError);
+      $(`#sign-up-password-error`).removeClass(`d-none`);
+      $(`#sign-up-password-input`).addClass(`is-invalid`);
+      $(`#sign-up-password-error`).html(passwordContainsEmailCharsError);
    } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
-      $(`#password-error-message`).removeClass(`d-none`);
-      $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
-      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#sign-up-password-error`).removeClass(`d-none`);
+      $(`#sign-up-password-error`).html(passwordMostInsecurePasswordsError);
+      $(`#sign-up-password-input`).addClass(`is-invalid`);
    } else {
-      $(`#password-error-message`).addClass(`d-none`);
-      $(`#new-user-password`).removeClass(`is-invalid`);
+      $(`#sign-up-password-error`).addClass(`d-none`);
+      $(`#sign-up-password-input`).removeClass(`is-invalid`);
    }
 }

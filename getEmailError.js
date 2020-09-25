@@ -1,30 +1,30 @@
 function getEmailError() {
-   const newUserEmailAddress = $(`#new-user-email`).val();
+   const newUserEmailAddress = $(`#sign-up-email-input`).val();
 
    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 
    if (trimmedNewUserEmailAddress === ``) {
-      $(`#email-error-message`).removeClass(`d-none`);
-      $(`#new-user-email`).addClass(`is-invalid`);
+      $(`#sign-up-email-error`).removeClass(`d-none`);
+      $(`#sign-up-email-input`).addClass(`is-invalid`);
    } else {
-      $(`#email-error-message`).addClass(`d-none`);
-      $(`#new-user-email`).removeClass(`is-invalid`);
+      $(`#sign-up-email-error`).addClass(`d-none`);
+      $(`#sign-up-email-input`).removeClass(`is-invalid`);
    }
 }
 
 // function getEmailError(emailInput) {
-//    const newUserEmailAddress = $(`#new-user-email`).val();
+//    const newUserEmailAddress = $(`#sign-up-email-input`).val();
 //    const newUserEmailAddressLength = newUserEmailAddress.length;
 //    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 //    const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
 //    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
 //    if (newUserEmailAddressLength === 0) {
-//       $(`#email-error-message`).removeClass(`d-none`);
-//       $(`#new-user-email`).addClass(`is-invalid`);
+//       $(`#sign-up-email-error`).removeClass(`d-none`);
+//       $(`#sign-up-email-input`).addClass(`is-invalid`);
 //    } else if (newUserEmailAddressLength > 0) {
-//       $(`#email-error-message`).addClass(`d-none`);
-//       $(`#new-user-email`).removeClass(`is-invalid`);
+//       $(`#sign-up-email-error`).addClass(`d-none`);
+//       $(`#sign-up-email-input`).removeClass(`is-invalid`);
 //    }
 // }
 
