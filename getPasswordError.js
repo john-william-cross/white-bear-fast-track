@@ -4,11 +4,6 @@ function getPasswordError(password, email) {
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(unacceptablePasswords);
 
-   // TODO: jQuery methods for displaying the error
-   // $(`#sign-up-password-error`).removeClass(`d-none`);
-   // $(`#sign-up-password-input`).addClass(`is-invalid`);
-   // $(`#sign-up-password-error`).html(`Please create a password.`);
-
    const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
       return `Please create a password.`;
@@ -22,7 +17,7 @@ function getPasswordError(password, email) {
    } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
       return `Your password contains a commonly used password, "${password}" and can be easily discovered by attackers. Please use something else.`;
    } else {
-      return ` `;
+      return ``;
    }
 }
 

@@ -25,11 +25,31 @@ $("#lets-go-button").click(function (e) {
    const email = emailInput.trim().toLowerCase();
    const password = $(`#sign-up-password-input`).val();
 
-   getEmailError();
-
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
    console.log(passwordError);
-   // showError(element, errorMessage); //Make work for both email and password
+
+   if (passwordError !== ``) {
+      $(`#sign-up-password-input`).addClass(`is-invalid`);
+      $(`#sign-up-password-error`).html(passwordError);
+      // showError(element, errorMessage); //Make work for both email and password
+   } else {
+      console.log(`there is no error`);
+      $(`#sign-up-password-input`).removeClass(`is-invalid`);
+      $(`#sign-up-password-error`).html(passwordError); // ``
+   }
+
+   const emailError = getEmailError(email);
+   console.log(`here is the email error: `, emailError);
+
+   if (emailError !== ``) {
+      $(`#sign-up-email-input`).addClass(`is-invalid`);
+      $(`#sign-up-email-error`).html(emailError);
+      // showError(element, errorMessage); //Make work for both email and password
+   } else {
+      console.log(`there is no email error`);
+      $(`#sign-up-email-input`).removeClass(`is-invalid`);
+      $(`#sign-up-email-error`).html(emailError); // ``
+   }
 });
 
 getDate();

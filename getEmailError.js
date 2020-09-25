@@ -1,17 +1,22 @@
-function getEmailError() {
-   const emailInput = $(`#sign-up-email-input`).val();
-
-   const trimmedEmailInput = emailInput.trim();
-
-   if (trimmedEmailInput === ``) {
-      $(`#sign-up-email-error`).html(`Please enter your email address.`);
-      $(`#sign-up-email-error`).removeClass(`d-none`);
-      $(`#sign-up-email-input`).addClass(`is-invalid`);
-   } else {
-      $(`#sign-up-email-error`).addClass(`d-none`);
-      $(`#sign-up-email-input`).removeClass(`is-invalid`);
+function getEmailError(email) {
+   //if the email address is blank
+   if (email === ``) {
+      return `Please enter your email address.`;
    }
+
+   //return message
+
+   //else return empty string
 }
+//    if (trimmedEmailInput === ``) {
+//       $(`#sign-up-email-error`).html(`Please enter your email address.`);
+//       $(`#sign-up-email-error`).removeClass(`d-none`);
+//       $(`#sign-up-email-input`).addClass(`is-invalid`);
+//    } else {
+//       $(`#sign-up-email-error`).addClass(`d-none`);
+//       $(`#sign-up-email-input`).removeClass(`is-invalid`);
+//    }
+// }
 
 // function getEmailError(emailInput) {
 //    const emailInput = $(`#sign-up-email-input`).val();
