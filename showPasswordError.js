@@ -6,12 +6,12 @@ function showPasswordError(password, email) {
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(unacceptablePasswords);
 
-   const unacceptablePasswordsLists = mostInsecurePasswords.concat(
+   const allUnacceptablePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
-   const flattenedUnacceptablePasswordsLists = unacceptablePasswordsLists.flat();
+   const allFlatUnacceptablePasswords = allUnacceptablePasswords.flat();
    const allUniqUnacceptablePasswords = [
-      ...new Set(flattenedUnacceptablePasswordsLists),
+      ...new Set(allFlatUnacceptablePasswords),
    ];
    const firstUniqPasswords = allUniqUnacceptablePasswords.slice(
       0,
@@ -113,5 +113,5 @@ function showPasswordError(password, email) {
 }
 
 function getUnacceptablePasswords() {
-   return [];
+   return `PUT SOMETHING HERE`;
 }

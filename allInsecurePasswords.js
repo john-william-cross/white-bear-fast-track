@@ -1,4 +1,4 @@
-const allInsecurePasswords = [
+const allUnacceptablePasswords = [
    { id: 1, text: "123456" },
    { id: 2, text: "password" },
    { id: 3, text: "12345678" },
