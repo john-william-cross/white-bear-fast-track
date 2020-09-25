@@ -3,7 +3,8 @@ function showPasswordError(password, email) {
 
    const localPartEmail = emailParts[0];
 
-   const unacceptablePasswords = getPasswords;
+   const unacceptablePasswords = getUnacceptablePasswords();
+   console.log(unacceptablePasswords);
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -78,7 +79,7 @@ function showPasswordError(password, email) {
       normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
    }
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-   let unacceptablePasswords = [...new Set(normalizedPasswords)];
+   let allUnacceptablePasswords = [...new Set(normalizedPasswords)];
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
@@ -101,7 +102,7 @@ function showPasswordError(password, email) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
       $(`#sign-up-password-error`).html(passwordContainsEmailCharsError);
-   } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
+   } else if (allUnacceptablePasswords.includes(lowerCasedPassword)) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-error`).html(passwordMostInsecurePasswordsError);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
@@ -109,4 +110,8 @@ function showPasswordError(password, email) {
       $(`#sign-up-password-error`).addClass(`d-none`);
       $(`#sign-up-password-input`).removeClass(`is-invalid`);
    }
+}
+
+function getUnacceptablePasswords() {
+   return [];
 }
