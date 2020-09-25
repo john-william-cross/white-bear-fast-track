@@ -34,15 +34,13 @@ $("#lets-go-button").click(function (e) {
    }
 
    const emailError = getEmailError(email);
-   // console.log(emailError)
+   console.log(`this is the email error`, emailError);
 
-   // if (emailError !== ``) {
-   //    $(`#sign-up-email-input`).addClass(`is-invalid`);
-   //    $(`#sign-up-email-error`).html(emailError);
-   // } else {
-   //    $(`#sign-up-email-input`).removeClass(`is-invalid`);
-   //    $(`#sign-up-email-error`).html(emailError); // ``
-   // }
+   if (emailError !== ``) {
+      showError(`#sign-up-email`, emailError);
+   } else {
+      hideError(`#sign-up-email`, emailError);
+   }
 });
 
 getDate();
