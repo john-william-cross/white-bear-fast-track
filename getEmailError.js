@@ -2,6 +2,8 @@ function getEmailError(email) {
    //if the email address is blank
    if (email === ``) {
       return `Please enter your email address.`;
+   } else {
+      return ``;
    }
 
    //return message
