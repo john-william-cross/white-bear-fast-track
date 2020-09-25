@@ -28,8 +28,8 @@ $("#lets-go-button").click(function (e) {
    getEmailError();
 
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
-   // showError(element, errorMessage); //Make work for both email and password
    console.log(passwordError);
+   // showError(element, errorMessage); //Make work for both email and password
 });
 
 getDate();
