@@ -20,18 +20,13 @@ $(".sign-up-prompt").click(function () {
    $(".show-sign-up-info").toggleClass("d-none");
    $(".email-and-create-password").toggleClass("d-none");
 });
+
 $("#lets-go-button").click(function (e) {
-   getEmailError();
-});
-$("#lets-go-button").click(function (e) {
-   const password = $(`#sign-up-password-input`).val();
    const emailInput = $(`#sign-up-email-input`).val();
+   const email = emailInput.trim().toLowerCase();
+   const password = $(`#sign-up-password-input`).val();
+   // getEmailError();
 
-   const emailLowerCase = emailInput.trim().toLowerCase();
-
-   const emailParts = emailLowerCase.split(`@`);
-
-   const email = emailParts[0];
    showPasswordError(password, email);
 });
 getDate();
