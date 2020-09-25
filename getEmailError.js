@@ -1,9 +1,9 @@
 function getEmailError() {
-   const newUserEmailAddress = $(`#sign-up-email-input`).val();
+   const emailInput = $(`#sign-up-email-input`).val();
 
-   const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
+   const trimmedEmailInput = emailInput.trim();
 
-   if (trimmedNewUserEmailAddress === ``) {
+   if (trimmedEmailInput === ``) {
       $(`#sign-up-email-error`).html(`Please enter your email address.`);
       $(`#sign-up-email-error`).removeClass(`d-none`);
       $(`#sign-up-email-input`).addClass(`is-invalid`);
@@ -14,16 +14,16 @@ function getEmailError() {
 }
 
 // function getEmailError(emailInput) {
-//    const newUserEmailAddress = $(`#sign-up-email-input`).val();
-//    const newUserEmailAddressLength = newUserEmailAddress.length;
-//    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-//    const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
+//    const emailInput = $(`#sign-up-email-input`).val();
+//    const emailInputLength = EmailInput.length;
+//    const trimmedEmailInput = EmailInput.trim();
+//    const partsOfTrimmedNewUserEmail = trimmedEmailInput.split(`@`);
 //    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
-//    if (newUserEmailAddressLength === 0) {
+//    if (EmailInputLength === 0) {
 //       $(`#sign-up-email-error`).removeClass(`d-none`);
 //       $(`#sign-up-email-input`).addClass(`is-invalid`);
-//    } else if (newUserEmailAddressLength > 0) {
+//    } else if (EmailInputLength > 0) {
 //       $(`#sign-up-email-error`).addClass(`d-none`);
 //       $(`#sign-up-email-input`).removeClass(`is-invalid`);
 //    }
@@ -53,8 +53,8 @@ function getEmailError() {
 //    //    );
 
 //    const emailInput = $(`#return-user-email`).val();
-//    const passwordInput = $(`#return-user-password`).val();
-//    const userInputDetails = [emailInput, passwordInput];
+//    const password = $(`#return-user-password`).val();
+//    const userInputDetails = [emailInput, password];
 
 //    const isUserInDb = checkIsUserInDb(dbUserbDetails, userInputDetails);
 //    if (isUserInDb) {

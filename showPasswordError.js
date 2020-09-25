@@ -1,11 +1,9 @@
-function showPasswordError() {
-   const newUserPassword = $(`#sign-up-password-input`).val();
+function showPasswordError(password, email) {
+   const emailInput = $(`#sign-up-email-input`).val();
+   console.log(email);
+   const trimmedEmailInput = emailInput.trim();
 
-   const newUserEmailAddress = $(`#sign-up-email-input`).val();
-
-   const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
-
-   const partsOfTrimmedNewUserEmail = trimmedNewUserEmailAddress.split(`@`);
+   const partsOfTrimmedNewUserEmail = email.split(`@`);
 
    const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
 
@@ -87,9 +85,9 @@ function showPasswordError() {
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
    const passwordContainsEmailCharsError = `All or part of your email address cannot be in your password.`;
-   const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${newUserPassword}" and can be easily discovered by attackers. Please use something else.`;
+   const passwordMostInsecurePasswordsError = `Your password contains a commonly used password, "${password}" and can be easily discovered by attackers. Please use something else.`;
 
-   const lowerCasedPassword = newUserPassword.toLowerCase();
+   const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
