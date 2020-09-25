@@ -25,7 +25,7 @@ $("#lets-go-button").click(function (e) {
    const emailInput = $(`#sign-up-email-input`).val();
    const email = emailInput.trim().toLowerCase();
    const password = $(`#sign-up-password-input`).val();
-   // getEmailError();
+   getEmailError();
 
    showPasswordError(password, email);
 });
