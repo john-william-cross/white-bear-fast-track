@@ -1,11 +1,9 @@
 function showPasswordError(password, email) {
-   const emailParts = email.split(`@`);
-
-   const localPartEmail = emailParts[0];
-
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(unacceptablePasswords);
+}
 
+function getUnacceptablePasswords() {
    const allUnacceptablePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
@@ -74,12 +72,21 @@ function showPasswordError(password, email) {
    );
    let normalizedPasswords = [];
    for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
-      const password = forwardAndReversedPasswords[i];
-      const lowerCasedPassword = password.toLowerCase();
+      const forwardAndReversedPassword = forwardAndReversedPasswords[i];
+      const lowerCasedPassword = forwardAndReversedPassword.toLowerCase();
       normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
    }
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-   let allUnacceptablePasswords = [...new Set(normalizedPasswords)];
+   let allNormalizedUnacceptablePasswords = [...new Set(normalizedPasswords)];
+   const password = $(`#sign-up-password-input`).val();
+   const emailInput = $(`#sign-up-email-input`).val();
+
+   const emailLowerCase = emailInput.trim().toLowerCase();
+
+   const emailParts = emailLowerCase.split(`@`);
+
+   const email = emailParts[0];
+   console.log(email);
 
    const passwordEmptyError = `Please create a password.`;
    const passwordLengthError = `Your password must be at least 9 characters.`;
@@ -96,13 +103,13 @@ function showPasswordError(password, email) {
       $(`#sign-up-password-input`).addClass(`is-invalid`);
       $(`#sign-up-password-error`).html(passwordLengthError);
    } else if (
-      lowerCasedPassword.includes(localPartEmail) &&
-      localPartEmail.length >= 4 //still only checks for all of email, not part of it...?
+      lowerCasedPassword.includes(email) &&
+      email.length >= 4 //still only checks for all of email, not part of it...?
    ) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
       $(`#sign-up-password-error`).html(passwordContainsEmailCharsError);
-   } else if (allUnacceptablePasswords.includes(lowerCasedPassword)) {
+   } else if (allNormalizedUnacceptablePasswords.includes(lowerCasedPassword)) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-error`).html(passwordMostInsecurePasswordsError);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
@@ -110,8 +117,6 @@ function showPasswordError(password, email) {
       $(`#sign-up-password-error`).addClass(`d-none`);
       $(`#sign-up-password-input`).removeClass(`is-invalid`);
    }
-}
 
-function getUnacceptablePasswords() {
    return `PUT SOMETHING HERE`;
 }
