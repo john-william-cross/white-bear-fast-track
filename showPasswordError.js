@@ -1,11 +1,7 @@
 function showPasswordError(password, email) {
-   const emailInput = $(`#sign-up-email-input`).val();
-   console.log(email);
-   const trimmedEmailInput = emailInput.trim();
+   const emailParts = email.split(`@`);
 
-   const partsOfTrimmedNewUserEmail = email.split(`@`);
-
-   const localPartTrimmedNewUserEmail = partsOfTrimmedNewUserEmail[0];
+   const localPartEmail = emailParts[0];
 
    const unacceptablePasswordsLists = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
@@ -97,8 +93,8 @@ function showPasswordError(password, email) {
       $(`#sign-up-password-input`).addClass(`is-invalid`);
       $(`#sign-up-password-error`).html(passwordLengthError);
    } else if (
-      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
-      localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
+      lowerCasedPassword.includes(localPartEmail) &&
+      localPartEmail.length >= 4 //still only checks for all of email, not part of it...?
    ) {
       $(`#sign-up-password-error`).removeClass(`d-none`);
       $(`#sign-up-password-input`).addClass(`is-invalid`);
