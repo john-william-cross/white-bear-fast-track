@@ -182,6 +182,7 @@ function getDate() {
    console.log(`The date is\n`, createdAt);
 }
 
+// good examples of a side-effect functions <- showError, hideError
 function showError(element, message) {
    $(`${element}-input`).addClass(`is-invalid`);
    $(`${element}-error`).html(message);
