@@ -26,20 +26,24 @@ $("#lets-go-button").click(function (e) {
    const password = $(`#sign-up-password-input`).val();
 
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
-   console.log(passwordError);
 
    if (passwordError !== ``) {
-      $(`#sign-up-password-input`).addClass(`is-invalid`);
-      $(`#sign-up-password-error`).html(passwordError);
-      // showError(element, errorMessage); //Make work for both email and password
+      showError(`#sign-up-password`, passwordError);
    } else {
-      console.log(`there is no error`);
-      $(`#sign-up-password-input`).removeClass(`is-invalid`);
-      $(`#sign-up-password-error`).html(passwordError); // ``
+      hideError(`#sign-up-password`, passwordError);
+   }
+
+   function showError(element, message) {
+      $(`${element}-input`).addClass(`is-invalid`);
+      $(`${element}-error`).html(message);
+   }
+
+   function hideError(element, message) {
+      $(`${element}-input`).removeClass(`is-invalid`);
+      $(`${element}-error`).html(message);
    }
 
    const emailError = getEmailError(email);
-   console.log(`here is the email error: `, emailError);
 
    if (emailError !== ``) {
       $(`#sign-up-email-input`).addClass(`is-invalid`);
