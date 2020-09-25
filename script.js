@@ -33,7 +33,7 @@ $("#lets-go-button").click(function (e) {
       hideError(`#sign-up-password`, passwordError);
    }
 
-   // const emailError = getEmailError(email);
+   const emailError = getEmailError(email);
    // console.log(emailError)
 
    // if (emailError !== ``) {
