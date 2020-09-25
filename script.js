@@ -41,9 +41,9 @@ $("#lets-go-button").click(function (e) {
    } else {
       hideError(`#sign-up-email`, emailError);
    }
+   const createdAt = getDate();
+   console.log(`The date is\n`, createdAt);
 });
-
-getDate();
 
 // /// Refactor into a function your steps for padding a single digit number into a double digit string.
 
@@ -177,7 +177,8 @@ function getDate() {
    const fullDate = yearToString + paddedMonth + paddedDay;
    fulldate = Number(fullDate);
    const createdAt = fullDate;
-   console.log(`The date is\n`, createdAt);
+
+   return createdAt;
 }
 
 // good examples of a side-effect functions <- showError, hideError
