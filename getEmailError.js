@@ -4,6 +4,7 @@ function getEmailError() {
    const trimmedNewUserEmailAddress = newUserEmailAddress.trim();
 
    if (trimmedNewUserEmailAddress === ``) {
+      $(`#sign-up-email-error`).html(`Please enter your email address.`);
       $(`#sign-up-email-error`).removeClass(`d-none`);
       $(`#sign-up-email-input`).addClass(`is-invalid`);
    } else {
