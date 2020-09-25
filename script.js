@@ -26,39 +26,9 @@ $("#lets-go-button").click(function (e) {
 $("#lets-go-button").click(function (e) {
    getPasswordError();
 });
+getDate();
 
-let clickedAt = new Date();
-// clickedAt = new Date(2020, 1, 7); //uncomment to test
-const year = clickedAt.getFullYear();
-//console.log(year);
-const month = clickedAt.getMonth();
-
-const monthPlusOne = month + 1;
-//console.log(monthPlusOne);
-
-const day = clickedAt.getDate();
-
-//console.log(day);
-
-const dayToString = String(day);
-const yearToString = String(year);
-const monthToString = String(monthPlusOne);
-//console.log(monthToString);
-
-let paddedDay = dayToString;
-if (dayToString < 10) {
-   paddedDay = 0 + dayToString;
-}
-
-let paddedMonth = monthToString;
-if (monthToString < 10) {
-   paddedMonth = 0 + monthToString;
-}
-
-const fullDate = yearToString + paddedMonth + paddedDay;
-fulldate = Number(fullDate);
-const createdAt = fullDate;
-console.log(`The date is\n`, createdAt);
+// /// Refactor into a function your steps for padding a single digit number into a double digit string.
 
 /**********************************************************/
 /*********** CODE BELOW THIS LINE FOR EDIT CARD************/
@@ -162,4 +132,35 @@ $(`#create-imagery-input`).keyup(function (e) {
       $(`#save-card`).attr(`disabled`, `disabled`);
    }
 });
+
+function getDate() {
+   let clickedAt = new Date();
+   // clickedAt = new Date(2020, 1, 7); //uncomment to test
+   const year = clickedAt.getFullYear();
+   const month = clickedAt.getMonth();
+
+   const monthPlusOne = month + 1;
+
+   const day = clickedAt.getDate();
+
+   const dayToString = String(day);
+   const yearToString = String(year);
+   const monthToString = String(monthPlusOne);
+
+   let paddedDay = dayToString;
+   if (dayToString < 10) {
+      paddedDay = 0 + dayToString;
+   }
+
+   let paddedMonth = monthToString;
+   if (monthToString < 10) {
+      paddedMonth = 0 + monthToString;
+   }
+
+   const fullDate = yearToString + paddedMonth + paddedDay;
+   fulldate = Number(fullDate);
+   const createdAt = fullDate;
+   console.log(`The date is\n`, createdAt);
+}
+
 // });
