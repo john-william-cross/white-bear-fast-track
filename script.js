@@ -36,8 +36,37 @@ $("#lets-go-button").click(function (e) {
    const emailError = getEmailError(email);
    console.log(`this is the email error`, emailError);
 
+<<<<<<< HEAD
    if (emailError !== ``) {
       showError(`#sign-up-email`, emailError);
+=======
+   const lowerCasedPassword = newUserPassword.toLowerCase();
+
+   console.log(
+      `here is the local part trimmed email address:\n ${localPartTrimmedNewUserEmail}`
+   );
+   console.log(`here is the lower cased password:\n`, lowerCasedPassword);
+
+   if (lowerCasedPassword.length === 0) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordEmptyError);
+   } else if (lowerCasedPassword.length < 9) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordLengthError);
+   } else if (
+      lowerCasedPassword.includes(localPartTrimmedNewUserEmail) &&
+      localPartTrimmedNewUserEmail.length >= 4 //still only checks for all of email, not part of it...?
+   ) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#new-user-password`).addClass(`is-invalid`);
+      $(`#password-error-message`).html(passwordContainsEmailCharsError);
+   } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
+      $(`#password-error-message`).removeClass(`d-none`);
+      $(`#password-error-message`).html(passwordMostInsecurePasswordsError);
+      $(`#new-user-password`).addClass(`is-invalid`);
+>>>>>>> parent of a9a1019... add console logs to test password matching with email
    } else {
       hideError(`#sign-up-email`, emailError);
    }
