@@ -43,6 +43,52 @@ $("#lets-go-button").click(function (e) {
    }
    const createdAt = getDate();
    console.log(`The date is\n`, createdAt);
+
+   function getDate() {
+      let clickedAt = new Date();
+      clickedAt = new Date(2020, 1, 7); //uncomment to test
+      const year = clickedAt.getFullYear();
+      const month = clickedAt.getMonth();
+
+      const monthPlusOne = month + 1;
+
+      const day = clickedAt.getDate();
+
+      const dayToString = String(day);
+      const yearToString = String(year);
+      const monthToString = String(monthPlusOne);
+
+      let paddedDay = dayToString;
+
+      if (dayToString < 10) {
+         paddedDay = 0 + dayToString;
+      }
+
+      let paddedMonth = monthToString;
+      if (monthToString < 10) {
+         paddedMonth = 0 + monthToString;
+      }
+
+      const fullDate = yearToString + paddedMonth + paddedDay;
+      fulldate = Number(fullDate);
+      const createdAt = fullDate;
+
+      return createdAt;
+   }
+
+   // Refactor into a function called padLeft() your steps for padding
+   // a single digit number into a double digit string.
+
+   function padLeft(numAsString) {
+      //   if day or month is < 10 {
+      //    concatinate a 0 in front of the stringed num for that day or month
+      if (numAsString < 10) {
+         numAsString = 0 + numAsString;
+         return numAsString;
+      } else {
+         return numAsString;
+      }
+   }
 });
 
 // /// Refactor into a function your steps for padding a single digit number into a double digit string.
@@ -149,37 +195,6 @@ $(`#create-imagery-input`).keyup(function (e) {
       $(`#save-card`).attr(`disabled`, `disabled`);
    }
 });
-
-function getDate() {
-   let clickedAt = new Date();
-   // clickedAt = new Date(2020, 1, 7); //uncomment to test
-   const year = clickedAt.getFullYear();
-   const month = clickedAt.getMonth();
-
-   const monthPlusOne = month + 1;
-
-   const day = clickedAt.getDate();
-
-   const dayToString = String(day);
-   const yearToString = String(year);
-   const monthToString = String(monthPlusOne);
-
-   let paddedDay = dayToString;
-   if (dayToString < 10) {
-      paddedDay = 0 + dayToString;
-   }
-
-   let paddedMonth = monthToString;
-   if (monthToString < 10) {
-      paddedMonth = 0 + monthToString;
-   }
-
-   const fullDate = yearToString + paddedMonth + paddedDay;
-   fulldate = Number(fullDate);
-   const createdAt = fullDate;
-
-   return createdAt;
-}
 
 // good examples of a side-effect functions <- showError, hideError
 function showError(element, message) {
