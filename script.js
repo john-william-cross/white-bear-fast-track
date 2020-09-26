@@ -52,47 +52,7 @@ $("#lets-go-button").click(function (e) {
 const maxCharCardInput = 240;
 
 $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
-   const topText = $(`#edit-input-top-card`).val();
-   const bottomText = $(`#edit-input-bottom-card`).val();
-   console.log(`topText val: ${topText}`);
-   console.log(`bottomText val: ${bottomText}`);
-
-   const topTextLength = topText.length;
-   console.log(`the top text length is ${topTextLength}`);
-   const bottomTextLength = bottomText.length;
-   console.log(`the bottom text length is ${bottomTextLength}`);
-
-   $(`#edit-top-card-char-count`).html(topTextLength);
-   $(`#edit-bottom-card-char-count`).html(bottomTextLength);
-
-   if (topTextLength <= maxCharCardInput) {
-      $(`#edit-top-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-top-card-char-count`).addClass(`text-danger`);
-   }
-
-   if (bottomTextLength <= maxCharCardInput) {
-      $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
-   }
-
-   if (
-      topTextLength > 0 &&
-      topTextLength <= maxCharCardInput &&
-      bottomTextLength > 0 &&
-      bottomTextLength <= maxCharCardInput
-   ) {
-      $(`#save-card`).removeClass(`disabled`);
-   } else {
-      $(`#save-card`).addClass(`disabled`);
-   }
-
-   // function disableCardTextSubmission(text) {
-   //    const text = `#edit-input-${text}`;
-   //    const styling = $(`#edit-${text}-char-count`).addClass(`text-danger`);
-
-   // }
+   allowSaveChanges();
 });
 
 // allowCardTextSubmission()
@@ -189,4 +149,42 @@ function padLeft(string) {
       string = 0 + string;
    }
    return string;
+}
+
+function allowSaveChanges() {
+   const topText = $(`#edit-input-top-card`).val();
+   const bottomText = $(`#edit-input-bottom-card`).val();
+   console.log(`topText val: ${topText}`);
+   console.log(`bottomText val: ${bottomText}`);
+
+   const topTextLength = topText.length;
+   console.log(`the top text length is ${topTextLength}`);
+   const bottomTextLength = bottomText.length;
+   console.log(`the bottom text length is ${bottomTextLength}`);
+
+   $(`#edit-top-card-char-count`).html(topTextLength);
+   $(`#edit-bottom-card-char-count`).html(bottomTextLength);
+
+   if (topTextLength <= maxCharCardInput) {
+      $(`#edit-top-card-char-count`).removeClass(`text-danger`);
+   } else {
+      $(`#edit-top-card-char-count`).addClass(`text-danger`);
+   }
+
+   if (bottomTextLength <= maxCharCardInput) {
+      $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
+   } else {
+      $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
+   }
+
+   if (
+      topTextLength > 0 &&
+      topTextLength <= maxCharCardInput &&
+      bottomTextLength > 0 &&
+      bottomTextLength <= maxCharCardInput
+   ) {
+      $(`#save-card`).removeClass(`disabled`);
+   } else {
+      $(`#save-card`).addClass(`disabled`);
+   }
 }
