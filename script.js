@@ -87,7 +87,15 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    } else {
       $(`#save-card`).addClass(`disabled`);
    }
+
+   // function disableCardTextSubmission(text) {
+   //    const text = `#edit-input-${text}`;
+   //    const styling = $(`#edit-${text}-char-count`).addClass(`text-danger`);
+
+   // }
 });
+
+// allowCardTextSubmission()
 
 /**********************************************************/
 /******* CODE BELOW THIS LINE FOR CREATE ANSWER CARD*******/
@@ -176,9 +184,9 @@ function getCreatedAt() {
    return createdAt;
 }
 
-function padLeft(num) {
-   if (num < 10) {
-      num = 0 + num;
+function padLeft(string) {
+   if (string < 10) {
+      string = 0 + string;
    }
-   return num;
+   return string;
 }
