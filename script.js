@@ -51,8 +51,17 @@ $("#lets-go-button").click(function (e) {
 /**********************************************************/
 const maxCharCardInput = 240;
 
-$(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
-   allowSaveChanges();
+$(`#edit-input-top-card`).keyup(function (e) {
+   showCharCountValidation(
+      `#edit-top-card-char-count`,
+      $(`#edit-input-top-card`).val()
+   );
+});
+$(`#edit-input-bottom-card`).keyup(function (e) {
+   showCharCountValidation(
+      `#edit-bottom-card-char-count`,
+      $(`#edit-input-bottom-card`).val()
+   );
 });
 
 /**********************************************************/
@@ -149,37 +158,26 @@ function padLeft(string) {
    return string;
 }
 
-function allowSaveChanges() {
+function showCharCountValidation(id, input) {
+   $(id).html(input.length);
+
+   if (input.length <= maxCharCardInput) {
+      $(id).removeClass(`text-danger`);
+   } else {
+      $(id).addClass(`text-danger`);
+   }
+
+   toggleDisabled();
+}
+
+function toggleDisabled() {
    const topText = $(`#edit-input-top-card`).val();
    const bottomText = $(`#edit-input-bottom-card`).val();
-   console.log(`topText val: ${topText}`);
-   console.log(`bottomText val: ${bottomText}`);
-
-   const topTextLength = topText.length;
-   console.log(`the top text length is ${topTextLength}`);
-   const bottomTextLength = bottomText.length;
-   console.log(`the bottom text length is ${bottomTextLength}`);
-
-   $(`#edit-top-card-char-count`).html(topTextLength);
-   $(`#edit-bottom-card-char-count`).html(bottomTextLength);
-
-   if (topTextLength <= maxCharCardInput) {
-      $(`#edit-top-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-top-card-char-count`).addClass(`text-danger`);
-   }
-
-   if (bottomTextLength <= maxCharCardInput) {
-      $(`#edit-bottom-card-char-count`).removeClass(`text-danger`);
-   } else {
-      $(`#edit-bottom-card-char-count`).addClass(`text-danger`);
-   }
-
    if (
-      topTextLength > 0 &&
-      topTextLength <= maxCharCardInput &&
-      bottomTextLength > 0 &&
-      bottomTextLength <= maxCharCardInput
+      topText.length > 0 &&
+      topText.length <= maxCharCardInput &&
+      bottomText.length > 0 &&
+      bottomText.length <= maxCharCardInput
    ) {
       $(`#save-card`).removeClass(`disabled`);
    } else {
