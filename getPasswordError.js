@@ -2,6 +2,7 @@ function getPasswordError(password, email) {
    const emailParts = email.split(`@`); // [“mike”, “gmail.com”]
    const localPartEmail = emailParts[0]; // “mike”
    const unacceptablePasswords = getUnacceptablePasswords();
+   console.log(`The local part email is: ${localPartEmail}`);
    console.log(unacceptablePasswords);
 
    const lowerCasedPassword = password.toLowerCase();

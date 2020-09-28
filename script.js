@@ -34,7 +34,6 @@ $("#lets-go-button").click(function (e) {
    }
 
    const emailError = getEmailError(email);
-   console.log(`this is the email error`, emailError);
 
    if (emailError !== ``) {
       showError(`#sign-up-email`, emailError);
