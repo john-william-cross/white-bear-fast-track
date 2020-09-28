@@ -55,8 +55,6 @@ $(`#edit-input-bottom-card,#edit-input-top-card`).keyup(function (e) {
    allowSaveChanges();
 });
 
-// allowCardTextSubmission()
-
 /**********************************************************/
 /******* CODE BELOW THIS LINE FOR CREATE ANSWER CARD*******/
 /**********************************************************/
