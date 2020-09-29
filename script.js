@@ -41,10 +41,13 @@ $("#lets-go-button").click(function (e) {
    } else {
       hideError(`#sign-up-email`, emailError);
    }
-   // console.log(`The date is\n`, getCreatedAt());
 
-   const userProps = [email, password, getCreatedAt(), String(createId())];
-   console.log(`Here is the userProps array: `, userProps);
+   const userProps = [email, password, Number(getCreatedAt()), createId()];
+   if (passwordError !== `` || emailError !== ``) {
+      console.log(`Array will not be displayed`);
+   } else {
+      console.log(`Here is the userProps array: `, userProps);
+   }
 });
 
 /**********************************************************/
@@ -203,13 +206,14 @@ function createId() {
    const timeClickedMilliseconds = String(milliseconds);
 
    const randomIntAsString = String(randomInt);
+   console.log(`here's the random int as a string: `, randomIntAsString);
    const paddedRandomInt = randomIntAsString.padStart(3, `0`);
-   // console.log(`here's the new random int:`, paddedRandomInt);
+   console.log(`here's the padded random int:`, paddedRandomInt);
 
    const millisecondsAsString = String(timeClickedMilliseconds);
+   console.log(`here's the time clicked: `, millisecondsAsString);
    const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
-   // console.log(`here's the new time clicked: `, paddedTimeClicked);
-   const id = Number(paddedRandomInt + paddedTimeClicked);
-   // console.log(`The user id is: ${id}`);
+   console.log(`here's the padded time clicked: `, paddedTimeClicked);
+   const id = String(paddedRandomInt + paddedTimeClicked);
    return id;
 }
