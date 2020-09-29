@@ -21,10 +21,9 @@ $(`.sign-up-prompt`).click(function () {
 });
 
 $("#lets-go-button").click(function (e) {
-   createId();
    const emailInput = $(`#sign-up-email-input`).val();
    const email = emailInput.trim().toLowerCase();
-   console.log(email);
+   // console.log(email);
    const password = $(`#sign-up-password-input`).val();
 
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
@@ -42,9 +41,10 @@ $("#lets-go-button").click(function (e) {
    } else {
       hideError(`#sign-up-email`, emailError);
    }
-   console.log(`The date is\n`, getCreatedAt());
+   // console.log(`The date is\n`, getCreatedAt());
 
-   const userProps = [];
+   const userProps = [email, password, getCreatedAt(), String(createId())];
+   console.log(`Here is the userProps array: `, userProps);
 });
 
 /**********************************************************/
@@ -209,6 +209,7 @@ function createId() {
    const millisecondsAsString = String(timeClickedMilliseconds);
    const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
    console.log(`here's the new time clicked: `, paddedTimeClicked);
-   const id = paddedRandomInt + paddedTimeClicked;
+   const id = Number(paddedRandomInt + paddedTimeClicked);
    console.log(`The user id is: ${id}`);
+   return id;
 }
