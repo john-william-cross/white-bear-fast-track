@@ -192,24 +192,24 @@ function createId() {
    }
 
    const randomInt = getRandomInt(0, 999);
-   console.log(`Random int between 0 and 999 is: ${randomInt}`);
+   // console.log(`Random int between 0 and 999 is: ${randomInt}`);
    let timeClicked = new Date(Date.now());
    const milliseconds = String(timeClicked.getMilliseconds());
-   console.log(`Let's go was clicked at: ${milliseconds}`);
+   // console.log(`Let's go was clicked at: ${milliseconds}`);
    const nonPaddedId = randomInt.toString() + milliseconds;
-   console.log(
-      `the id created by combining random int and time clicked is: ${nonPaddedId}`
-   );
+   // console.log(
+   // `the id created by combining random int and time clicked is: ${nonPaddedId}`
+   // );
    const timeClickedMilliseconds = String(milliseconds);
 
    const randomIntAsString = String(randomInt);
    const paddedRandomInt = randomIntAsString.padStart(3, `0`);
-   console.log(`here's the new random int:`, paddedRandomInt);
+   // console.log(`here's the new random int:`, paddedRandomInt);
 
    const millisecondsAsString = String(timeClickedMilliseconds);
    const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
-   console.log(`here's the new time clicked: `, paddedTimeClicked);
+   // console.log(`here's the new time clicked: `, paddedTimeClicked);
    const id = Number(paddedRandomInt + paddedTimeClicked);
-   console.log(`The user id is: ${id}`);
+   // console.log(`The user id is: ${id}`);
    return id;
 }
