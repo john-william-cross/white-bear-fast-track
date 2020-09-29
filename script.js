@@ -27,20 +27,24 @@ $("#lets-go-button").click(function (e) {
 
    const randomInt = getRandomInt(0, 999);
    console.log(`Random int between 0 and 999 is: ${randomInt}`);
-   const timeClicked = Date.now();
-   console.log(`Let's go was clicked at: ${timeClicked}`);
-   const id = randomInt.toString() + timeClicked;
+   let timeClicked = new Date(Date.now());
+   const milliseconds = String(timeClicked.getMilliseconds());
+   console.log(`Let's go was clicked at: ${milliseconds}`);
+   const nonPaddedId = randomInt.toString() + milliseconds;
    console.log(
-      `the id created by combining random int and time clicked is: ${id}`
+      `the id created by combining random int and time clicked is: ${nonPaddedId}`
    );
+   const timeClickedMilliseconds = String(milliseconds);
 
    const randomIntAsString = String(randomInt);
    const paddedRandomInt = randomIntAsString.padStart(3, `0`);
    console.log(`here's the new random int:`, paddedRandomInt);
 
-   const timeClickedAsString = String(timeClicked);
-   const paddedTimeClicked = timeClickedAsString.padStart(3, `0`);
+   const millisecondsAsString = String(timeClickedMilliseconds);
+   const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
    console.log(`here's the new time clicked: `, paddedTimeClicked);
+   const id = paddedRandomInt + paddedTimeClicked;
+   console.log(`The user id is: ${id}`);
 
    // const emailInput = $(`#sign-up-email-input`).val();
    // const email = emailInput.trim().toLowerCase();
