@@ -21,54 +21,31 @@ $(`.sign-up-prompt`).click(function () {
 });
 
 $("#lets-go-button").click(function (e) {
-   function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max + 1 - min) + min); //gives entire range plus minimum
+   createId();
+   const emailInput = $(`#sign-up-email-input`).val();
+   const email = emailInput.trim().toLowerCase();
+   console.log(email);
+   const password = $(`#sign-up-password-input`).val();
+
+   const passwordError = getPasswordError(password, email); // getPasswordError should return a string
+
+   if (passwordError !== ``) {
+      showError(`#sign-up-password`, passwordError);
+   } else {
+      hideError(`#sign-up-password`, passwordError);
    }
 
-   const randomInt = getRandomInt(0, 999);
-   console.log(`Random int between 0 and 999 is: ${randomInt}`);
-   let timeClicked = new Date(Date.now());
-   const milliseconds = String(timeClicked.getMilliseconds());
-   console.log(`Let's go was clicked at: ${milliseconds}`);
-   const nonPaddedId = randomInt.toString() + milliseconds;
-   console.log(
-      `the id created by combining random int and time clicked is: ${nonPaddedId}`
-   );
-   const timeClickedMilliseconds = String(milliseconds);
+   const emailError = getEmailError(email);
 
-   const randomIntAsString = String(randomInt);
-   const paddedRandomInt = randomIntAsString.padStart(3, `0`);
-   console.log(`here's the new random int:`, paddedRandomInt);
+   if (emailError !== ``) {
+      showError(`#sign-up-email`, emailError);
+   } else {
+      hideError(`#sign-up-email`, emailError);
+   }
+   console.log(`The date is\n`, getCreatedAt());
 
-   const millisecondsAsString = String(timeClickedMilliseconds);
-   const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
-   console.log(`here's the new time clicked: `, paddedTimeClicked);
-   const id = paddedRandomInt + paddedTimeClicked;
-   console.log(`The user id is: ${id}`);
-
-   // const emailInput = $(`#sign-up-email-input`).val();
-   // const email = emailInput.trim().toLowerCase();
-   // const password = $(`#sign-up-password-input`).val();
-
-   // const passwordError = getPasswordError(password, email); // getPasswordError should return a string
-
-   // if (passwordError !== ``) {
-   //    showError(`#sign-up-password`, passwordError);
-   // } else {
-   //    hideError(`#sign-up-password`, passwordError);
-   // }
-
-   // const emailError = getEmailError(email);
-
-   // if (emailError !== ``) {
-   //    showError(`#sign-up-email`, emailError);
-   // } else {
-   //    hideError(`#sign-up-email`, emailError);
-   // }
-   // console.log(`The date is\n`, getCreatedAt());
+   const userProps = [];
 });
-
-// /// Refactor into a function your steps for padding a single digit number into a double digit string.
 
 /**********************************************************/
 /*********** CODE BELOW THIS LINE FOR EDIT CARD************/
@@ -207,4 +184,31 @@ function toggleDisabled() {
    } else {
       $(`#save-card`).addClass(`disabled`);
    }
+}
+
+function createId() {
+   function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max + 1 - min) + min); //gives entire range plus minimum
+   }
+
+   const randomInt = getRandomInt(0, 999);
+   console.log(`Random int between 0 and 999 is: ${randomInt}`);
+   let timeClicked = new Date(Date.now());
+   const milliseconds = String(timeClicked.getMilliseconds());
+   console.log(`Let's go was clicked at: ${milliseconds}`);
+   const nonPaddedId = randomInt.toString() + milliseconds;
+   console.log(
+      `the id created by combining random int and time clicked is: ${nonPaddedId}`
+   );
+   const timeClickedMilliseconds = String(milliseconds);
+
+   const randomIntAsString = String(randomInt);
+   const paddedRandomInt = randomIntAsString.padStart(3, `0`);
+   console.log(`here's the new random int:`, paddedRandomInt);
+
+   const millisecondsAsString = String(timeClickedMilliseconds);
+   const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
+   console.log(`here's the new time clicked: `, paddedTimeClicked);
+   const id = paddedRandomInt + paddedTimeClicked;
+   console.log(`The user id is: ${id}`);
 }
