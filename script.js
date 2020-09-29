@@ -21,6 +21,19 @@ $(`.sign-up-prompt`).click(function () {
 });
 
 $("#lets-go-button").click(function (e) {
+   function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max + 1 - min) + min); //gives entire range plus minimum
+   }
+
+   const randomInt = getRandomInt(0, 999);
+   console.log(`Random int between 0 and 999 is: ${randomInt}`);
+   const letsGoClickedAt = Date.now();
+   console.log(`Let's go was clicked at: ${letsGoClickedAt}`);
+   const id = randomInt.toString() + letsGoClickedAt;
+   console.log(
+      `the id created by combining random int and time clicked is: ${id}`
+   );
+
    const emailInput = $(`#sign-up-email-input`).val();
    const email = emailInput.trim().toLowerCase();
    const password = $(`#sign-up-password-input`).val();
