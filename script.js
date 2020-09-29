@@ -34,26 +34,26 @@ $("#lets-go-button").click(function (e) {
       `the id created by combining random int and time clicked is: ${id}`
    );
 
-   const emailInput = $(`#sign-up-email-input`).val();
-   const email = emailInput.trim().toLowerCase();
-   const password = $(`#sign-up-password-input`).val();
+   // const emailInput = $(`#sign-up-email-input`).val();
+   // const email = emailInput.trim().toLowerCase();
+   // const password = $(`#sign-up-password-input`).val();
 
-   const passwordError = getPasswordError(password, email); // getPasswordError should return a string
+   // const passwordError = getPasswordError(password, email); // getPasswordError should return a string
 
-   if (passwordError !== ``) {
-      showError(`#sign-up-password`, passwordError);
-   } else {
-      hideError(`#sign-up-password`, passwordError);
-   }
+   // if (passwordError !== ``) {
+   //    showError(`#sign-up-password`, passwordError);
+   // } else {
+   //    hideError(`#sign-up-password`, passwordError);
+   // }
 
-   const emailError = getEmailError(email);
+   // const emailError = getEmailError(email);
 
-   if (emailError !== ``) {
-      showError(`#sign-up-email`, emailError);
-   } else {
-      hideError(`#sign-up-email`, emailError);
-   }
-   console.log(`The date is\n`, getCreatedAt());
+   // if (emailError !== ``) {
+   //    showError(`#sign-up-email`, emailError);
+   // } else {
+   //    hideError(`#sign-up-email`, emailError);
+   // }
+   // console.log(`The date is\n`, getCreatedAt());
 });
 
 // /// Refactor into a function your steps for padding a single digit number into a double digit string.
