@@ -55,6 +55,8 @@ $("#lets-go-button").click(function (e) {
       createdAt: getCreatedAt(),
       id: createId(),
    };
+
+   console.log(user);
 });
 
 /**********************************************************/
