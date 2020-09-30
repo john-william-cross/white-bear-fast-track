@@ -42,12 +42,19 @@ $("#lets-go-button").click(function (e) {
       hideError(`#sign-up-email`, emailError);
    }
 
-   const userProps = [email, password, Number(getCreatedAt()), createId()];
-   if (passwordError !== `` || emailError !== ``) {
-      console.log(`Array will not be displayed`);
-   } else {
-      console.log(`Here is the userProps array: `, userProps);
-   }
+   // const userProps = [email, password, Number(getCreatedAt()), createId()];
+   // if (passwordError !== `` || emailError !== ``) {
+   //    console.log(`Array will not be displayed`);
+   // } else {
+   //    console.log(`Here is the userProps array: `, userProps);
+   // }
+
+   const user = {
+      email: email,
+      password: password,
+      createdAt: getCreatedAt(),
+      id: createId(),
+   };
 });
 
 /**********************************************************/
