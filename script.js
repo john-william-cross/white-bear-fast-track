@@ -56,7 +56,22 @@ $("#lets-go-button").click(function (e) {
       id: createId(),
    };
 
-   console.log(user);
+   console.log(`Here is the user object: `, user);
+
+   const copyOfUser = { ...user };
+
+   copyOfUser.emailTld = getTld(email);
+   console.log(
+      `Here is the copy of the user object including the email TLD: `,
+      copyOfUser
+   );
+
+   function getTld(email) {
+      const emailTld = email.slice(email.lastIndexOf(`.`));
+      emailTldNoDot = emailTld.slice(1);
+      console.log(`the email tld is: `, emailTldNoDot);
+      return emailTldNoDot;
+   }
 });
 
 /**********************************************************/
@@ -215,14 +230,14 @@ function createId() {
    const timeClickedMilliseconds = String(milliseconds);
 
    const randomIntAsString = String(randomInt);
-   console.log(`here's the random int as a string: `, randomIntAsString);
+   //console.log(`here's the random int as a string: `, randomIntAsString);
    const paddedRandomInt = randomIntAsString.padStart(3, `0`);
-   console.log(`here's the padded random int:`, paddedRandomInt);
+   //console.log(`here's the padded random int:`, paddedRandomInt);
 
    const millisecondsAsString = String(timeClickedMilliseconds);
-   console.log(`here's the time clicked: `, millisecondsAsString);
+   //console.log(`here's the time clicked: `, millisecondsAsString);
    const paddedTimeClicked = millisecondsAsString.padStart(3, `0`);
-   console.log(`here's the padded time clicked: `, paddedTimeClicked);
+   //console.log(`here's the padded time clicked: `, paddedTimeClicked);
    const id = String(paddedRandomInt + paddedTimeClicked);
    return id;
 }

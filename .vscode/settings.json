@@ -9,5 +9,16 @@
          }
       ]
    },
-   "liveServer.settings.port": 5501
+   "liveServer.settings.port": 5501,
+   "cSpell.words": [
+      "and",
+      "bools",
+      "nums",
+      "passwords",
+      "skywalker",
+      "unacceptable",
+      "unacceptable passwords with bools and nums",
+      "unacceptable passwords with nums",
+      "with"
+   ]
 }

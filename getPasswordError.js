@@ -66,7 +66,7 @@ function getUnacceptablePasswords() {
    for (i = 0; i < unacceptablePasswordStrings.length; i++) {
       //keep doing the following until i < unacceptablePasswordStrings.length
       let passwordChars = unacceptablePasswordStrings[i].split(``);
-      //splits each word in oldUnacccetablePasswords list and assigns it to passwordChars
+      //splits each word in oldUnacceptablePasswords list and assigns it to passwordChars
       ///console.log(`Split password chars:\n`, passwordChars);
       const copyOfPasswordChars = [...passwordChars];
       //makes a copy of passwordChars
