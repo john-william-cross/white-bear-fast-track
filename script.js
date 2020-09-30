@@ -1,5 +1,5 @@
 $("#save-card").click(function () {
-   // code below targets the id "overlay-sucess"; for toggleClass,
+   // code below targets the id "overlay-success"; for toggleClass,
    // it means "if d-flex is on, turn it off; if d-none is on, turn it off"
    $("#overlay-success").toggleClass("d-flex d-none");
 });
@@ -61,16 +61,39 @@ $("#lets-go-button").click(function (e) {
    const copyOfUser = { ...user };
 
    copyOfUser.emailTld = getTld(email);
+
+   copyOfUser.socialProfiles = [
+      {
+         site: "facebook",
+         siteId: "530c2716-36e2-4a80-93b7-0e8483d629e1",
+         username: "",
+         image: {
+            sm: "",
+            orig: "",
+         },
+      },
+      {
+         site: "twitter",
+         siteId: "79023b4d-57a2-406b-8efe-bda47fb1696c",
+         username: "",
+         image: {
+            sm: "",
+            md: "",
+            orig: "",
+         },
+      },
+   ];
+
    console.log(
-      `Here is the copy of the user object including the email TLD: `,
+      `Here is the copy of the user object including the email TLD and social profiles property: `,
       copyOfUser
    );
 
    function getTld(email) {
-      const emailTld = email.slice(email.lastIndexOf(`.`));
-      emailTldNoDot = emailTld.slice(1);
-      console.log(`the email tld is: `, emailTldNoDot);
-      return emailTldNoDot;
+      const emailTld = email.slice(email.lastIndexOf(`.`) + 1);
+      // emailTldNoDot = emailTld.slice(1); //could use this if didn't + 1 above
+      console.log(`the email tld is: `, emailTld);
+      return emailTld;
    }
 });
 
