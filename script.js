@@ -49,20 +49,20 @@ $("#lets-go-button").click(function (e) {
    //    console.log(`Here is the userProps array: `, userProps);
    // }
 
-   const user = {
+   const initialUser = {
       email: email,
       password: password,
       createdAt: getCreatedAt(),
       id: createId(),
    };
 
-   console.log(`Here is the user object: `, user);
+   // console.log(`Here is the user object: `, initialUser);
 
-   const copyOfUser = { ...user };
+   const user = { ...initialUser };
 
-   copyOfUser.emailTld = getTld(email);
+   user.emailTld = getTld(email);
 
-   copyOfUser.socialProfiles = [
+   user.socialProfiles = [
       {
          site: "facebook",
          siteId: "530c2716-36e2-4a80-93b7-0e8483d629e1",
@@ -84,15 +84,36 @@ $("#lets-go-button").click(function (e) {
       },
    ];
 
+   console.log(`Here is the user object: `, user);
+
+   const activeUser = deepCopy(user);
+
+   activeUser.isActive = true;
+   activeUser.createdAt = createdAtToMs();
+   delete activeUser.socialProfiles[0].image.sm;
+   delete activeUser.socialProfiles[1].image.sm;
+   delete activeUser.socialProfiles[1].image.md;
+
    console.log(
-      `Here is the copy of the user object including the email TLD and social profiles property: `,
-      copyOfUser
+      `here is the deep copy of the user object, called activeUser. It includes the property isActive, 
+      which is set to true, and a createdAt date converted to milliseconds: `,
+      activeUser
    );
+   // if (activeUser !== undefined) {
+   //    activeUser.socialProfiles[indexOfFacebook].image.large = "large3.jpg";
+   //    console.log("-----------------");
+   //    console.log(activeUser.socialProfiles);
+   // }
+
+   // console.log(
+   //    `Here is the copy of the user object including the email TLD and social profiles property: `,
+   //    user
+   // );
 
    function getTld(email) {
       const emailTld = email.slice(email.lastIndexOf(`.`) + 1);
       // emailTldNoDot = emailTld.slice(1); //could use this if didn't + 1 above
-      console.log(`the email tld is: `, emailTld);
+      // console.log(`the email tld is: `, emailTld);
       return emailTld;
    }
 });
@@ -202,6 +223,13 @@ function getCreatedAt() {
    return createdAt;
 }
 
+// createdAtMs = createdAt.valueOf();
+
+function createdAtToMs() {
+   const convertedDate = Date.now(createdAt);
+   return convertedDate;
+}
+
 function padLeft(string) {
    if (string < 10) {
       string = 0 + string;
@@ -263,4 +291,19 @@ function createId() {
    //console.log(`here's the padded time clicked: `, paddedTimeClicked);
    const id = String(paddedRandomInt + paddedTimeClicked);
    return id;
+}
+
+function deepCopy(obj) {
+   const str = JSON.stringify(obj);
+   return safelyParseJson(str);
+}
+
+function safelyParseJson(str) {
+   try {
+      JSON.parse(str);
+   } catch {
+      // if error return the original value
+      return str;
+   }
+   return JSON.parse(str);
 }
