@@ -46,10 +46,6 @@ function getUnacceptablePasswords() {
       secondUniqPasswords,
       thirdUniqPasswords
    );
-   console.log(
-      `HERE ARE THE ALL CLEANED UP UNIQ PASSWORDS: `,
-      allCleanedUpUniqPasswords
-   );
 
    let unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
 
@@ -68,11 +64,18 @@ function getUnacceptablePasswords() {
       (singlePasswordWithBoolsAndNums) => {
          if (typeof singlePasswordWithBoolsAndNums !== `boolean`) {
             unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat(
-               unacceptablePasswordsWithBoolsAndNums
+               singlePasswordWithBoolsAndNums
             );
          }
       }
    );
+
+   console.log(unacceptablePasswordsWithNums);
+
+   // console.log(
+   //    `here are all unacceptable passwords with nums: `,
+   //    unacceptablePasswordsWithNums
+   // );
 
    let unacceptablePasswordStrings = [];
    // for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
@@ -89,12 +92,12 @@ function getUnacceptablePasswords() {
    });
 
    let unacceptablePasswordsForwardAndReversed = [];
-   //creates empty array
+   // creates empty array
    for (i = 0; i < unacceptablePasswordStrings.length; i++) {
       //keep doing the following until i < unacceptablePasswordStrings.length
       let passwordChars = unacceptablePasswordStrings[i].split(``);
       //splits each word in oldUnacceptablePasswords list and assigns it to passwordChars
-      ///console.log(`Split password chars:\n`, passwordChars);
+      // console.log(`Split password chars:\n`, passwordChars);
       const copyOfPasswordChars = [...passwordChars];
       //makes a copy of passwordChars
       //console.log(`copy of password chars:\n`, copyOfPasswordChars);
@@ -108,6 +111,15 @@ function getUnacceptablePasswords() {
          reversedUnacceptablePasswords
       ); //fills empty array with reversedUnacceptablePasswords
    }
+
+   // unacceptablePasswordStrings.forEach((passwordString) => {
+   //    passwordChars = unacceptablePasswordStrings.split();
+
+   //    // unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
+   //    //    reversedUnacceptablePasswords
+   //    // );
+   // });
+
    let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
       unacceptablePasswordsForwardAndReversed
    );
