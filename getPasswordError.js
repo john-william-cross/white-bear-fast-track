@@ -93,32 +93,34 @@ function getUnacceptablePasswords() {
 
    let unacceptablePasswordsForwardAndReversed = [];
    // creates empty array
-   for (i = 0; i < unacceptablePasswordStrings.length; i++) {
-      //keep doing the following until i < unacceptablePasswordStrings.length
-      let passwordChars = unacceptablePasswordStrings[i].split(``);
-      //splits each word in oldUnacceptablePasswords list and assigns it to passwordChars
-      // console.log(`Split password chars:\n`, passwordChars);
-      const copyOfPasswordChars = [...passwordChars];
-      //makes a copy of passwordChars
-      //console.log(`copy of password chars:\n`, copyOfPasswordChars);
+   // for (i = 0; i < unacceptablePasswordStrings.length; i++) {
+   //    //keep doing the following until i < unacceptablePasswordStrings.length
+   //    let passwordChars = unacceptablePasswordStrings[i].split(``);
+   //    //splits each word in oldUnacceptablePasswords list and assigns it to passwordChars
+   //    // console.log(`Split password chars:\n`, passwordChars);
+   //    const copyOfPasswordChars = [...passwordChars];
+   //    //makes a copy of passwordChars
+   //    //console.log(`copy of password chars:\n`, copyOfPasswordChars);
+   //    const reversePasswordChars = copyOfPasswordChars.reverse();
+   //    //reverses each split password      console.log(`the bank's run out of money. purple monkey dishwasher.`);
+   //    //console.log(`Reversed password chars:\n`, reversePasswordChars);
+   //    const reversedUnacceptablePasswords = reversePasswordChars.join(``);
+   //    //joins (un-splits) each reverse password back together
+   //    //console.log(reversedUnacceptablePasswords);
+   //    unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
+   //       reversedUnacceptablePasswords
+   //    ); //fills empty array with reversedUnacceptablePasswords
+   // }
+
+   unacceptablePasswordStrings.forEach((passwordString) => {
+      const copyOfPasswordChars = [...passwordString];
       const reversePasswordChars = copyOfPasswordChars.reverse();
-      //reverses each split password      console.log(`the bank's run out of money. purple monkey dishwasher.`);
-      //console.log(`Reversed password chars:\n`, reversePasswordChars);
       const reversedUnacceptablePasswords = reversePasswordChars.join(``);
-      //joins (un-splits) each reverse password back together
-      //console.log(reversedUnacceptablePasswords);
+
       unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
          reversedUnacceptablePasswords
-      ); //fills empty array with reversedUnacceptablePasswords
-   }
-
-   // unacceptablePasswordStrings.forEach((passwordString) => {
-   //    passwordChars = unacceptablePasswordStrings.split();
-
-   //    // unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
-   //    //    reversedUnacceptablePasswords
-   //    // );
-   // });
+      );
+   });
 
    let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
       unacceptablePasswordsForwardAndReversed
