@@ -3,7 +3,10 @@ function getPasswordError(password, email) {
    const localPartEmail = emailParts[0]; // “mike”
    const unacceptablePasswords = getUnacceptablePasswords();
    console.log(`The local part email is: ${localPartEmail}`);
-   console.log(unacceptablePasswords);
+   console.log(
+      `Here are the currently unacceptable passwords: `,
+      unacceptablePasswords
+   );
 
    const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
@@ -43,24 +46,48 @@ function getUnacceptablePasswords() {
       secondUniqPasswords,
       thirdUniqPasswords
    );
-   const unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
+   console.log(
+      `HERE ARE THE ALL CLEANED UP UNIQ PASSWORDS: `,
+      allCleanedUpUniqPasswords
+   );
+
+   let unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
+
    let unacceptablePasswordsWithNums = [];
-   for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
-      //   console.log(unacceptablePasswordsWithBoolsAndNums[i]);
-      const password = unacceptablePasswordsWithBoolsAndNums[i];
-      if (typeof password !== "boolean") {
-         unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
-            unacceptablePasswordsWithBoolsAndNums[i],
-         ]);
+   // for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
+   //    //   console.log(unacceptablePasswordsWithBoolsAndNums[i]);
+   //    const password = unacceptablePasswordsWithBoolsAndNums[i];
+   //    if (typeof password !== "boolean") {
+   //       unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
+   //          unacceptablePasswordsWithBoolsAndNums[i],
+   //       ]);
+   //    }
+   // }
+
+   unacceptablePasswordsWithBoolsAndNums.forEach(
+      (singlePasswordWithBoolsAndNums) => {
+         if (typeof singlePasswordWithBoolsAndNums !== `boolean`) {
+            unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat(
+               unacceptablePasswordsWithBoolsAndNums
+            );
+         }
       }
-   }
+   );
+
    let unacceptablePasswordStrings = [];
-   for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
-      const value = unacceptablePasswordsWithNums[i];
+   // for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
+   //    const value = unacceptablePasswordsWithNums[i];
+   //    unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
+   //       String(value)
+   //    );
+   // }
+
+   unacceptablePasswordsWithNums.forEach((passwordWithNums) => {
       unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
-         String(value)
+         String(passwordWithNums)
       );
-   }
+   });
+
    let unacceptablePasswordsForwardAndReversed = [];
    //creates empty array
    for (i = 0; i < unacceptablePasswordStrings.length; i++) {
