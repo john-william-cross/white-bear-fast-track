@@ -125,12 +125,19 @@ function getUnacceptablePasswords() {
    let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
       unacceptablePasswordsForwardAndReversed
    );
+
    let normalizedPasswords = [];
-   for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
-      const password = forwardAndReversedPasswords[i];
-      const lowerCasedPassword = password.toLowerCase();
+   // for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
+   //    const password = forwardAndReversedPasswords[i];
+   //    const lowerCasedPassword = password.toLowerCase();
+   //    normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
+   // }
+
+   forwardAndReversedPasswords.forEach((forwardAndReversedPassword) => {
+      const lowerCasedPassword = forwardAndReversedPassword.toLowerCase();
       normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
-   }
+   });
+
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
    let unacceptablePasswords = [...new Set(normalizedPasswords)];
    return unacceptablePasswords;
