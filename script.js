@@ -307,10 +307,3 @@ function safelyParseJson(str) {
    }
    return JSON.parse(str);
 }
-let allInsecurePasswordsAsString = allUnacceptablePasswords.map((password) => {
-   {
-      return password.text;
-   }
-});
-
-console.log(allInsecurePasswordsAsString);

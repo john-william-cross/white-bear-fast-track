@@ -1,10 +1,18 @@
 function getPasswordError(password, email) {
    const emailParts = email.split(`@`); // [“mike”, “gmail.com”]
    const localPartEmail = emailParts[0]; // “mike”
-   const unacceptablePasswords = getUnacceptablePasswords();
+   const previouslyUnacceptablePasswordsList = getUnacceptablePasswords();
    console.log(`The local part email is: ${localPartEmail}`);
+   // console.log(
+   //    `Here are the currently unacceptable passwords: `,
+   //    previouslyUnacceptablePasswordsList
+   // );
+
+   let unacceptablePasswords = previouslyUnacceptablePasswordsList.concat(
+      allInsecurePasswords
+   );
    console.log(
-      `Here are the currently unacceptable passwords: `,
+      `Current list of unacceptable passwords: `,
       unacceptablePasswords
    );
 
@@ -18,7 +26,9 @@ function getPasswordError(password, email) {
       localPartEmail.length >= 4
    ) {
       return `All or part of your email address cannot be in your password.`;
-   } else if (unacceptablePasswords.includes(lowerCasedPassword)) {
+   } else if (
+      previouslyUnacceptablePasswordsList.includes(lowerCasedPassword)
+   ) {
       return `Your password contains a commonly used password, "${password}" and can be easily discovered by attackers. Please use something else.`;
    } else {
       return ``;
@@ -139,6 +149,12 @@ function getUnacceptablePasswords() {
    });
 
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
-   let unacceptablePasswords = [...new Set(normalizedPasswords)];
-   return unacceptablePasswords;
+   let previouslyUnacceptablePasswordsList = [...new Set(normalizedPasswords)];
+   return previouslyUnacceptablePasswordsList;
 }
+
+let allInsecurePasswords = allUnacceptablePasswords.map((password) => {
+   {
+      return password.text;
+   }
+});
