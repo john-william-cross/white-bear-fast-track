@@ -8,13 +8,34 @@ function getPasswordError(password, email) {
    //    previouslyUnacceptablePasswordsList
    // );
 
-   let unacceptablePasswords = previouslyUnacceptablePasswordsList.concat(
+   let unfilteredUnacceptablePasswords = previouslyUnacceptablePasswordsList.concat(
       allInsecurePasswords
    );
-   console.log(
-      `Current list of unacceptable passwords: `,
-      unacceptablePasswords
+
+   let filteredUnacceptablePasswords = unfilteredUnacceptablePasswords.filter(
+      (password) => {
+         return password.length >= 9;
+      }
    );
+
+   console.log(
+      `Current list of unfiltered  passwords: `,
+      unfilteredUnacceptablePasswords
+   );
+
+   console.log(
+      `here are the filtered passwords: `,
+      filteredUnacceptablePasswords
+   );
+
+   let unacceptablePasswords = [];
+
+   filteredUnacceptablePasswords.forEach((password) => {
+      if (!unacceptablePasswords.includes(password)) {
+         unacceptablePasswords = unacceptablePasswords.concat(password);
+      }
+   });
+   console.log(unacceptablePasswords);
 
    const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
@@ -80,7 +101,7 @@ function getUnacceptablePasswords() {
       }
    );
 
-   console.log(unacceptablePasswordsWithNums);
+   // console.log(unacceptablePasswordsWithNums);
 
    // console.log(
    //    `here are all unacceptable passwords with nums: `,
