@@ -35,7 +35,10 @@ function getPasswordError(password, email) {
          unacceptablePasswords = unacceptablePasswords.concat(password);
       }
    });
-   console.log(unacceptablePasswords);
+   console.log(
+      `Here is the latest list of unacceptable passwords: `,
+      unacceptablePasswords
+   );
 
    const lowerCasedPassword = password.toLowerCase();
    if (lowerCasedPassword.length === 0) {
