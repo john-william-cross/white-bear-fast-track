@@ -61,7 +61,7 @@ $("#lets-go-button").click(function (e) {
    const user = { ...initialUser };
 
    user.emailTld = getTld(email);
-   user.isActive = false;
+   // user.isActive = false;
    user.socialProfiles = [
       {
          site: "facebook",
@@ -113,6 +113,38 @@ $("#lets-go-button").click(function (e) {
    //    user
    // );
 
+   const currentUsers = users
+      .map((user) => {
+         const newUser = {
+            id: user.id,
+            email: user.email,
+            password: user.password,
+            createdAt: user.createdAt,
+            isActive: getIsActive(user),
+         };
+         return newUser;
+      })
+      .filter((user) => {
+         return user.isActive === true;
+      });
+
+   function getIsActive(user) {
+      // return isActive if they have that property
+      // if they don't, return an empty string
+
+      if (user.hasOwnProperty(`isActive`)) {
+         return user.isActive;
+      } else {
+         return false;
+      }
+   }
+   const currentUser = { ...currentUsers };
+   console.log(`here's the current active user: `, currentUser);
+
+   // console.log(`here are the current users`, currentUsers);
+   //return the same five properties: id, email, password, createdAt, isActive
+
+   // console.log(`heres the new user: `, newUser);
    function getTld(email) {
       const emailTld = email.slice(email.lastIndexOf(`.`) + 1);
       // emailTldNoDot = emailTld.slice(1); //could use this if didn't + 1 above
