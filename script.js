@@ -115,30 +115,27 @@ $("#lets-go-button").click(function (e) {
 
    const currentUsers = users
       .map((user) => {
-         const newUser = {
+         return {
             id: user.id,
             email: user.email,
             password: user.password,
             createdAt: user.createdAt,
-            isActive: getIsActive(user),
+            isActive: checkIsActive(user),
          };
-         return newUser;
       })
       .filter((user) => {
          return user.isActive === true;
       });
+   console.log(`Here are the CURRENNTTTTT : `, currentUsers);
 
-   function getIsActive(user) {
-      // return isActive if they have that property
-      // if they don't, return an empty string
-
+   function checkIsActive(user) {
       if (user.hasOwnProperty(`isActive`)) {
          return user.isActive;
       } else {
          return false;
       }
    }
-   const currentUser = { ...currentUsers };
+   const currentUser = currentUsers[0];
    console.log(`here's the current active user: `, currentUser);
 
    // console.log(`here are the current users`, currentUsers);
