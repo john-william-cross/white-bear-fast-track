@@ -61,7 +61,7 @@ $("#lets-go-button").click(function (e) {
    const user = { ...initialUser };
 
    user.emailTld = getTld(email);
-
+   user.isActive = false;
    user.socialProfiles = [
       {
          site: "facebook",
