@@ -99,6 +99,9 @@ $("#lets-go-button").click(function (e) {
       which is set to true, and a createdAt date converted to milliseconds: `,
       activeUser
    );
+
+   const users = [user, activeUser];
+   console.log(`Here is an array of users`, users);
    // if (activeUser !== undefined) {
    //    activeUser.socialProfiles[indexOfFacebook].image.large = "large3.jpg";
    //    console.log("-----------------");
