@@ -36,8 +36,6 @@ function getPasswordError(password, email) {
       unacceptablePasswords
    );
 
-   // If every password in unacceptablePasswords is >= 9 characters,
-   // console.log true. Else console.log false.
    const hasAcceptableLength = unacceptablePasswords.every((password) => {
       return password.length >= 9;
    });
@@ -97,21 +95,26 @@ function getUnacceptablePasswords() {
 
    let unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
 
-   let unacceptablePasswordsWithNums = [];
+   console.log(
+      `Here are the unacceptable passwords with bools and nums: `,
+      unacceptablePasswordsWithBoolsAndNums
+   );
 
-   unacceptablePasswordsWithBoolsAndNums.forEach(
+   unacceptablePasswordsWithNums = unacceptablePasswordsWithBoolsAndNums.filter(
       (singlePasswordWithBoolsAndNums) => {
-         if (typeof singlePasswordWithBoolsAndNums !== `boolean`) {
-            unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat(
-               singlePasswordWithBoolsAndNums
-            );
-         }
+         return typeof singlePasswordWithBoolsAndNums !== `boolean`;
       }
+   );
+
+   console.log(
+      `Here are the unacceptable passwords with nums but no booleans: `,
+      unacceptablePasswordsWithNums
    );
 
    let unacceptablePasswordStrings = [];
 
    unacceptablePasswordsWithNums.forEach((passwordWithNums) => {
+      //use map because changing
       unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
          String(passwordWithNums)
       );
