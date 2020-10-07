@@ -42,14 +42,20 @@ function getPasswordError(password, email) {
 
    // If every password in unacceptablePasswords is >= 9 characters,
    // console.log true. Else console.log false.
-   const isGreaterThanOrEqualToNine = unacceptablePasswords.every(
-      (password) => {
-         return password.length >= 9;
-      }
-   );
+   const hasAcceptableLength = unacceptablePasswords.every((password) => {
+      return password.length >= 9;
+   });
    console.log(
       `Each password in unacceptablePasswords is >= 9 evaluates to: `,
-      isGreaterThanOrEqualToNine
+      hasAcceptableLength
+   );
+
+   const hasQwerty = unacceptablePasswords.some((password) => {
+      return password.includes(`qwerty`);
+   });
+   console.log(
+      `At least one password in unacceptablePasswords includes the string "qwerty" evaluates to: `,
+      hasQwerty
    );
 
    const lowerCasedPassword = password.toLowerCase();
