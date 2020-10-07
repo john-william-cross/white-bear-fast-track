@@ -23,10 +23,9 @@ function getPasswordError(password, email) {
       filteredUnacceptablePasswords
    );
 
+   //this will remove duplicates
    let unacceptablePasswords = [];
-
    filteredUnacceptablePasswords.forEach((password) => {
-      //tried filter here but couldn't get it to work
       if (!unacceptablePasswords.includes(password)) {
          unacceptablePasswords = unacceptablePasswords.concat(password);
       }
@@ -116,7 +115,7 @@ function getUnacceptablePasswords() {
    const unacceptablePasswordStrings = unacceptablePasswordsWithNums.map(
       //used map
       (passwordWithNums) => {
-         return passwordWithNums.toString();
+         return String(passwordWithNums);
       }
    );
 
@@ -124,19 +123,15 @@ function getUnacceptablePasswords() {
       `here are the unacceptable password strings: `,
       unacceptablePasswordStrings
    );
+   const unacceptablePasswordsReversed = unacceptablePasswordStrings.map(
+      (password) => {
+         const chars = [...password];
+         const reversePasswordChars = chars.reverse();
+         const reversePassword = reversePasswordChars.join(``);
 
-   let unacceptablePasswordsReversed = [];
-
-   unacceptablePasswordStrings.forEach((passwordString) => {
-      //tried map but had trouble with it
-      const copyOfPasswordChars = [...passwordString];
-      const reversePasswordChars = copyOfPasswordChars.reverse();
-      const reversedUnacceptablePasswords = reversePasswordChars.join(``);
-
-      unacceptablePasswordsReversed = unacceptablePasswordsReversed.concat(
-         reversedUnacceptablePasswords
-      );
-   });
+         return reversePassword;
+      }
+   );
 
    console.log(
       `here are the reversed passwords: `,
