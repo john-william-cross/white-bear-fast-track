@@ -148,6 +148,37 @@ $("#lets-go-button").click(function (e) {
       // console.log(`the email tld is: `, emailTld);
       return emailTld;
    }
+
+   let mostRecentSignUpDate = 0;
+
+   dbUsers.forEach((user) => {
+      if (user.createdAt > mostRecentSignUpDate) {
+         mostRecentSignUpDate = user.createdAt;
+      }
+   });
+   console.log(`Here's the most recent sign up date: `, mostRecentSignUpDate);
+   const mostRecentSignUp = dbUsers.find((user) => {
+      return user.createdAt === mostRecentSignUpDate;
+   });
+   console.log(
+      `Here's the user with the most recent sign up: `,
+      mostRecentSignUp
+   );
+
+   const dupeUserIndex = dbUsers
+      .map((user) => {
+         return user.id;
+      })
+      .findIndex((id, i, arr) => {
+         return arr.indexOf(id) !== i; //where we're finding the index of the name which starts from 0
+      });
+
+   console.log(`Here's the duplicate user index: `, dupeUserIndex);
+
+   const uniqDbUsers = dbUsers.filter((user, i, dbUsers) => {
+      return dbUsers.indexOf(user) !== dupeUserIndex;
+   });
+   console.log(`Here are the unique users from dbUsers: `, uniqDbUsers);
 });
 
 /**********************************************************/
