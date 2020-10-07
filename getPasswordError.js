@@ -113,7 +113,7 @@ function getUnacceptablePasswords() {
       unacceptablePasswordsWithNums
    );
 
-   let unacceptablePasswordStrings = unacceptablePasswordsWithNums.map(
+   const unacceptablePasswordStrings = unacceptablePasswordsWithNums.map(
       //used map
       (passwordWithNums) => {
          return passwordWithNums.toString();
@@ -147,7 +147,7 @@ function getUnacceptablePasswords() {
       unacceptablePasswordsReversed
    );
 
-   let normalizedPasswords = forwardAndReversedPasswords.map(
+   const normalizedPasswords = forwardAndReversedPasswords.map(
       //used map
       (forwardAndReversedPassword) => {
          return forwardAndReversedPassword.toLowerCase();
