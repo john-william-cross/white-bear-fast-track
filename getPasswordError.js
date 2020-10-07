@@ -7,16 +7,15 @@ function getPasswordError(password, email) {
    let unfilteredUnacceptablePasswords = previouslyUnacceptablePasswordsList.concat(
       allInsecurePasswords
    );
-
-   let filteredUnacceptablePasswords = unfilteredUnacceptablePasswords.filter(
-      (password) => {
-         return password.length >= 9;
-      }
-   );
-
    console.log(
       `Current list of unfiltered  passwords: `,
       unfilteredUnacceptablePasswords
+   );
+
+   const filteredUnacceptablePasswords = unfilteredUnacceptablePasswords.filter(
+      (password) => {
+         return password.length >= 9;
+      }
    );
 
    console.log(
@@ -24,15 +23,17 @@ function getPasswordError(password, email) {
       filteredUnacceptablePasswords
    );
 
-   let unacceptablePasswords = [];
-
-   filteredUnacceptablePasswords.forEach((password) => {
-      if (!unacceptablePasswords.includes(password)) {
-         unacceptablePasswords = unacceptablePasswords.concat(password);
+   let unacceptablePasswords = filteredUnacceptablePasswords.forEach(
+      (password) => {
+         //use filter here?
+         if (!unacceptablePasswords.includes(password)) {
+            unacceptablePasswords = unacceptablePasswords.concat(password);
+         }
       }
-   });
+   );
+
    console.log(
-      `Here is the latest list of unacceptable passwords: `,
+      `Here is the latest list of unacceptable passwords with duplicates removed: `,
       unacceptablePasswords
    );
 
@@ -100,7 +101,8 @@ function getUnacceptablePasswords() {
       unacceptablePasswordsWithBoolsAndNums
    );
 
-   unacceptablePasswordsWithNums = unacceptablePasswordsWithBoolsAndNums.filter(
+   const unacceptablePasswordsWithNums = unacceptablePasswordsWithBoolsAndNums.filter(
+      //use filter
       (singlePasswordWithBoolsAndNums) => {
          return typeof singlePasswordWithBoolsAndNums !== `boolean`;
       }
@@ -111,37 +113,51 @@ function getUnacceptablePasswords() {
       unacceptablePasswordsWithNums
    );
 
-   let unacceptablePasswordStrings = [];
+   let unacceptablePasswordStrings = unacceptablePasswordsWithNums.map(
+      //used map
+      (passwordWithNums) => {
+         return passwordWithNums.toString();
+      }
+   );
 
-   unacceptablePasswordsWithNums.forEach((passwordWithNums) => {
-      //use map because changing
-      unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
-         String(passwordWithNums)
-      );
-   });
+   console.log(
+      `here are the unacceptable password strings: `,
+      unacceptablePasswordStrings
+   );
 
-   let unacceptablePasswordsForwardAndReversed = [];
+   let unacceptablePasswordsReversed = [];
 
    unacceptablePasswordStrings.forEach((passwordString) => {
+      //tried map but had trouble with it
       const copyOfPasswordChars = [...passwordString];
       const reversePasswordChars = copyOfPasswordChars.reverse();
       const reversedUnacceptablePasswords = reversePasswordChars.join(``);
 
-      unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
+      unacceptablePasswordsReversed = unacceptablePasswordsReversed.concat(
          reversedUnacceptablePasswords
       );
    });
 
-   let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
-      unacceptablePasswordsForwardAndReversed
+   console.log(
+      `here are the reversed passwords: `,
+      unacceptablePasswordsReversed
    );
 
-   let normalizedPasswords = [];
+   let forwardAndReversedPasswords = unacceptablePasswordStrings.concat(
+      unacceptablePasswordsReversed
+   );
 
-   forwardAndReversedPasswords.forEach((forwardAndReversedPassword) => {
-      const lowerCasedPassword = forwardAndReversedPassword.toLowerCase();
-      normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
-   });
+   let normalizedPasswords = forwardAndReversedPasswords.map(
+      //used map
+      (forwardAndReversedPassword) => {
+         return forwardAndReversedPassword.toLowerCase();
+      }
+   );
+
+   console.log(
+      `here are the normalized passwords lowercased`,
+      normalizedPasswords
+   );
 
    //console.log(`Here are the normalized passwords:\n`, normalizedPasswords);
    let previouslyUnacceptablePasswordsList = [...new Set(normalizedPasswords)];
