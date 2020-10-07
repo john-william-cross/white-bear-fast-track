@@ -3,10 +3,6 @@ function getPasswordError(password, email) {
    const localPartEmail = emailParts[0]; // “mike”
    const previouslyUnacceptablePasswordsList = getUnacceptablePasswords();
    console.log(`The local part email is: ${localPartEmail}`);
-   // console.log(
-   //    `Here are the currently unacceptable passwords: `,
-   //    previouslyUnacceptablePasswordsList
-   // );
 
    let unfilteredUnacceptablePasswords = previouslyUnacceptablePasswordsList.concat(
       allInsecurePasswords
@@ -102,15 +98,6 @@ function getUnacceptablePasswords() {
    let unacceptablePasswordsWithBoolsAndNums = allCleanedUpUniqPasswords;
 
    let unacceptablePasswordsWithNums = [];
-   // for (let i = 0; i < unacceptablePasswordsWithBoolsAndNums.length; i++) {
-   //    //   console.log(unacceptablePasswordsWithBoolsAndNums[i]);
-   //    const password = unacceptablePasswordsWithBoolsAndNums[i];
-   //    if (typeof password !== "boolean") {
-   //       unacceptablePasswordsWithNums = unacceptablePasswordsWithNums.concat([
-   //          unacceptablePasswordsWithBoolsAndNums[i],
-   //       ]);
-   //    }
-   // }
 
    unacceptablePasswordsWithBoolsAndNums.forEach(
       (singlePasswordWithBoolsAndNums) => {
@@ -122,20 +109,7 @@ function getUnacceptablePasswords() {
       }
    );
 
-   // console.log(unacceptablePasswordsWithNums);
-
-   // console.log(
-   //    `here are all unacceptable passwords with nums: `,
-   //    unacceptablePasswordsWithNums
-   // );
-
    let unacceptablePasswordStrings = [];
-   // for (let i = 0; i < unacceptablePasswordsWithNums.length; i++) {
-   //    const value = unacceptablePasswordsWithNums[i];
-   //    unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
-   //       String(value)
-   //    );
-   // }
 
    unacceptablePasswordsWithNums.forEach((passwordWithNums) => {
       unacceptablePasswordStrings = unacceptablePasswordStrings.concat(
@@ -144,25 +118,6 @@ function getUnacceptablePasswords() {
    });
 
    let unacceptablePasswordsForwardAndReversed = [];
-   // creates empty array
-   // for (i = 0; i < unacceptablePasswordStrings.length; i++) {
-   //    //keep doing the following until i < unacceptablePasswordStrings.length
-   //    let passwordChars = unacceptablePasswordStrings[i].split(``);
-   //    //splits each word in oldUnacceptablePasswords list and assigns it to passwordChars
-   //    // console.log(`Split password chars:\n`, passwordChars);
-   //    const copyOfPasswordChars = [...passwordChars];
-   //    //makes a copy of passwordChars
-   //    //console.log(`copy of password chars:\n`, copyOfPasswordChars);
-   //    const reversePasswordChars = copyOfPasswordChars.reverse();
-   //    //reverses each split password      console.log(`the bank's run out of money. purple monkey dishwasher.`);
-   //    //console.log(`Reversed password chars:\n`, reversePasswordChars);
-   //    const reversedUnacceptablePasswords = reversePasswordChars.join(``);
-   //    //joins (un-splits) each reverse password back together
-   //    //console.log(reversedUnacceptablePasswords);
-   //    unacceptablePasswordsForwardAndReversed = unacceptablePasswordsForwardAndReversed.concat(
-   //       reversedUnacceptablePasswords
-   //    ); //fills empty array with reversedUnacceptablePasswords
-   // }
 
    unacceptablePasswordStrings.forEach((passwordString) => {
       const copyOfPasswordChars = [...passwordString];
@@ -179,11 +134,6 @@ function getUnacceptablePasswords() {
    );
 
    let normalizedPasswords = [];
-   // for (let i = 0; i < forwardAndReversedPasswords.length; i++) {
-   //    const password = forwardAndReversedPasswords[i];
-   //    const lowerCasedPassword = password.toLowerCase();
-   //    normalizedPasswords = normalizedPasswords.concat(lowerCasedPassword);
-   // }
 
    forwardAndReversedPasswords.forEach((forwardAndReversedPassword) => {
       const lowerCasedPassword = forwardAndReversedPassword.toLowerCase();
