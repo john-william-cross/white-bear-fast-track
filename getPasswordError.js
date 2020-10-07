@@ -23,14 +23,14 @@ function getPasswordError(password, email) {
       filteredUnacceptablePasswords
    );
 
-   let unacceptablePasswords = filteredUnacceptablePasswords.forEach(
-      (password) => {
-         //use filter here?
-         if (!unacceptablePasswords.includes(password)) {
-            unacceptablePasswords = unacceptablePasswords.concat(password);
-         }
+   let unacceptablePasswords = [];
+
+   filteredUnacceptablePasswords.forEach((password) => {
+      //tried filter here but couldn't get it to work
+      if (!unacceptablePasswords.includes(password)) {
+         unacceptablePasswords = unacceptablePasswords.concat(password);
       }
-   );
+   });
 
    console.log(
       `Here is the latest list of unacceptable passwords with duplicates removed: `,
